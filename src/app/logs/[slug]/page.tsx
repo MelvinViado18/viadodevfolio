@@ -4,11 +4,11 @@ import { notFound, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { AISummaryTool } from '@/components/portfolio/ai-summary-tool';
-import { ArrowLeft, Calendar, User, Clock, BookOpen, ThumbsUp, Share2, Bookmark } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Clock, BookOpen, ThumbsUp, Share2, Bookmark, Sparkles, Zap, Eye, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, use } from 'react';
 
-// ALL 51 HARDCODED ACTIVITY LOGS
+// ALL 51 HARDCODED ACTIVITY LOGS (keeping your original data)
 const HARCODED_LOGS = [
   {
     "id": 1778919458900,
@@ -22,9 +22,9 @@ const HARCODED_LOGS = [
   },
   {
     "id": 1778919279501,
-    "slug": "flowsate",
+    "slug": "flowstate",
     "date": "May 13, 2026",
-    "title": "Flowsate",
+    "title": "Flowstate",
     "description": "Today’s work focused on improving Flowstate’s sidebar interaction system, tooltip usability, and modal behavior to create a smoother and more consistent user experience.",
     "content": "*Workspace Hover Interaction\\n  -Added hover interaction on the team/workspace icon in collapsed sidebar mode, displaying a tooltip with “Switch Workspace” and “Select a team to continue” before opening the dropdown.\\n\\n*Navigation Icon Tooltips\\n  -Implemented hover tooltips for navigation icons in collapsed mode, showing labels such as “(icon Dashboard)” without affecting sidebar width or layout structure.\\n\\n*Centered Modal Fixes\\n  -Fixed the Create Team and Join Team modals to remain perfectly centered using portal rendering, ensuring they are not affected by sidebar hover, collapse, or expanded states.",
     "tags": ["next.js"],
@@ -503,8 +503,8 @@ export default function LogDetailPage({ params }: { params: Promise<{ slug: stri
         sections.push(
           <div key={`header-${i}`} className="mb-4 mt-6 first:mt-0">
             <div className="flex items-center gap-2">
-              <div className="w-1 h-6 bg-gradient-to-b from-red-500 to-red-600 rounded-full"></div>
-              <h2 className="text-xl md:text-2xl font-bold text-foreground">{line.replace('## ', '')}</h2>
+              <div className="w-1 h-6 bg-gradient-to-b from-violet-500 to-purple-600 rounded-full"></div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">{line.replace('## ', '')}</h2>
             </div>
           </div>
         );
@@ -518,7 +518,7 @@ export default function LogDetailPage({ params }: { params: Promise<{ slug: stri
         }
         sections.push(
           <div key={`subheader-${i}`} className="mb-3 mt-4">
-            <h3 className="text-lg md:text-xl font-semibold text-foreground/90">{line.replace('### ', '')}</h3>
+            <h3 className="text-lg md:text-xl font-semibold text-violet-300">{line.replace('### ', '')}</h3>
           </div>
         );
         continue;
@@ -539,9 +539,9 @@ export default function LogDetailPage({ params }: { params: Promise<{ slug: stri
         sections.push(
           <div key={`bullet-list-${i}`} className="mb-6 space-y-2">
             {bulletItems.map((item, idx) => (
-              <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-red-500/5 border border-red-500/10 hover:bg-red-500/10 transition-colors">
-                <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2"></div>
-                <span className="text-muted-foreground">{item}</span>
+              <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-violet-500/5 border border-violet-500/20 hover:bg-violet-500/10 transition-all duration-300">
+                <div className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-2"></div>
+                <span className="text-gray-300">{item}</span>
               </div>
             ))}
           </div>
@@ -556,7 +556,7 @@ export default function LogDetailPage({ params }: { params: Promise<{ slug: stri
       
       if (line.trim()) {
         currentSection.push(
-          <p key={`paragraph-${i}`} className="text-foreground/80 leading-relaxed mb-4">
+          <p key={`paragraph-${i}`} className="text-gray-300 leading-relaxed mb-4">
             {line}
           </p>
         );
@@ -574,9 +574,9 @@ export default function LogDetailPage({ params }: { params: Promise<{ slug: stri
       sections.push(
         <div key="bullet-list-final" className="mb-6 space-y-2">
           {bulletItems.map((item, idx) => (
-            <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-red-500/5 border border-red-500/10">
-              <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2"></div>
-              <span className="text-muted-foreground">{item}</span>
+            <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-violet-500/5 border border-violet-500/20">
+              <div className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-2"></div>
+              <span className="text-gray-300">{item}</span>
             </div>
           ))}
         </div>
@@ -591,26 +591,29 @@ export default function LogDetailPage({ params }: { params: Promise<{ slug: stri
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-black">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 via-transparent to-red-600/5" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-red-500/10 rounded-full blur-[100px] animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-red-600/10 rounded-full blur-[100px] animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-red-500/5 to-red-600/5 rounded-full blur-[120px]" />
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Glass Morphism Background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-violet-950/30 via-purple-950/20 to-indigo-950/30" />
+      <div className="fixed inset-0 backdrop-blur-3xl" />
+      
+      {/* Animated background orbs */}
+      <div className="fixed top-20 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-[120px] animate-pulse-slow" />
+      <div className="fixed bottom-20 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] animate-pulse-slower" />
+      
+      {/* Floating particles */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[10%] left-[5%] w-2 h-2 bg-violet-500/30 rounded-full animate-float" />
+        <div className="absolute top-[30%] right-[10%] w-3 h-3 bg-purple-500/30 rounded-full animate-float-delay" />
+        <div className="absolute bottom-[20%] left-[15%] w-2 h-2 bg-indigo-500/20 rounded-full animate-float-slow" />
+        <div className="absolute bottom-[40%] right-[20%] w-1.5 h-1.5 bg-violet-500/25 rounded-full animate-float" />
+        <div className="absolute top-[60%] left-[80%] w-2.5 h-2.5 bg-purple-500/15 rounded-full animate-float-delay" />
       </div>
 
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] left-[5%] w-2 h-2 bg-red-500/30 rounded-full animate-float" />
-        <div className="absolute top-[30%] right-[10%] w-3 h-3 bg-red-600/30 rounded-full animate-float-delay" />
-        <div className="absolute bottom-[20%] left-[15%] w-2 h-2 bg-red-500/20 rounded-full animate-float-slow" />
-        <div className="absolute bottom-[40%] right-[20%] w-1.5 h-1.5 bg-red-600/25 rounded-full animate-float" />
-        <div className="absolute top-[60%] left-[80%] w-2.5 h-2.5 bg-red-500/15 rounded-full animate-float-delay" />
-      </div>
-
-      <div className="container mx-auto px-4 py-16 relative z-10">
+      <div className="relative container mx-auto px-4 py-12 z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8 animate-fade-in-up">
-            <Button variant="ghost" asChild className="p-0 hover:bg-transparent text-muted-foreground hover:text-red-500 group">
+          {/* Back Button */}
+          <div className="mb-6 animate-fade-in-up">
+            <Button variant="ghost" asChild className="p-0 hover:bg-transparent text-gray-400 hover:text-violet-400 group transition-all duration-300">
               <Link href="/logs" className="flex items-center gap-2">
                 <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                 <span className="text-sm font-medium">Back to All Logs</span>
@@ -618,37 +621,45 @@ export default function LogDetailPage({ params }: { params: Promise<{ slug: stri
             </Button>
           </div>
 
-          <div className="bg-gray-900/80 backdrop-blur-sm rounded-2xl border border-red-500/20 overflow-hidden shadow-2xl animate-fade-in-up animation-delay-200">
+          {/* Main Content Card */}
+          <div className="bg-gradient-to-br from-violet-900/40 via-purple-900/40 to-indigo-900/40 backdrop-blur-xl rounded-2xl border border-violet-500/20 overflow-hidden shadow-2xl animate-fade-in-up animation-delay-200">
             <div className="relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-red-600/5 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-500/10 via-purple-500/5 to-transparent" />
+              
               <div className="relative p-6 md:p-8">
+                {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {log.tags.map((tag: string) => (
-                    <Badge key={tag} variant="secondary" className="px-3 py-1 text-xs font-medium bg-red-500/10 hover:bg-red-500/20 transition-colors text-red-400">
+                    <Badge key={tag} className="px-3 py-1 text-xs font-medium bg-violet-500/20 hover:bg-violet-500/30 transition-all duration-300 text-violet-300 border border-violet-500/30">
+                      <Sparkles className="w-3 h-3 mr-1" />
                       {tag}
                     </Badge>
                   ))}
                 </div>
 
-                <h1 className="font-headline font-black text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                  {log.title}
+                {/* Title */}
+                <h1 className="font-headline font-black text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight mb-4">
+                  <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                    {log.title}
+                  </span>
                 </h1>
 
-                <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pt-2">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-red-400" />
+                {/* Meta Info */}
+                <div className="flex flex-wrap items-center gap-4 text-sm pt-2">
+                  <div className="flex items-center gap-2 text-violet-300/60">
+                    <Calendar className="w-4 h-4 text-violet-400" />
                     <span>{log.date}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <User className="w-4 h-4 text-red-400" />
+                  <div className="flex items-center gap-2 text-violet-300/60">
+                    <User className="w-4 h-4 text-violet-400" />
                     <span>John Melvin Viado</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-red-400" />
+                  <div className="flex items-center gap-2 text-violet-300/60">
+                    <Clock className="w-4 h-4 text-violet-400" />
                     <span>5 min read</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <BookOpen className="w-4 h-4 text-red-400" />
+                  <div className="flex items-center gap-2 text-violet-300/60">
+                    <BookOpen className="w-4 h-4 text-violet-400" />
                     <span>Activity Log</span>
                   </div>
                 </div>
@@ -656,41 +667,79 @@ export default function LogDetailPage({ params }: { params: Promise<{ slug: stri
             </div>
 
             <div className="p-6 md:p-8 pt-0">
+              {/* AI Summary Tool */}
               <div className="mb-8 animate-slide-up animation-delay-300">
                 <AISummaryTool content={log.content} />
               </div>
 
+              {/* Divider */}
               <div className="relative my-8">
-                <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-800"></div></div>
-                <div className="relative flex justify-center"><span className="bg-gray-900 px-4 text-xs text-muted-foreground">DETAILED LOG</span></div>
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-violet-500/20"></div>
+                </div>
+                <div className="relative flex justify-center">
+                  <span className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm px-4 text-xs text-violet-300/60">DETAILED LOG</span>
+                </div>
               </div>
 
+              {/* Content */}
               <article className="prose prose-lg max-w-none prose-invert animate-fade-in animation-delay-400">
                 {renderFormattedContent(log.content)}
               </article>
             </div>
 
-            <div className="border-t border-gray-800 p-6 md:p-8">
+            {/* Footer Actions */}
+            <div className="border-t border-violet-500/20 p-6 md:p-8">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <button onClick={() => setIsLiked(!isLiked)} className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${isLiked ? 'bg-red-500/20 text-red-500' : 'hover:bg-red-500/10 text-muted-foreground'}`}><ThumbsUp className="w-4 h-4" /></button>
-                  <button onClick={() => setIsBookmarked(!isBookmarked)} className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${isBookmarked ? 'bg-red-500/20 text-red-500' : 'hover:bg-red-500/10 text-muted-foreground'}`}><Bookmark className="w-4 h-4" /></button>
-                  <button className="p-2 rounded-full hover:bg-red-500/10 transition-all duration-300 hover:scale-110 group"><Share2 className="w-4 h-4 text-muted-foreground group-hover:text-red-500 transition-colors" /></button>
+                  <button 
+                    onClick={() => setIsLiked(!isLiked)} 
+                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${
+                      isLiked 
+                        ? 'bg-violet-500/20 text-violet-400' 
+                        : 'hover:bg-violet-500/10 text-gray-400 hover:text-violet-400'
+                    }`}
+                  >
+                    <Heart className={`w-4 h-4 ${isLiked ? 'fill-violet-400' : ''}`} />
+                  </button>
+                  <button 
+                    onClick={() => setIsBookmarked(!isBookmarked)} 
+                    className={`p-2 rounded-full transition-all duration-300 hover:scale-110 ${
+                      isBookmarked 
+                        ? 'bg-violet-500/20 text-violet-400' 
+                        : 'hover:bg-violet-500/10 text-gray-400 hover:text-violet-400'
+                    }`}
+                  >
+                    <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-violet-400' : ''}`} />
+                  </button>
+                  <button className="p-2 rounded-full hover:bg-violet-500/10 transition-all duration-300 hover:scale-110 group">
+                    <Share2 className="w-4 h-4 text-gray-400 group-hover:text-violet-400 transition-colors" />
+                  </button>
                 </div>
-                <div className="text-xs text-muted-foreground">Last updated: {log.date}</div>
+                <div className="text-xs text-violet-300/40 flex items-center gap-1">
+                  <Clock className="w-3 h-3" />
+                  Last updated: {log.date}
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-12 animate-fade-in-up animation-delay-500">
-            <div className="bg-gradient-to-br from-red-500/10 via-red-600/5 to-transparent rounded-2xl p-8 border border-red-500/20">
+          {/* Call to Action */}
+          <div className="mt-10 animate-fade-in-up animation-delay-500">
+            <div className="bg-gradient-to-br from-violet-500/10 via-purple-500/5 to-transparent rounded-2xl p-8 border border-violet-500/20">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="space-y-2 text-center md:text-left">
-                  <h4 className="font-bold text-lg flex items-center gap-2 justify-center md:justify-start"><span className="text-2xl">📖</span>Thanks for reading!</h4>
-                  <p className="text-muted-foreground text-sm">Check out more of my daily activity logs and internship journey.</p>
+                  <h4 className="font-bold text-lg flex items-center gap-2 justify-center md:justify-start">
+                    <Zap className="w-5 h-5 text-violet-400" />
+                    <span className="text-white">Thanks for reading!</span>
+                  </h4>
+                  <p className="text-gray-400 text-sm">Check out more of my daily activity logs and internship journey.</p>
                 </div>
-                <Button asChild className="rounded-full h-12 px-8 font-bold bg-gradient-to-r from-red-600 to-red-500 hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <Link href="/logs">Explore More Logs<ArrowLeft className="w-4 h-4 ml-2 rotate-180" /></Link>
+                <Button asChild className="rounded-full h-12 px-8 font-bold bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 shadow-lg shadow-violet-500/25 transition-all duration-300 hover:scale-105">
+                  <Link href="/logs" className="flex items-center gap-2">
+                    Explore More Logs
+                    <ArrowLeft className="w-4 h-4 rotate-180" />
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -711,14 +760,34 @@ export default function LogDetailPage({ params }: { params: Promise<{ slug: stri
           from { opacity: 0; }
           to { opacity: 1; }
         }
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.1; transform: scale(1); }
+          50% { opacity: 0.15; transform: scale(1.1); }
+        }
+        @keyframes pulse-slower {
+          0%, 100% { opacity: 0.08; transform: scale(1); }
+          50% { opacity: 0.12; transform: scale(1.15); }
+        }
         @keyframes float {
           0%, 100% { transform: translateY(0px) translateX(0px); }
           25% { transform: translateY(-15px) translateX(5px); }
           75% { transform: translateY(10px) translateX(-5px); }
         }
+        @keyframes float-delay {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          25% { transform: translateY(-12px) translateX(8px); }
+          75% { transform: translateY(8px) translateX(-8px); }
+        }
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          25% { transform: translateY(-10px) translateX(10px); }
+          75% { transform: translateY(6px) translateX(-6px); }
+        }
         .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
         .animate-slide-up { animation: slide-up 0.5s ease-out forwards; }
         .animate-fade-in { animation: fade-in 0.8s ease-out forwards; }
+        .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
+        .animate-pulse-slower { animation: pulse-slower 6s ease-in-out infinite; }
         .animate-float { animation: float 7s ease-in-out infinite; }
         .animate-float-delay { animation: float-delay 9s ease-in-out infinite; }
         .animate-float-slow { animation: float-slow 11s ease-in-out infinite; }

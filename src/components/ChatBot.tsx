@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Minimize2, Maximize2, User, Bot, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
+import { MessageCircle, X, Send, Minimize2, Maximize2, User, Bot, Sparkles, ChevronDown, ChevronUp, Brain, Zap, Volume2, VolumeX } from 'lucide-react';
 
 interface Message {
   id: string;
@@ -134,7 +134,7 @@ const getProjectFromQuery = (message: string): string | null => {
 
 // Welcome message
 const WELCOME_MESSAGE = {
-  text: "🤖 **Hi there!** I'm  DevBot, your AI assistant!\n\nI can help you with:\n• 📁 **Projects** - Type project names like 'SyncSnap' or 'FlowState'\n• 📋 **List all projects** - See everything I've worked on\n• 🛠️ **Skills & Technologies** - Ask about my tech stack\n• 🎓 **Education & Certifications** - Learn about my background\n• 📞 **Contact Information** - How to reach me\n\nWhat would you like to know about John Melvin? ✨",
+  text: "✨ **Hey there!** I'm DevBot, your AI assistant!\n\n💜 I can help you with:\n• 📁 **Projects** - Type project names like 'SyncSnap' or 'FlowState'\n• 📋 **List all projects** - See everything I've worked on\n• 🛠️ **Skills & Technologies** - Ask about my tech stack\n• 🎓 **Education & Certifications** - Learn about my background\n• 📞 **Contact Information** - How to reach me\n\nWhat would you like to know? 🚀",
   sender: 'bot' as const
 };
 
@@ -146,7 +146,7 @@ export default function ChatBot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "🤖 Hello! I'm  DevBot, your AI assistant! I can help answer questions about John Melvin's skills, experience, projects, and more. What would you like to know?",
+      text: "✨ Hello! I'm DevBot, your AI assistant! I can help answer questions about John Melvin's skills, experience, projects, and more. What would you like to know?",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -230,7 +230,7 @@ export default function ChatBot() {
       const project = projectDetails[projectName as keyof typeof projectDetails];
       if (project) {
         return {
-          text: `🤖 Here's detailed information about **${project.name}**:`,
+          text: `✨ Here's detailed information about **${project.name}**:`,
           isProjectCard: true,
           projectData: project
         };
@@ -240,64 +240,64 @@ export default function ChatBot() {
     if (lowerMessage.match(/list all projects|all projects|show projects|what projects|projects you have|list projects|available projects/i)) {
       const projectList = Object.keys(projectDetails).map(name => `• **${name}**`).join('\n');
       return {
-        text: `🤖 Here are all the projects I've worked on:\n\n${projectList}\n\nType the name of any project (e.g., "SyncSnap") to see detailed information!`,
+        text: `✨ Here are all the projects I've worked on:\n\n${projectList}\n\nType the name of any project (e.g., "SyncSnap") to see detailed information!`,
         isProjectCard: false
       };
     }
     
     if (lowerMessage.match(/hello|hi|hey|greetings|sup|good morning|good afternoon|good evening/i)) {
-      return { text: "🤖 Hello! I'm DevBot. How can I help you today? Feel free to ask about my skills, projects, experience, or anything else!", isProjectCard: false };
+      return { text: "✨ Hello! I'm DevBot. How can I help you today? Feel free to ask about my skills, projects, experience, or anything else!", isProjectCard: false };
     }
     
     if (lowerMessage.match(/your name|who are you|what's your name|introduce yourself/i)) {
-      return { text: `🤖 I'm DevBot, your AI assistant! I'm here to help you learn more about ${knowledgeBase.name}. What would you like to know?`, isProjectCard: false };
+      return { text: `✨ I'm DevBot, your AI assistant! I'm here to help you learn more about ${knowledgeBase.name}. What would you like to know?`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/about|bio|who is|tell me about|background/i)) {
-      return { text: `🤖 ${knowledgeBase.name} is a ${knowledgeBase.education}. He's passionate about full-stack development and building innovative web applications. ${knowledgeBase.certification} and currently completed OJT at MakerSpace Innohub.`, isProjectCard: false };
+      return { text: `✨ ${knowledgeBase.name} is a ${knowledgeBase.education}. He's passionate about full-stack development and building innovative web applications. ${knowledgeBase.certification} and currently completed OJT at MakerSpace Innohub.`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/skill|technologies|tech stack|what can you do|programming languages|tools/i)) {
-      return { text: `🤖 ${knowledgeBase.name} is proficient in: ${knowledgeBase.skills.join(', ')}. He specializes in full-stack development using these technologies.`, isProjectCard: false };
+      return { text: `✨ ${knowledgeBase.name} is proficient in: ${knowledgeBase.skills.join(', ')}. He specializes in full-stack development using these technologies.`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/ojt|internship|training|maker space|makerspace/i)) {
-      return { text: `🤖 ${knowledgeBase.name} completed his OJT at ${knowledgeBase.ojt}. During this time, he worked on real-world projects including SyncSnap, FlowState, and contributed to various full-stack applications.`, isProjectCard: false };
+      return { text: `✨ ${knowledgeBase.name} completed his OJT at ${knowledgeBase.ojt}. During this time, he worked on real-world projects including SyncSnap, FlowState, and contributed to various full-stack applications.`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/certification|ncii|certified|passed|exam|assessment/i)) {
-      return { text: `🤖 ${knowledgeBase.certification} 🎉 This certification validates his proficiency in computer systems servicing and web development.`, isProjectCard: false };
+      return { text: `✨ ${knowledgeBase.certification} 🎉 This certification validates his proficiency in computer systems servicing and web development.`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/education|school|university|college|study|learn/i)) {
-      return { text: `🤖 ${knowledgeBase.name} is currently pursuing ${knowledgeBase.education}. He's dedicated to continuous learning and staying updated with the latest technologies.`, isProjectCard: false };
+      return { text: `✨ ${knowledgeBase.name} is currently pursuing ${knowledgeBase.education}. He's dedicated to continuous learning and staying updated with the latest technologies.`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/experience|work|job|career|professional/i)) {
-      return { text: `🤖 ${knowledgeBase.name} has experience in ${knowledgeBase.experience}. His OJT at MakerSpace Innohub provided hands-on experience with real-world projects and team collaboration.`, isProjectCard: false };
+      return { text: `✨ ${knowledgeBase.name} has experience in ${knowledgeBase.experience}. His OJT at MakerSpace Innohub provided hands-on experience with real-world projects and team collaboration.`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/contact|email|phone|reach|connect|get in touch/i)) {
-      return { text: `🤖 You can reach ${knowledgeBase.name} via:\n📧 ${knowledgeBase.contact.split('|')[0]}\n📞 ${knowledgeBase.contact.split('|')[1]}\n📍 ${knowledgeBase.location}`, isProjectCard: false };
+      return { text: `✨ You can reach ${knowledgeBase.name} via:\n📧 ${knowledgeBase.contact.split('|')[0]}\n📞 ${knowledgeBase.contact.split('|')[1]}\n📍 ${knowledgeBase.location}`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/interest|passion|hobby|like|love|enjoy/i)) {
-      return { text: `🤖 ${knowledgeBase.name} is passionate about ${knowledgeBase.interests}. He loves solving complex problems and creating beautiful, functional applications that make a difference.`, isProjectCard: false };
+      return { text: `✨ ${knowledgeBase.name} is passionate about ${knowledgeBase.interests}. He loves solving complex problems and creating beautiful, functional applications that make a difference.`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/location|address|where|from/i)) {
-      return { text: `🤖 ${knowledgeBase.name} is based in ${knowledgeBase.location}. He's open to remote opportunities worldwide! 🌍`, isProjectCard: false };
+      return { text: `✨ ${knowledgeBase.name} is based in ${knowledgeBase.location}. He's open to remote opportunities worldwide! 🌍`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/thank|thanks|appreciate|grateful/i)) {
-      return { text: "🤖 You're very welcome! 😊 I'm glad I could help. Feel free to ask if you have any other questions about John Melvin's work or experience!", isProjectCard: false };
+      return { text: "✨ You're very welcome! 😊 I'm glad I could help. Feel free to ask if you have any other questions about John Melvin's work or experience!", isProjectCard: false };
     }
     
     if (lowerMessage.match(/bye|goodbye|see you|farewell|exit/i)) {
-      return { text: "🤖 Thanks for chatting! 👋 Feel free to come back if you have more questions. Have a great day!", isProjectCard: false };
+      return { text: "✨ Thanks for chatting! 👋 Feel free to come back if you have more questions. Have a great day!", isProjectCard: false };
     }
     
-    return { text: "🤖 That's a great question! 💭 I'm happy to help. You can ask me about John Melvin's skills, projects, education, OJT experience, certifications, or contact information.\n\n💡 **Try these commands:**\n• Type a project name like **SyncSnap** or **FlowState**\n• Type **List all projects** to see all projects\n• Ask about **skills**, **education**, or **contact**", isProjectCard: false };
+    return { text: "✨ That's a great question! 💭 I'm happy to help. You can ask me about John Melvin's skills, projects, education, OJT experience, certifications, or contact information.\n\n💡 **Try these commands:**\n• Type a project name like **SyncSnap** or **FlowState**\n• Type **List all projects** to see all projects\n• Ask about **skills**, **education**, or **contact**", isProjectCard: false };
   };
 
   const handleSendMessage = async () => {
@@ -339,20 +339,20 @@ export default function ChatBot() {
     setMessages([
       {
         id: Date.now().toString(),
-        text: "🤖 Chat cleared! I'm DevBot, ready to help you again. What would you like to know?\n\n💡 **Try these:**\n• Type **SyncSnap** to see project details\n• Type **List all projects** to see all projects\n• Type **Skills** to see my tech stack",
+        text: "✨ Chat cleared! I'm DevBot, ready to help you again. What would you like to know?\n\n💡 **Try these:**\n• Type **SyncSnap** to see project details\n• Type **List all projects** to see all projects\n• Type **Skills** to see my tech stack",
         sender: 'bot',
         timestamp: new Date()
       }
     ]);
   };
 
-  // Project Card Component
+  // Project Card Component - Redesigned
   const ProjectCard = ({ project }: { project: { name: string; description: string; image: string; techStack: string[]; features?: string[] } }) => {
     const [imgError, setImgError] = useState(false);
     
     return (
-      <div className="bg-gray-800/80 rounded-xl overflow-hidden border border-red-500/20 mt-2 mb-1">
-        <div className="aspect-video w-full overflow-hidden bg-gray-900">
+      <div className="mt-3 mb-1 bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm rounded-xl overflow-hidden border border-violet-500/20 hover:border-violet-500/40 transition-all duration-300">
+        <div className="aspect-video w-full overflow-hidden bg-gradient-to-br from-violet-800/30 to-purple-800/30">
           {!imgError && project.image ? (
             <img 
               src={project.image} 
@@ -361,30 +361,36 @@ export default function ChatBot() {
               onError={() => setImgError(true)}
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-              <Bot className="w-12 h-12 text-gray-600" />
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-violet-800/50 to-purple-800/50">
+              <Bot className="w-12 h-12 text-violet-400" />
             </div>
           )}
         </div>
         <div className="p-3">
-          <h4 className="font-bold text-white text-sm mb-1">{project.name}</h4>
-          <p className="text-gray-400 text-xs mb-2 line-clamp-2">{project.description}</p>
+          <h4 className="font-bold text-white text-sm mb-1 flex items-center gap-1">
+            <Sparkles className="w-3 h-3 text-violet-400" />
+            {project.name}
+          </h4>
+          <p className="text-violet-300/60 text-xs mb-2 line-clamp-2">{project.description}</p>
           <div className="flex flex-wrap gap-1 mb-2">
             {project.techStack.slice(0, 3).map((tech, i) => (
-              <span key={i} className="px-1.5 py-0.5 rounded-full bg-red-500/10 text-red-400 text-[9px]">
+              <span key={i} className="px-1.5 py-0.5 rounded-full bg-violet-500/20 text-violet-300 text-[9px] font-medium">
                 {tech}
               </span>
             ))}
           </div>
           {project.features && project.features.length > 0 && (
-            <details className="text-[10px] text-gray-500">
-              <summary className="cursor-pointer hover:text-red-400 transition-colors">🔍 View features ({project.features.length})</summary>
+            <details className="text-[10px] text-violet-300/60">
+              <summary className="cursor-pointer hover:text-violet-400 transition-colors flex items-center gap-1">
+                <Zap className="w-2.5 h-2.5" />
+                View features ({project.features.length})
+              </summary>
               <ul className="mt-1 space-y-0.5 pl-3">
                 {project.features.slice(0, 4).map((feature, i) => (
-                  <li key={i} className="text-gray-400">• {feature}</li>
+                  <li key={i} className="text-violet-300/50">• {feature}</li>
                 ))}
                 {project.features.length > 4 && (
-                  <li className="text-gray-500">+{project.features.length - 4} more features</li>
+                  <li className="text-violet-300/40">+{project.features.length - 4} more features</li>
                 )}
               </ul>
             </details>
@@ -404,15 +410,15 @@ export default function ChatBot() {
               : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
           } hidden sm:block`}
         >
-          <div className="bg-gradient-to-r from-red-600/95 to-red-500/95 backdrop-blur-sm rounded-xl px-4 py-2.5 border border-red-400/30 shadow-xl max-w-[220px]">
+          <div className="bg-gradient-to-r from-violet-600/95 to-purple-600/95 backdrop-blur-sm rounded-xl px-4 py-2.5 border border-violet-400/30 shadow-xl max-w-[220px]">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-xs text-white font-semibold">🤖 DevBot</span>
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+              <span className="text-xs text-white font-semibold">✨ DevBot</span>
             </div>
             <p className="text-[11px] text-white/90 mt-1.5 leading-relaxed">
               Need help? Ask me about projects, skills & more!
             </p>
-            <div className="absolute -bottom-1 right-4 w-2.5 h-2.5 bg-red-500/95 rotate-45 border-r border-b border-red-400/30"></div>
+            <div className="absolute -bottom-1 right-4 w-2.5 h-2.5 bg-violet-600/95 rotate-45 border-r border-b border-violet-400/30"></div>
           </div>
         </div>
         
@@ -423,22 +429,22 @@ export default function ChatBot() {
           }}
           className="relative group"
         >
-          <div className="absolute inset-0 rounded-full bg-red-500/30 animate-ping opacity-75"></div>
-          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-red-600 to-red-500 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center">
-            <Bot className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+          <div className="absolute inset-0 rounded-full bg-violet-500/30 animate-ping opacity-75"></div>
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center">
+            <Brain className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
           </div>
           <div className="absolute -top-3 left-1/2 -translate-x-1/2 animate-antenna hidden sm:block">
-            <div className="w-0.5 h-3 bg-red-500 rounded-full"></div>
-            <div className="w-2 h-2 rounded-full bg-red-600 -mt-1"></div>
+            <div className="w-0.5 h-3 bg-violet-500 rounded-full"></div>
+            <div className="w-2 h-2 rounded-full bg-violet-600 -mt-1"></div>
           </div>
           <div className="absolute top-3 left-2 flex gap-1.5 sm:top-3.5 sm:left-2.5">
             <div className="w-1 h-1 rounded-full bg-white animate-blink"></div>
             <div className="w-1 h-1 rounded-full bg-white animate-blink delay-150"></div>
           </div>
-          <span className="hidden lg:block absolute right-full mr-3 px-3 py-1.5 text-xs bg-gray-900 text-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
-            Chat with DevBot 🤖
+          <span className="hidden lg:block absolute right-full mr-3 px-3 py-1.5 text-xs bg-violet-900 text-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
+            Chat with DevBot ✨
           </span>
-          <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse border-2 border-white"></span>
+          <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse border-2 border-white"></span>
         </button>
       </div>
     );
@@ -448,39 +454,38 @@ export default function ChatBot() {
     <>
       {!isMinimized && (
         <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 animate-fade-in"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 animate-fade-in"
           onClick={() => setIsOpen(false)}
         />
       )}
 
-      {/* Responsive chat container */}
       <div className={`fixed z-50 transition-all duration-300 ${
         isMinimized 
           ? 'bottom-4 right-4 w-[calc(100vw-2rem)] sm:w-[380px] h-14' 
-          : 'bottom-0 sm:bottom-6 right-0 sm:right-6 w-full sm:w-[420px] h-[100dvh] sm:h-[600px]'
+          : 'bottom-0 sm:bottom-6 right-0 sm:right-6 w-full sm:w-[420px] h-[100dvh] sm:h-[650px]'
       }`}>
-        <div className={`bg-gradient-to-br from-gray-900 to-gray-900/95 backdrop-blur-sm shadow-2xl border border-red-500/20 overflow-hidden flex flex-col ${
+        <div className={`bg-gradient-to-br from-violet-900/95 to-purple-900/95 backdrop-blur-xl shadow-2xl border border-violet-500/20 overflow-hidden flex flex-col ${
           isMinimized ? 'rounded-2xl' : 'rounded-t-2xl sm:rounded-2xl'
         } h-full`}>
           
           {/* Header */}
-          <div className="flex-shrink-0 bg-gradient-to-r from-red-500/10 to-red-600/10 border-b border-red-500/20">
+          <div className="flex-shrink-0 bg-gradient-to-r from-violet-500/20 to-purple-500/20 border-b border-violet-500/20">
             <div className="px-3 sm:px-4 py-2 sm:py-2.5">
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
                   <div className="relative">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-red-600 to-red-500 flex items-center justify-center">
-                      <Bot className="w-4 h-4 text-white" />
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 flex items-center justify-center">
+                      <Zap className="w-4 h-4 text-white" />
                     </div>
-                    <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+                    <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
                   </div>
                   <div>
                     <h3 className="font-bold text-xs sm:text-sm flex items-center gap-1 text-white">
                       DevBot
-                      <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-yellow-500" />
+                      <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-violet-400" />
                     </h3>
-                    <p className="text-[10px] sm:text-xs text-gray-400 flex items-center gap-1">
-                      <span className="w-1 h-1 bg-green-500 rounded-full animate-pulse"></span>
+                    <p className="text-[10px] sm:text-xs text-violet-300/60 flex items-center gap-1">
+                      <span className="w-1 h-1 bg-emerald-500 rounded-full animate-pulse"></span>
                       Online • AI Assistant
                     </p>
                   </div>
@@ -488,17 +493,17 @@ export default function ChatBot() {
                 <div className="flex gap-1">
                   <button
                     onClick={() => setIsMinimized(!isMinimized)}
-                    className="p-1.5 sm:p-2 rounded-lg hover:bg-gray-800 transition-colors"
+                    className="p-1.5 sm:p-2 rounded-lg hover:bg-violet-500/20 transition-all duration-300"
                     aria-label={isMinimized ? "Maximize chat" : "Minimize chat"}
                   >
-                    {isMinimized ? <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400" /> : <Minimize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400" />}
+                    {isMinimized ? <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-violet-300" /> : <Minimize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-violet-300" />}
                   </button>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="p-1.5 sm:p-2 rounded-lg hover:bg-gray-800 transition-colors"
+                    className="p-1.5 sm:p-2 rounded-lg hover:bg-violet-500/20 transition-all duration-300"
                     aria-label="Close chat"
                   >
-                    <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400" />
+                    <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-violet-300" />
                   </button>
                 </div>
               </div>
@@ -506,13 +511,13 @@ export default function ChatBot() {
             
             {/* Status bar */}
             <div className="px-3 sm:px-4 pb-2 sm:pb-2.5 pt-0">
-              <div className="flex items-center gap-2 text-[10px] sm:text-xs text-gray-500 bg-gray-800/30 rounded-lg px-2.5 py-1.5 sm:py-2">
+              <div className="flex items-center gap-2 text-[10px] sm:text-xs text-violet-300/60 bg-violet-500/10 rounded-lg px-2.5 py-1.5 sm:py-2">
                 <div className="flex gap-0.5">
-                  <span className="w-0.5 h-0.5 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                  <span className="w-0.5 h-0.5 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                  <span className="w-0.5 h-0.5 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                  <span className="w-0.5 h-0.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                  <span className="w-0.5 h-0.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                  <span className="w-0.5 h-0.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
                 </div>
-                <span className="truncate">🤖 Try: "SyncSnap", "FlowState", or "List all projects"</span>
+                <span className="truncate">✨ Try: "SyncSnap", "FlowState", or "List all projects"</span>
               </div>
             </div>
           </div>
@@ -524,20 +529,20 @@ export default function ChatBot() {
                 {messages.map((message) => (
                   <div
                     key={message.id}
-                    className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} w-full`}
+                    className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} w-full animate-slide-up`}
                   >
                     <div
                       className={`max-w-[85%] rounded-2xl px-3 py-2 sm:px-4 sm:py-2.5 ${
                         message.sender === 'user'
-                          ? 'bg-gradient-to-r from-red-600 to-red-500 text-white'
-                          : 'bg-gray-800/50 border border-red-500/10'
+                          ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-lg shadow-violet-500/20'
+                          : 'bg-violet-500/10 backdrop-blur-sm border border-violet-500/20'
                       }`}
                     >
                       {/* Message header */}
                       <div className="flex items-center gap-1.5 mb-1">
                         {message.sender === 'bot' ? (
-                          <div className="w-3 h-3 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
-                            <Bot className="w-1.5 h-1.5 text-red-500" />
+                          <div className="w-3 h-3 rounded-full bg-violet-500/20 flex items-center justify-center flex-shrink-0">
+                            <Bot className="w-1.5 h-1.5 text-violet-400" />
                           </div>
                         ) : (
                           <User className="w-2.5 h-2.5 text-white/70 flex-shrink-0" />
@@ -562,16 +567,16 @@ export default function ChatBot() {
                 
                 {/* Typing indicator */}
                 {isTyping && (
-                  <div className="flex justify-start w-full">
-                    <div className="bg-gray-800/50 border border-red-500/10 rounded-2xl px-3 py-2 sm:px-4 sm:py-2.5">
+                  <div className="flex justify-start w-full animate-fade-in">
+                    <div className="bg-violet-500/10 backdrop-blur-sm border border-violet-500/20 rounded-2xl px-3 py-2 sm:px-4 sm:py-2.5">
                       <div className="flex items-center gap-1.5">
-                        <div className="w-3 h-3 rounded-full bg-red-500/20 flex items-center justify-center animate-pulse">
-                          <Bot className="w-1.5 h-1.5 text-red-500" />
+                        <div className="w-3 h-3 rounded-full bg-violet-500/20 flex items-center justify-center animate-pulse">
+                          <Bot className="w-1.5 h-1.5 text-violet-400" />
                         </div>
                         <div className="flex gap-0.5">
-                          <span className="w-1 h-1 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                          <span className="w-1 h-1 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                          <span className="w-1 h-1 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                          <span className="w-1 h-1 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                          <span className="w-1 h-1 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                          <span className="w-1 h-1 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                         </div>
                       </div>
                     </div>
@@ -582,7 +587,7 @@ export default function ChatBot() {
               </div>
 
               {/* Input Area */}
-              <div className="flex-shrink-0 border-t border-gray-800 p-3 sm:p-4 bg-gray-900/50">
+              <div className="flex-shrink-0 border-t border-violet-500/20 p-3 sm:p-4 bg-gradient-to-r from-violet-900/50 to-purple-900/50">
                 <div className="flex gap-2">
                   <input
                     ref={inputRef}
@@ -591,26 +596,26 @@ export default function ChatBot() {
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Ask me anything... ✨"
-                    className="flex-1 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg border border-gray-800 bg-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500/50 text-sm text-white placeholder:text-gray-500"
+                    className="flex-1 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-violet-500/30 bg-violet-500/10 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 text-sm text-white placeholder:text-violet-300/40 transition-all duration-300"
                   />
                   <button
                     onClick={handleSendMessage}
                     disabled={!inputValue.trim()}
-                    className="p-2 sm:p-2.5 rounded-lg bg-gradient-to-r from-red-600 to-red-500 text-white hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
+                    className="p-2 sm:p-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:opacity-90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 shadow-lg shadow-violet-500/25 hover:scale-105"
                     aria-label="Send message"
                   >
                     <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 </div>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-0 mt-2">
-                  <p className="text-[10px] sm:text-xs text-gray-500 flex items-center gap-1">
-                    <span className="animate-wave">🤖</span>
+                  <p className="text-[10px] sm:text-xs text-violet-300/60 flex items-center gap-1">
+                    <span className="animate-wave">✨</span>
                     <span className="hidden sm:inline">Try: </span>
                     "SyncSnap", "FlowState", "Projects"
                   </p>
                   <button
                     onClick={clearChat}
-                    className="text-[10px] sm:text-xs text-gray-500 hover:text-red-500 transition-colors"
+                    className="text-[10px] sm:text-xs text-violet-300/60 hover:text-violet-400 transition-colors"
                   >
                     Clear chat
                   </button>
@@ -650,7 +655,12 @@ export default function ChatBot() {
           100% { transform: rotate(0deg); }
         }
         
-        @keyframes fade-in-up {
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        @keyframes slide-up {
           from {
             opacity: 0;
             transform: translateY(10px);
@@ -661,31 +671,9 @@ export default function ChatBot() {
           }
         }
         
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(20px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-        
-        @keyframes slide-down {
-          from {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-          to {
-            opacity: 0;
-            transform: translateY(20px) scale(0.95);
-          }
-        }
-        
-        @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-3px); }
         }
         
         .animate-float-robot {
@@ -710,20 +698,16 @@ export default function ChatBot() {
           display: inline-block;
         }
         
-        .animate-fade-in-up {
-          animation: fade-in-up 0.3s ease-out;
+        .animate-fade-in {
+          animation: fade-in 0.2s ease-out;
         }
         
         .animate-slide-up {
           animation: slide-up 0.3s ease-out;
         }
         
-        .animate-slide-down {
-          animation: slide-down 0.3s ease-out forwards;
-        }
-        
-        .animate-fade-in {
-          animation: fade-in 0.2s ease-out;
+        .animate-bounce {
+          animation: bounce 0.5s ease-in-out infinite;
         }
         
         .custom-scrollbar::-webkit-scrollbar {
@@ -731,20 +715,19 @@ export default function ChatBot() {
         }
         
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: #1f2937;
+          background: #3b2a5e;
           border-radius: 10px;
         }
         
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #ef4444;
+          background: #8b5cf6;
           border-radius: 10px;
         }
         
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #dc2626;
+          background: #7c3aed;
         }
 
-        /* Mobile optimizations */
         @media (max-width: 640px) {
           .custom-scrollbar::-webkit-scrollbar {
             width: 3px;

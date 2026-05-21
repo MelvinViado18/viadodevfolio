@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, Filter, LayoutGrid, X, ExternalLink, Github, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, Filter, LayoutGrid, X, ExternalLink, Github, Star, ChevronLeft, ChevronRight, Sparkles, Eye, Calendar, Code2, Zap, Brain, Layers } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 interface Project {
@@ -22,7 +22,7 @@ interface Project {
   myTasks: string[];
 }
 
-// Hardcoded projects
+// Hardcoded projects (keeping your original data)
 const HARDCODED_PROJECTS: Project[] = [
   {
     id: 1,
@@ -300,13 +300,17 @@ export default function WorkPage() {
     
     return (
       <div 
-        className="bg-card rounded-xl overflow-hidden border border-border hover:border-red-500/50 transition-all duration-300 hover:shadow-xl group cursor-pointer"
+        className="group relative bg-gradient-to-br from-violet-900/40 via-purple-900/40 to-indigo-900/40 backdrop-blur-xl rounded-2xl overflow-hidden border border-violet-500/20 transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/25 hover:border-violet-400/50 hover:-translate-y-2 cursor-pointer"
         onClick={() => handleViewProject(project)}
       >
-        <div className="aspect-video w-full overflow-hidden bg-muted relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/10 to-violet-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+        
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-purple-500 to-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
+        
+        <div className="aspect-video w-full overflow-hidden relative">
           {project.featured && (
-            <div className="absolute top-2 left-2 z-10">
-              <Badge className="bg-yellow-500/90 text-black border-0 flex items-center gap-1">
+            <div className="absolute top-3 left-3 z-10">
+              <Badge className="bg-gradient-to-r from-amber-500/90 to-yellow-500/90 text-black border-0 flex items-center gap-1 shadow-lg">
                 <Star className="w-3 h-3 fill-current" />
                 Featured
               </Badge>
@@ -316,50 +320,65 @@ export default function WorkPage() {
             <img 
               src={project.image} 
               alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               onError={() => setImgError(true)}
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-              <LayoutGrid className="w-12 h-12 text-muted-foreground" />
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-violet-800/50 to-purple-800/50">
+              <Layers className="w-12 h-12 text-violet-400/50" />
             </div>
           )}
+          <div className="absolute inset-0 bg-gradient-to-t from-violet-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </div>
+        
         <div className="p-5">
-          <div className="flex items-center justify-between mb-2">
-            <Badge className="bg-red-500/20 text-red-500">
+          <div className="flex items-center justify-between mb-3">
+            <Badge className="bg-gradient-to-r from-violet-500/20 to-purple-500/20 text-violet-300 border-violet-500/30 px-3 py-1">
+              <Sparkles className="w-3 h-3 mr-1" />
               {project.category}
             </Badge>
             {project.date && (
-              <span className="text-xs text-muted-foreground">{project.date}</span>
+              <span className="text-xs text-violet-300/50 flex items-center gap-1">
+                <Calendar className="w-3 h-3" />
+                {project.date}
+              </span>
             )}
           </div>
-          <h3 className="font-bold text-xl mb-2 line-clamp-1 text-white">{project.title}</h3>
-          <p className="text-muted-foreground text-sm mb-3 line-clamp-2">{project.description}</p>
+          
+          <h3 className="font-bold text-xl mb-2 line-clamp-1 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-violet-300 group-hover:to-indigo-300 group-hover:bg-clip-text transition-all duration-300">
+            {project.title}
+          </h3>
+          
+          <p className="text-gray-400 text-sm mb-3 line-clamp-2 leading-relaxed">
+            {project.description}
+          </p>
+          
           {project.techStack && project.techStack.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 mb-3">
+            <div className="flex flex-wrap gap-1.5 mb-4">
               {project.techStack.slice(0, 3).map((tech, i) => (
-                <span key={i} className="px-2 py-0.5 rounded-full bg-secondary text-xs">
+                <span key={i} className="px-2 py-1 rounded-full bg-violet-500/10 text-violet-300/80 text-xs border border-violet-500/20">
                   {tech}
                 </span>
               ))}
               {project.techStack.length > 3 && (
-                <span className="px-2 py-0.5 rounded-full bg-secondary text-xs">
+                <span className="px-2 py-1 rounded-full bg-violet-500/10 text-violet-300/60 text-xs border border-violet-500/20">
                   +{project.techStack.length - 3}
                 </span>
               )}
             </div>
           )}
+          
           <Button 
             variant="ghost" 
             size="sm" 
-            className="mt-2 text-red-500 hover:text-red-600 hover:bg-red-500/10"
+            className="mt-2 text-violet-400 hover:text-violet-300 hover:bg-violet-500/20 transition-all duration-300 group/btn"
             onClick={(e) => {
               e.stopPropagation();
               handleViewProject(project);
             }}
           >
-            View Details →
+            View Details 
+            <Eye className="w-3 h-3 ml-1 transition-transform group-hover/btn:translate-x-1" />
           </Button>
         </div>
       </div>
@@ -367,269 +386,344 @@ export default function WorkPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16 min-h-screen relative pb-32">
-      <div className="max-w-4xl mx-auto mb-16 space-y-6">
-        <h1 className="font-headline font-black text-5xl md:text-6xl tracking-tight">Work Gallery</h1>
-        <p className="text-muted-foreground text-xl max-w-2xl">
-          A modular collection of projects, audits, and technical solutions completed during my internship.
-        </p>
-      </div>
-
-      <div className="flex flex-col lg:flex-row gap-8 mb-12">
-        {/* Search & Filter Toolbar */}
-        <div className="w-full lg:w-1/4 space-y-8">
-          <div className="space-y-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
-              <Search className="w-4 h-4" />
-              Search
-            </h3>
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input 
-                placeholder="Find a project..." 
-                className="pl-10 h-11 bg-card"
-                value={searchQuery}
-                onChange={(e) => handleSearch(e.target.value)}
-              />
-            </div>
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Glass Morphism Background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-violet-950/30 via-purple-950/20 to-indigo-950/30" />
+      <div className="fixed inset-0 backdrop-blur-3xl" />
+      
+      {/* Animated background orbs */}
+      <div className="fixed top-20 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-[120px] animate-pulse-slow" />
+      <div className="fixed bottom-20 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] animate-pulse-slower" />
+      
+      <div className="relative container mx-auto px-4 py-12 min-h-screen">
+        {/* Header Section */}
+        <div className="max-w-4xl mx-auto mb-10 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 backdrop-blur-sm border border-violet-500/20 mx-auto mb-4">
+            <LayoutGrid className="w-4 h-4 text-violet-400" />
+            <span className="text-violet-300 text-sm font-semibold">PORTFOLIO</span>
           </div>
+          
+          <h1 className="font-headline font-black text-5xl md:text-6xl tracking-tight mb-4">
+            <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+              Work Gallery
+            </span>
+          </h1>
+          
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            A modular collection of projects, audits, and technical solutions completed during my internship.
+          </p>
+        </div>
 
-          <div className="space-y-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
-              <Filter className="w-4 h-4" />
-              Categories
-            </h3>
-            <div className="flex flex-wrap lg:flex-col gap-2">
-              {categories.map(cat => (
-                <button
-                  key={cat}
-                  onClick={() => handleCategoryChange(cat)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all text-left min-h-[44px] ${
-                    activeCategory === cat 
-                    ? 'bg-red-600 text-white shadow-md' 
-                    : 'bg-card hover:bg-muted text-muted-foreground'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
+        {/* Search Bar - Top */}
+        <div className="max-w-2xl mx-auto mb-8">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-violet-400/50" />
+            <Input 
+              placeholder="Search projects by title, description, or technology..." 
+              className="pl-12 pr-4 py-6 h-12 bg-violet-500/10 backdrop-blur-sm border-violet-500/30 text-white placeholder:text-gray-500 focus:border-violet-500/50 focus:ring-violet-500/20 rounded-xl text-base"
+              value={searchQuery}
+              onChange={(e) => handleSearch(e.target.value)}
+            />
+          </div>
+        </div>
+
+        {/* Category Filters - Top */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => handleCategoryChange(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeCategory === cat 
+                  ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-lg shadow-violet-500/25' 
+                  : 'bg-violet-500/10 hover:bg-violet-500/20 text-gray-400 hover:text-white border border-violet-500/20'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+          
+          {/* Results count */}
+          <div className="text-center mt-4">
+            <p className="text-sm text-violet-300/50">
+              Showing <span className="text-violet-400 font-semibold">{filteredProjects.length}</span> projects
+            </p>
           </div>
         </div>
 
         {/* Project Grid */}
-        <div className="flex-1">
+        <div className="max-w-7xl mx-auto">
           {filteredProjects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProjects.map(project => (
-                <div key={project.id} className="relative group">
+                <div key={project.id} className="relative">
                   <CustomProjectCard project={project} />
                 </div>
               ))}
             </div>
           ) : (
-            <div className="bg-card rounded-2xl p-12 text-center border border-dashed flex flex-col items-center justify-center space-y-4">
-              <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center text-muted-foreground">
-                <LayoutGrid className="w-8 h-8" />
+            <div className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-xl rounded-2xl p-12 text-center border border-violet-500/20 flex flex-col items-center justify-center space-y-4">
+              <div className="w-20 h-20 rounded-full bg-violet-500/10 flex items-center justify-center">
+                <LayoutGrid className="w-10 h-10 text-violet-400/50" />
               </div>
               <div>
-                <h3 className="font-headline font-bold text-2xl">No projects found</h3>
-                <p className="text-muted-foreground">Try adjusting your search or filter criteria.</p>
+                <h3 className="font-headline font-bold text-2xl text-white">No projects found</h3>
+                <p className="text-gray-400">Try adjusting your search or filter criteria.</p>
               </div>
+              <Button 
+                onClick={() => {
+                  setSearchQuery('');
+                  setActiveCategory('All');
+                  updateFilters('All', '');
+                }}
+                className="mt-2 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700"
+              >
+                Clear Filters
+              </Button>
             </div>
           )}
         </div>
-      </div>
 
-      {/* Project Detail Modal */}
-      {showDetailModal && selectedProject && (
-        <div 
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setShowDetailModal(false)}
-        >
+        {/* Project Detail Modal */}
+        {showDetailModal && selectedProject && (
           <div 
-            className="relative bg-gradient-to-br from-gray-900 to-gray-950 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-red-500/30 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fade-in"
+            onClick={() => setShowDetailModal(false)}
           >
-            <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm p-4 border-b border-red-500/20 flex justify-between items-center">
-              <h2 className="text-xl font-bold text-white">{selectedProject.title}</h2>
-              <button 
-                onClick={() => setShowDetailModal(false)} 
-                className="p-1.5 rounded-full hover:bg-gray-800 transition-colors"
-              >
-                <X className="w-5 h-5 text-gray-400" />
-              </button>
-            </div>
-            
-            <div className="p-6">
-              {selectedProject.featured && (
-                <div className="mb-4">
-                  <Badge className="bg-yellow-500/20 text-yellow-500 border-0 flex items-center gap-1 w-fit">
-                    <Star className="w-3 h-3 fill-current" />
-                    Featured Project
-                  </Badge>
-                </div>
-              )}
+            <div 
+              className="relative bg-gradient-to-br from-violet-900 to-purple-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-violet-500/30 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="sticky top-0 bg-gradient-to-r from-violet-900/95 to-purple-900/95 backdrop-blur-sm p-4 border-b border-violet-500/20 flex justify-between items-center">
+                <h2 className="text-xl font-bold text-white">{selectedProject.title}</h2>
+                <button 
+                  onClick={() => setShowDetailModal(false)} 
+                  className="p-1.5 rounded-full hover:bg-violet-500/20 transition-all duration-300"
+                >
+                  <X className="w-5 h-5 text-violet-300" />
+                </button>
+              </div>
               
-              {/* Main Image with Gallery Navigation */}
-              {selectedProject.gallery.length > 0 && (
-                <div className="mb-6">
-                  <div className="relative rounded-lg overflow-hidden bg-gray-800">
-                    <img 
-                      src={selectedProject.gallery[currentGalleryIndex]} 
-                      alt={`${selectedProject.title} - ${currentGalleryIndex + 1}`}
-                      className="w-full h-96 object-contain bg-gray-900 cursor-pointer"
-                      onClick={() => openGalleryImage(selectedProject.gallery[currentGalleryIndex])}
-                    />
-                    {selectedProject.gallery.length > 1 && (
-                      <>
-                        <button
-                          onClick={prevImage}
-                          disabled={currentGalleryIndex === 0}
-                          className="absolute left-2 top-1/2 -translate-y-1/2 p-1 rounded-full bg-black/50 text-white hover:bg-black/70 disabled:opacity-50 transition-all"
-                        >
-                          <ChevronLeft className="w-6 h-6" />
-                        </button>
-                        <button
-                          onClick={nextImage}
-                          disabled={currentGalleryIndex === selectedProject.gallery.length - 1}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-full bg-black/50 text-white hover:bg-black/70 disabled:opacity-50 transition-all"
-                        >
-                          <ChevronRight className="w-6 h-6" />
-                        </button>
-                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs px-2 py-1 rounded-full">
-                          {currentGalleryIndex + 1} / {selectedProject.gallery.length}
-                        </div>
-                      </>
-                    )}
+              <div className="p-6">
+                {selectedProject.featured && (
+                  <div className="mb-4">
+                    <Badge className="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 text-amber-400 border-0 flex items-center gap-1 w-fit px-3 py-1">
+                      <Star className="w-3 h-3 fill-current" />
+                      Featured Project
+                    </Badge>
                   </div>
-                  {selectedProject.gallery.length > 1 && (
-                    <div className="flex gap-2 mt-3 overflow-x-auto pb-2">
-                      {selectedProject.gallery.slice(0, 8).map((img, idx) => (
-                        <div
-                          key={idx}
-                          className={`w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${
-                            currentGalleryIndex === idx ? 'border-red-500' : 'border-transparent hover:border-gray-500'
-                          }`}
-                          onClick={() => setCurrentGalleryIndex(idx)}
-                        >
-                          <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
-                        </div>
-                      ))}
-                      {selectedProject.gallery.length > 8 && (
-                        <div className="w-16 h-16 flex-shrink-0 rounded-lg bg-gray-800 flex items-center justify-center text-xs text-gray-400">
-                          +{selectedProject.gallery.length - 8}
-                        </div>
+                )}
+                
+                {/* Gallery Section */}
+                {selectedProject.gallery.length > 0 && (
+                  <div className="mb-6">
+                    <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-violet-800/30 to-purple-800/30 border border-violet-500/20">
+                      <img 
+                        src={selectedProject.gallery[currentGalleryIndex]} 
+                        alt={`${selectedProject.title} - ${currentGalleryIndex + 1}`}
+                        className="w-full h-96 object-contain bg-violet-950/30 cursor-pointer"
+                        onClick={() => openGalleryImage(selectedProject.gallery[currentGalleryIndex])}
+                      />
+                      {selectedProject.gallery.length > 1 && (
+                        <>
+                          <button
+                            onClick={prevImage}
+                            disabled={currentGalleryIndex === 0}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white disabled:opacity-50 transition-all duration-300"
+                          >
+                            <ChevronLeft className="w-5 h-5" />
+                          </button>
+                          <button
+                            onClick={nextImage}
+                            disabled={currentGalleryIndex === selectedProject.gallery.length - 1}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white disabled:opacity-50 transition-all duration-300"
+                          >
+                            <ChevronRight className="w-5 h-5" />
+                          </button>
+                          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
+                            {currentGalleryIndex + 1} / {selectedProject.gallery.length}
+                          </div>
+                        </>
                       )}
                     </div>
+                    
+                    {/* Thumbnails */}
+                    {selectedProject.gallery.length > 1 && (
+                      <div className="flex gap-2 mt-3 overflow-x-auto pb-2 custom-scrollbar">
+                        {selectedProject.gallery.slice(0, 8).map((img, idx) => (
+                          <div
+                            key={idx}
+                            className={`w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden cursor-pointer border-2 transition-all duration-300 ${
+                              currentGalleryIndex === idx ? 'border-violet-500' : 'border-transparent hover:border-violet-500/50'
+                            }`}
+                            onClick={() => setCurrentGalleryIndex(idx)}
+                          >
+                            <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                          </div>
+                        ))}
+                        {selectedProject.gallery.length > 8 && (
+                          <div className="w-16 h-16 flex-shrink-0 rounded-lg bg-violet-500/10 flex items-center justify-center text-xs text-violet-400 border border-violet-500/20">
+                            +{selectedProject.gallery.length - 8}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )}
+                
+                <div className="flex flex-wrap items-center gap-3 mb-4">
+                  <Badge className="bg-gradient-to-r from-violet-500/20 to-purple-500/20 text-violet-300 border-violet-500/30 px-3 py-1">
+                    <Sparkles className="w-3 h-3 mr-1" />
+                    {selectedProject.category}
+                  </Badge>
+                  {selectedProject.date && (
+                    <span className="text-sm text-violet-300/60 flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      {selectedProject.date}
+                    </span>
                   )}
                 </div>
-              )}
-              
-              <div className="flex flex-wrap items-center gap-3 mb-4">
-                <Badge className="bg-red-500/20 text-red-500 px-3 py-1">
-                  {selectedProject.category}
-                </Badge>
-                {selectedProject.date && (
-                  <span className="text-sm text-gray-400">
-                    {selectedProject.date}
-                  </span>
+                
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-white mb-2">Description</h3>
+                  <p className="text-gray-300 leading-relaxed">{selectedProject.description}</p>
+                </div>
+                
+                {selectedProject.fullDetails && (
+                  <div className="mb-6 p-4 bg-violet-500/5 backdrop-blur-sm rounded-xl border border-violet-500/20">
+                    <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+                      <Zap className="w-4 h-4 text-violet-400" />
+                      Project Details
+                    </h3>
+                    <p className="text-gray-300 whitespace-pre-wrap leading-relaxed">{selectedProject.fullDetails}</p>
+                  </div>
+                )}
+                
+                {selectedProject.myTasks && selectedProject.myTasks.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                      <Brain className="w-4 h-4 text-violet-400" />
+                      My Tasks & Contributions
+                    </h3>
+                    <div className="space-y-3">
+                      {selectedProject.myTasks.map((task, idx) => (
+                        <div key={idx} className="p-3 bg-violet-500/5 rounded-lg border border-violet-500/20 hover:border-violet-500/40 transition-all duration-300">
+                          <p className="text-gray-300 text-sm leading-relaxed">{task}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {selectedProject.techStack && selectedProject.techStack.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                      <Code2 className="w-4 h-4 text-violet-400" />
+                      Technologies Used
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.techStack.map((tech, i) => (
+                        <span 
+                          key={i} 
+                          className="px-3 py-1.5 rounded-lg bg-violet-500/10 text-violet-300 text-sm border border-violet-500/20"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {(selectedProject.projectLink || selectedProject.githubLink) && (
+                  <div className="flex flex-wrap gap-4">
+                    {selectedProject.projectLink && (
+                      <a 
+                        href={selectedProject.projectLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 rounded-lg text-white transition-all duration-300 shadow-lg shadow-violet-500/25"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Live Demo
+                      </a>
+                    )}
+                    {selectedProject.githubLink && (
+                      <a 
+                        href={selectedProject.githubLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-violet-500/10 hover:bg-violet-500/20 rounded-lg text-violet-300 transition-all duration-300 border border-violet-500/30"
+                      >
+                        <Github className="w-4 h-4" />
+                        View Code
+                      </a>
+                    )}
+                  </div>
                 )}
               </div>
-              
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold text-white mb-2">Description</h3>
-                <p className="text-gray-300 leading-relaxed">{selectedProject.description}</p>
-              </div>
-              
-              {selectedProject.fullDetails && (
-                <div className="mb-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
-                  <h3 className="text-lg font-semibold text-white mb-2">Project Details</h3>
-                  <p className="text-gray-300 whitespace-pre-wrap leading-relaxed">{selectedProject.fullDetails}</p>
-                </div>
-              )}
-              
-              {selectedProject.myTasks && selectedProject.myTasks.length > 0 && (
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-white mb-3">My Tasks & Contributions</h3>
-                  <div className="space-y-3">
-                    {selectedProject.myTasks.map((task, idx) => (
-                      <div key={idx} className="p-3 bg-red-500/5 rounded-lg border border-red-500/20">
-                        <p className="text-gray-300 text-sm leading-relaxed">{task}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-              
-              {selectedProject.techStack && selectedProject.techStack.length > 0 && (
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-white mb-3">Technologies Used</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.techStack.map((tech, i) => (
-                      <span 
-                        key={i} 
-                        className="px-3 py-1.5 rounded-lg bg-red-500/10 text-red-400 text-sm border border-red-500/20"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              
-              {(selectedProject.projectLink || selectedProject.githubLink) && (
-                <div className="flex flex-wrap gap-4">
-                  {selectedProject.projectLink && (
-                    <a 
-                      href={selectedProject.projectLink} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Live Demo
-                    </a>
-                  )}
-                  {selectedProject.githubLink && (
-                    <a 
-                      href={selectedProject.githubLink} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors border border-gray-700"
-                    >
-                      <Github className="w-4 h-4" />
-                      View Code
-                    </a>
-                  )}
-                </div>
-              )}
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Full Screen Gallery Modal */}
-      {showGalleryModal && selectedGalleryImage && (
-        <div 
-          className="fixed inset-0 bg-black/95 z-[60] flex items-center justify-center p-4"
-          onClick={() => setShowGalleryModal(false)}
-        >
-          <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={() => setShowGalleryModal(false)}
-              className="absolute -top-12 right-0 p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
-            >
-              <X className="w-5 h-5 text-white" />
-            </button>
-            <img 
-              src={selectedGalleryImage} 
-              alt="Full size"
-              className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
-            />
+        {/* Full Screen Gallery Modal */}
+        {showGalleryModal && selectedGalleryImage && (
+          <div 
+            className="fixed inset-0 bg-black/95 backdrop-blur-md z-[60] flex items-center justify-center p-4 animate-fade-in"
+            onClick={() => setShowGalleryModal(false)}
+          >
+            <div className="relative max-w-6xl w-full" onClick={(e) => e.stopPropagation()}>
+              <button
+                onClick={() => setShowGalleryModal(false)}
+                className="absolute -top-12 right-0 p-2 rounded-full bg-violet-500/20 hover:bg-violet-500/30 transition-all duration-300"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+              <img 
+                src={selectedGalleryImage} 
+                alt="Full size"
+                className="w-full h-auto max-h-[85vh] object-contain rounded-xl"
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
+
+      <style jsx>{`
+        @keyframes pulseSlow {
+          0%, 100% { opacity: 0.1; transform: scale(1); }
+          50% { opacity: 0.15; transform: scale(1.1); }
+        }
+        @keyframes pulseSlower {
+          0%, 100% { opacity: 0.08; transform: scale(1); }
+          50% { opacity: 0.12; transform: scale(1.15); }
+        }
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .animate-pulse-slow {
+          animation: pulseSlow 4s ease-in-out infinite;
+        }
+        .animate-pulse-slower {
+          animation: pulseSlower 6s ease-in-out infinite;
+        }
+        .animate-fade-in {
+          animation: fade-in 0.2s ease-out;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+          height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #3b2a5e;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #8b5cf6;
+          border-radius: 10px;
+        }
+      `}</style>
     </div>
   );
 }

@@ -4,12 +4,12 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Calendar, ChevronRight, BookOpen, Plus, X, Save, Trash2, Filter, Search, Clock, ChevronLeft, ChevronsLeft, ChevronsRight, Briefcase, MapPin, CalendarDays, Upload, Rocket, Award, Play, Pause, ChevronUp, ChevronDown } from 'lucide-react';
+import { Calendar, ChevronRight, BookOpen, Plus, X, Save, Trash2, Filter, Search, Clock, ChevronLeft, ChevronsLeft, ChevronsRight, Briefcase, MapPin, CalendarDays, Upload, Rocket, Award, Play, Pause, ChevronUp, ChevronDown, Sparkles, Eye, Zap, Brain, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const ITEMS_PER_PAGE = 10;
 
-// Hardcoded Activity Logs Data - All 51 logs
+// Hardcoded Activity Logs Data - All 51 logs (keeping your original data)
 const HARCODED_LOGS: ActivityLog[] = [
   {
     id: 1778919458900,
@@ -603,14 +603,6 @@ const ojtTimeline = [
   }
 ];
 
-// Helper function to format date for input (YYYY-MM-DD)
-const formatDateForInput = (date: Date): string => {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-};
-
 // Helper function to format date for display (Month Day, Year)
 const formatDateForDisplay = (year: number, month: number, day: number): string => {
   const date = new Date(year, month - 1, day);
@@ -749,370 +741,465 @@ export default function LogsPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16 min-h-screen relative pb-32 bg-black">
-      {/* Header Section */}
-      <div className="max-w-4xl mx-auto mb-10 space-y-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 text-red-500 text-xs font-bold mb-2">
-          <Briefcase className="w-3 h-3" />
-          <span>OJT COMPANY</span>
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Glass Morphism Background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-violet-950/30 via-purple-950/20 to-indigo-950/30" />
+      <div className="fixed inset-0 backdrop-blur-3xl" />
+      
+      {/* Animated background orbs */}
+      <div className="fixed top-20 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-[120px] animate-pulse-slow" />
+      <div className="fixed bottom-20 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] animate-pulse-slower" />
+      
+      <div className="relative container mx-auto px-4 py-12 min-h-screen">
+        {/* Header Section */}
+        <div className="max-w-4xl mx-auto mb-10 space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 backdrop-blur-sm border border-violet-500/20 mx-auto">
+            <Briefcase className="w-4 h-4 text-violet-400" />
+            <span className="text-violet-300 text-sm font-semibold">OJT COMPANY</span>
+          </div>
+
+          <div className="space-y-4 text-center">
+            <h1 className="font-headline font-black text-4xl md:text-5xl lg:text-6xl tracking-tight">
+              <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                Activity Logs
+              </span>
+            </h1>
+            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+              Add, manage, and track your daily activities and accomplishments during OJT.
+            </p>
+          </div>
+
+          {/* MakerSpace Innohub Company Card - Glass Morphism */}
+          <div className="mt-6 p-5 rounded-2xl bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-xl border border-violet-500/20">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-br from-violet-800/50 to-purple-800/50 flex items-center justify-center shadow-lg border border-violet-500/30 p-2">
+                  <img 
+                    src="/Makespace.png"
+                    alt="MakerSpace Innohub Logo"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex flex-wrap items-center gap-3">
+                  <h2 className="font-headline font-bold text-xl md:text-2xl text-white">
+                    MakerSpace Innohub
+                  </h2>
+                  <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
+                    Active
+                  </Badge>
+                </div>
+                
+                <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                  Building the Future of Digital Business with AI & Expert Marketing. We combine Custom Software Development, 
+                  SEO Authority, and Business Automation to turn your vision into a market leader.
+                </p>
+                
+                <div className="flex flex-wrap items-center gap-4 pt-1">
+                  <div className="flex items-center gap-1.5 text-xs text-violet-300/60">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>001 Zinnia St., Nilombot, Mapandan, Pangasinan</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-violet-300/60">
+                    <CalendarDays className="w-3.5 h-3.5" />
+                    <span>OJT Period: February - May 2026</span>
+                  </div>
+                  <a 
+                    href="https://www.makerspace.ph/#" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-xs text-violet-400 hover:text-violet-300 transition-colors group"
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4-3-9s1.34-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                    <span className="group-hover:underline">makerspace.ph</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Section - Glass Morphism */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
+            <div className="text-center p-3 rounded-xl bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm border border-violet-500/20">
+              <p className="text-2xl font-bold text-violet-400">{HARCODED_LOGS.length}</p>
+              <p className="text-xs text-gray-500">Total Logs</p>
+            </div>
+            <div className="text-center p-3 rounded-xl bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm border border-violet-500/20">
+              <p className="text-2xl font-bold text-violet-400">{allTags.length}</p>
+              <p className="text-xs text-gray-500">Unique Tags</p>
+            </div>
+            <div className="text-center p-3 rounded-xl bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm border border-violet-500/20">
+              <p className="text-2xl font-bold text-violet-400">🏅</p>
+              <p className="text-xs text-gray-500">NCII Certified</p>
+            </div>
+            <div className="text-center p-3 rounded-xl bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm border border-violet-500/20">
+              <p className="text-2xl font-bold text-violet-400">{totalPages}</p>
+              <p className="text-xs text-gray-500">Total Pages</p>
+            </div>
+          </div>
         </div>
 
-        <div className="space-y-6">
-          <h1 className="font-headline font-black text-4xl md:text-5xl lg:text-6xl tracking-tight text-white">
-            Activity Logs
-          </h1>
-          <p className="text-gray-400 text-lg md:text-xl max-w-2xl">
-            Add, manage, and track your daily activities and accomplishments during OJT.
+        {/* Search and Filter Bar - Glass Morphism */}
+        <div className="max-w-4xl mx-auto mb-6">
+          <div className="flex flex-wrap gap-3 items-center justify-between">
+            <div className="flex-1 min-w-[200px]">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-violet-400/50" />
+                <input
+                  type="text"
+                  placeholder="Search logs..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-9 pr-4 py-2 rounded-xl border border-violet-500/30 bg-violet-500/10 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 text-sm text-white placeholder:text-gray-500"
+                />
+              </div>
+            </div>
+            <button 
+              onClick={() => setShowFilters(!showFilters)} 
+              className={`px-4 py-2 rounded-xl border transition-all duration-300 flex items-center gap-2 text-sm ${
+                showFilters || selectedTag || selectedMonth 
+                  ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white border-violet-500 shadow-lg shadow-violet-500/25' 
+                  : 'bg-violet-500/10 border-violet-500/30 text-gray-400 hover:border-violet-500/50'
+              }`}
+            >
+              <Filter className="w-4 h-4" />
+              Filters
+              {(selectedTag || selectedMonth) && <span className="ml-1 w-5 h-5 rounded-full bg-white/20 text-xs flex items-center justify-center">{(selectedTag ? 1 : 0) + (selectedMonth ? 1 : 0)}</span>}
+            </button>
+          </div>
+
+          {showFilters && (
+            <div className="mt-4 p-4 rounded-xl bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-xl border border-violet-500/20 animate-fade-in">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-medium text-violet-300/70 mb-2 block">Filter by Tag</label>
+                  <select 
+                    value={selectedTag} 
+                    onChange={(e) => setSelectedTag(e.target.value)} 
+                    className="w-full px-3 py-2 rounded-lg border border-violet-500/30 bg-violet-500/10 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 text-sm text-white"
+                  >
+                    <option value="">All Tags</option>
+                    {allTags.map(tag => <option key={tag} value={tag}>{tag}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-violet-300/70 mb-2 block">Filter by Month</label>
+                  <select 
+                    value={selectedMonth} 
+                    onChange={(e) => setSelectedMonth(e.target.value)} 
+                    className="w-full px-3 py-2 rounded-lg border border-violet-500/30 bg-violet-500/10 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 text-sm text-white"
+                  >
+                    <option value="">All Months</option>
+                    {months.map(month => <option key={month} value={month}>{month}</option>)}
+                  </select>
+                </div>
+              </div>
+              <div className="flex justify-end gap-2 mt-4">
+                <button 
+                  onClick={clearFilters} 
+                  className="px-3 py-1.5 text-sm text-violet-400 hover:text-violet-300 transition-colors"
+                >
+                  Clear Filters
+                </button>
+              </div>
+            </div>
+          )}
+
+          {(selectedTag || selectedMonth || searchTerm) && (
+            <div className="flex flex-wrap gap-2 mt-3">
+              {searchTerm && (
+                <Badge className="flex items-center gap-1 bg-violet-500/20 text-violet-300 border-violet-500/30">
+                  Search: {searchTerm}
+                  <X className="w-3 h-3 cursor-pointer hover:text-violet-100" onClick={() => setSearchTerm("")} />
+                </Badge>
+              )}
+              {selectedTag && (
+                <Badge className="flex items-center gap-1 bg-violet-500/20 text-violet-300 border-violet-500/30">
+                  Tag: {selectedTag}
+                  <X className="w-3 h-3 cursor-pointer hover:text-violet-100" onClick={() => setSelectedTag("")} />
+                </Badge>
+              )}
+              {selectedMonth && (
+                <Badge className="flex items-center gap-1 bg-violet-500/20 text-violet-300 border-violet-500/30">
+                  Month: {selectedMonth}
+                  <X className="w-3 h-3 cursor-pointer hover:text-violet-100" onClick={() => setSelectedMonth("")} />
+                </Badge>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Results Count */}
+        <div className="max-w-4xl mx-auto mb-4">
+          <p className="text-sm text-violet-300/50">
+            Showing {startIndex + 1}-{Math.min(endIndex, filteredLogs.length)} of {filteredLogs.length} activity logs
           </p>
         </div>
 
-        {/* MakerSpace Innohub Company Card */}
-        <div className="mt-6 p-5 rounded-xl bg-gradient-to-r from-red-500/5 via-red-600/5 to-transparent border border-red-500/20 backdrop-blur-sm">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
-            <div className="flex-shrink-0">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gray-800 flex items-center justify-center shadow-md border border-gray-700 p-2">
-                <img 
-                  src="/Makespace.png"
-                  alt="MakerSpace Innohub Logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+        {/* Activity Logs List */}
+        <div className="max-w-4xl mx-auto space-y-4">
+          {currentLogs.length === 0 ? (
+            <div className="text-center py-12 bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-xl rounded-2xl border border-violet-500/20">
+              <div className="text-6xl mb-4">🔍</div>
+              <h3 className="text-xl font-semibold mb-2 text-white">No logs found</h3>
+              <p className="text-gray-500">Try adjusting your search or filters</p>
+              <button 
+                onClick={clearFilters} 
+                className="mt-4 px-4 py-2 text-sm bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 rounded-lg transition-all duration-300 text-white"
+              >
+                Clear all filters
+              </button>
             </div>
-            <div className="flex-1 space-y-2">
-              <div className="flex flex-wrap items-center gap-3">
-                <h2 className="font-headline font-bold text-xl md:text-2xl text-white">
-                  MakerSpace Innohub
-                </h2>
-                <Badge variant="secondary" className="bg-green-900/30 text-green-400">
-                  Active
-                </Badge>
+          ) : (
+            currentLogs.map((log) => (
+              <div key={log.id} className="relative group">
+                <Link href={`/logs/${log.slug}`} className="block">
+                  <Card className="group/card bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-xl rounded-2xl border border-violet-500/20 hover:border-violet-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/20 overflow-hidden cursor-pointer">
+                    <CardContent className="p-5">
+                      <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
+                        <div className="space-y-2 flex-1">
+                          <div className="flex items-center gap-3 text-xs font-code text-gray-500 flex-wrap">
+                            <span className="text-2xl">{log.icon}</span>
+                            <div className="flex items-center gap-1.5">
+                              <Calendar className="w-3.5 h-3.5 text-violet-400" />
+                              <span className="text-violet-300/60">{log.date}</span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              <BookOpen className="w-3.5 h-3.5 text-violet-400" />
+                              <span className="text-violet-300/60">2 min read</span>
+                            </div>
+                          </div>
+                          <h2 className="font-headline font-bold text-lg md:text-xl group-hover/card:text-transparent group-hover/card:bg-gradient-to-r group-hover/card:from-violet-300 group-hover/card:to-indigo-300 group-hover/card:bg-clip-text transition-all duration-300 text-white">
+                            {log.title}
+                          </h2>
+                          <p className="text-gray-400 text-sm md:text-base leading-relaxed line-clamp-2">{log.description}</p>
+                          <div className="flex flex-wrap gap-2 pt-2">
+                            {log.tags.map(tag => (
+                              <Badge 
+                                key={tag} 
+                                className="text-[10px] uppercase font-bold tracking-wider px-2 py-1 cursor-pointer hover:bg-violet-500/30 transition-all duration-300 bg-violet-500/20 text-violet-300 border-violet-500/30" 
+                                onClick={(e) => { e.preventDefault(); setSelectedTag(tag); }}
+                              >
+                                {tag}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-10 h-10 rounded-full bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover/card:bg-gradient-to-r group-hover/card:from-violet-600 group-hover/card:to-purple-600 group-hover/card:text-white transition-all duration-300 group-hover/card:scale-110">
+                            <Eye className="w-4 h-4" />
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               </div>
-              
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                Building the Future of Digital Business with AI & Expert Marketing. We combine Custom Software Development, 
-                SEO Authority, and Business Automation to turn your vision into a market leader.
-              </p>
-              
-              <div className="flex flex-wrap items-center gap-4 pt-1">
-                <div className="flex items-center gap-1.5 text-xs text-gray-500">
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>001 Zinnia St., Nilombot, Mapandan, Pangasinan</span>
-                </div>
-                <div className="flex items-center gap-1.5 text-xs text-gray-500">
-                  <CalendarDays className="w-3.5 h-3.5" />
-                  <span>OJT Period: February - May 2026</span>
-                </div>
-                <a 
-                  href="https://www.makerspace.ph/#" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs text-red-500 hover:text-red-400 transition-colors group"
+            ))
+          )}
+        </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="max-w-4xl mx-auto mt-8 flex justify-center items-center gap-2">
+            <button 
+              onClick={() => goToPage(1)} 
+              disabled={currentPage === 1} 
+              className="p-2 rounded-lg border border-violet-500/30 bg-violet-500/10 hover:bg-violet-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+            >
+              <ChevronsLeft className="w-4 h-4 text-violet-400" />
+            </button>
+            <button 
+              onClick={() => goToPage(currentPage - 1)} 
+              disabled={currentPage === 1} 
+              className="p-2 rounded-lg border border-violet-500/30 bg-violet-500/10 hover:bg-violet-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+            >
+              <ChevronLeft className="w-4 h-4 text-violet-400" />
+            </button>
+            <div className="flex gap-1">
+              {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                let pageNum;
+                if (totalPages <= 5) pageNum = i + 1;
+                else if (currentPage <= 3) pageNum = i + 1;
+                else if (currentPage >= totalPages - 2) pageNum = totalPages - 4 + i;
+                else pageNum = currentPage - 2 + i;
+                return (
+                  <button 
+                    key={pageNum} 
+                    onClick={() => goToPage(pageNum)} 
+                    className={`w-10 h-10 rounded-lg border transition-all duration-300 ${
+                      currentPage === pageNum 
+                        ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white border-violet-500 shadow-lg shadow-violet-500/25' 
+                        : 'border-violet-500/30 bg-violet-500/10 hover:bg-violet-500/20 text-violet-400'
+                    }`}
+                  >
+                    {pageNum}
+                  </button>
+                );
+              })}
+            </div>
+            <button 
+              onClick={() => goToPage(currentPage + 1)} 
+              disabled={currentPage === totalPages} 
+              className="p-2 rounded-lg border border-violet-500/30 bg-violet-500/10 hover:bg-violet-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+            >
+              <ChevronRight className="w-4 h-4 text-violet-400" />
+            </button>
+            <button 
+              onClick={() => goToPage(totalPages)} 
+              disabled={currentPage === totalPages} 
+              className="p-2 rounded-lg border border-violet-500/30 bg-violet-500/10 hover:bg-violet-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+            >
+              <ChevronsRight className="w-4 h-4 text-violet-400" />
+            </button>
+          </div>
+        )}
+
+        {/* My OJT Journey Section */}
+        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-violet-500/20">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 text-violet-400 font-bold tracking-widest text-xs uppercase">
+                <Rocket className="w-4 h-4" />
+                <span>MY OJT JOURNEY</span>
+              </div>
+              <Badge className="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 text-amber-400 border-amber-500/30">
+                <Award className="w-3 h-3 mr-1" />
+                NCII CSS Certified
+              </Badge>
+            </div>
+            <button
+              onClick={() => setShowOjtJourney(!showOjtJourney)}
+              className="p-1.5 rounded-lg hover:bg-violet-500/20 transition-colors"
+            >
+              {showOjtJourney ? <ChevronUp className="w-4 h-4 text-violet-400" /> : <ChevronDown className="w-4 h-4 text-violet-400" />}
+            </button>
+          </div>
+
+          {showOjtJourney && (
+            <div className="space-y-4">
+              <div className="flex justify-end items-center gap-2">
+                <button 
+                  onClick={toggleOjtAutoPlay} 
+                  className="p-2 rounded-full bg-violet-500/10 hover:bg-violet-500/20 transition-all duration-300"
+                  title={ojtIsAutoPlaying ? "Pause Auto-Slide" : "Play Auto-Slide"}
                 >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4-3-9s1.34-9 3-9m-9 9a9 9 0 019-9" />
-                  </svg>
-                  <span className="group-hover:underline">makerspace.ph</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
-          <div className="text-center p-3 rounded-lg bg-gray-900/50 border border-gray-800">
-            <p className="text-2xl font-bold text-red-500">{HARCODED_LOGS.length}</p>
-            <p className="text-xs text-gray-500">Total Logs</p>
-          </div>
-          <div className="text-center p-3 rounded-lg bg-gray-900/50 border border-gray-800">
-            <p className="text-2xl font-bold text-red-500">{allTags.length}</p>
-            <p className="text-xs text-gray-500">Unique Tags</p>
-          </div>
-          <div className="text-center p-3 rounded-lg bg-gray-900/50 border border-gray-800">
-            <p className="text-2xl font-bold text-red-500">🏅</p>
-            <p className="text-xs text-gray-500">NCII Certified</p>
-          </div>
-          <div className="text-center p-3 rounded-lg bg-gray-900/50 border border-gray-800">
-            <p className="text-2xl font-bold text-red-500">{totalPages}</p>
-            <p className="text-xs text-gray-500">Total Pages</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Search and Filter Bar */}
-      <div className="max-w-4xl mx-auto mb-6">
-        <div className="flex flex-wrap gap-3 items-center justify-between">
-          <div className="flex-1 min-w-[200px]">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
-              <input
-                type="text"
-                placeholder="Search logs..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 rounded-lg border border-gray-800 bg-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500/50 text-sm text-white"
-              />
-            </div>
-          </div>
-          <button onClick={() => setShowFilters(!showFilters)} className={`px-4 py-2 rounded-lg border transition-colors flex items-center gap-2 text-sm ${showFilters || selectedTag || selectedMonth ? 'bg-red-500 text-white border-red-500' : 'bg-gray-900 border-gray-800 hover:border-red-500/50'}`}>
-            <Filter className="w-4 h-4" />
-            Filters
-            {(selectedTag || selectedMonth) && <span className="ml-1 w-5 h-5 rounded-full bg-white/20 text-xs flex items-center justify-center">{(selectedTag ? 1 : 0) + (selectedMonth ? 1 : 0)}</span>}
-          </button>
-        </div>
-
-        {showFilters && (
-          <div className="mt-4 p-4 rounded-lg bg-gray-900 border border-gray-800 animate-in slide-in-from-top-2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="text-xs font-medium text-gray-500 mb-2 block">Filter by Tag</label>
-                <select value={selectedTag} onChange={(e) => setSelectedTag(e.target.value)} className="w-full px-3 py-2 rounded-lg border border-gray-800 bg-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500/50 text-sm text-white">
-                  <option value="">All Tags</option>
-                  {allTags.map(tag => <option key={tag} value={tag}>{tag}</option>)}
-                </select>
-              </div>
-              <div>
-                <label className="text-xs font-medium text-gray-500 mb-2 block">Filter by Month</label>
-                <select value={selectedMonth} onChange={(e) => setSelectedMonth(e.target.value)} className="w-full px-3 py-2 rounded-lg border border-gray-800 bg-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500/50 text-sm text-white">
-                  <option value="">All Months</option>
-                  {months.map(month => <option key={month} value={month}>{month}</option>)}
-                </select>
-              </div>
-            </div>
-            <div className="flex justify-end gap-2 mt-4">
-              <button onClick={clearFilters} className="px-3 py-1.5 text-sm text-gray-500 hover:text-white transition-colors">Clear Filters</button>
-            </div>
-          </div>
-        )}
-
-        {(selectedTag || selectedMonth || searchTerm) && (
-          <div className="flex flex-wrap gap-2 mt-3">
-            {searchTerm && <Badge variant="secondary" className="flex items-center gap-1 bg-gray-800">Search: {searchTerm}<X className="w-3 h-3 cursor-pointer" onClick={() => setSearchTerm("")} /></Badge>}
-            {selectedTag && <Badge variant="secondary" className="flex items-center gap-1 bg-red-500/20 text-red-400">Tag: {selectedTag}<X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedTag("")} /></Badge>}
-            {selectedMonth && <Badge variant="secondary" className="flex items-center gap-1 bg-gray-800">Month: {selectedMonth}<X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedMonth("")} /></Badge>}
-          </div>
-        )}
-      </div>
-
-      <div className="max-w-4xl mx-auto mb-4">
-        <p className="text-sm text-gray-500">Showing {startIndex + 1}-{Math.min(endIndex, filteredLogs.length)} of {filteredLogs.length} activity logs</p>
-      </div>
-
-      {/* Activity Logs List */}
-      <div className="max-w-4xl mx-auto space-y-4">
-        {currentLogs.length === 0 ? (
-          <div className="text-center py-12">
-            <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-semibold mb-2 text-white">No logs found</h3>
-            <p className="text-gray-500">Try adjusting your search or filters</p>
-            <button onClick={clearFilters} className="mt-4 px-4 py-2 text-sm bg-red-500/10 hover:bg-red-500/20 rounded-lg transition-colors text-red-400">Clear all filters</button>
-          </div>
-        ) : (
-          currentLogs.map((log) => (
-            <div key={log.id} className="relative group">
-              <Link href={`/logs/${log.slug}`} className="block">
-                <Card className="hover:shadow-md transition-all border-gray-800 hover:border-red-500/50 overflow-hidden cursor-pointer bg-gray-900/80 backdrop-blur-sm">
-                  <CardContent className="p-5">
-                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                      <div className="space-y-2 flex-1">
-                        <div className="flex items-center gap-3 text-xs font-code text-gray-500 flex-wrap">
-                          <span className="text-xl">{log.icon}</span>
-                          <div className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5 text-red-400" />{log.date}</div>
-                          <div className="flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5 text-red-400" />2 min read</div>
-                        </div>
-                        <h2 className="font-headline font-bold text-lg md:text-xl group-hover:text-red-500 transition-colors text-white">
-                          {log.title}
-                        </h2>
-                        <p className="text-gray-400 text-sm md:text-base leading-relaxed">{log.description}</p>
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          {log.tags.map(tag => (
-                            <Badge key={tag} variant="secondary" className="text-[10px] uppercase font-bold tracking-wider px-2 cursor-pointer hover:bg-red-500/20 transition-colors bg-red-500/10 text-red-400" onClick={(e) => { e.preventDefault(); setSelectedTag(tag); }}>
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-10 h-10 rounded-full bg-red-500/5 flex items-center justify-center text-red-500 group-hover:bg-red-500 group-hover:text-white transition-all duration-300 group-hover:scale-110">
-                          <ChevronRight className="w-5 h-5" />
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            </div>
-          ))
-        )}
-      </div>
-
-      {/* Pagination Controls */}
-      {totalPages > 1 && (
-        <div className="max-w-4xl mx-auto mt-8 flex justify-center items-center gap-2">
-          <button onClick={() => goToPage(1)} disabled={currentPage === 1} className="p-2 rounded-lg border border-gray-800 hover:border-red-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"><ChevronsLeft className="w-4 h-4" /></button>
-          <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1} className="p-2 rounded-lg border border-gray-800 hover:border-red-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"><ChevronLeft className="w-4 h-4" /></button>
-          <div className="flex gap-1">
-            {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-              let pageNum;
-              if (totalPages <= 5) pageNum = i + 1;
-              else if (currentPage <= 3) pageNum = i + 1;
-              else if (currentPage >= totalPages - 2) pageNum = totalPages - 4 + i;
-              else pageNum = currentPage - 2 + i;
-              return (
-                <button key={pageNum} onClick={() => goToPage(pageNum)} className={`w-10 h-10 rounded-lg border transition-colors ${currentPage === pageNum ? 'bg-red-500 text-white border-red-500' : 'border-gray-800 hover:border-red-500/50'}`}>
-                  {pageNum}
+                  {ojtIsAutoPlaying ? <Pause className="w-3.5 h-3.5 text-violet-400" /> : <Play className="w-3.5 h-3.5 text-violet-400" />}
                 </button>
-              );
-            })}
-          </div>
-          <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages} className="p-2 rounded-lg border border-gray-800 hover:border-red-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"><ChevronRight className="w-4 h-4" /></button>
-          <button onClick={() => goToPage(totalPages)} disabled={currentPage === totalPages} className="p-2 rounded-lg border border-gray-800 hover:border-red-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"><ChevronsRight className="w-4 h-4" /></button>
-        </div>
-      )}
+                <button 
+                  onClick={handleOjtPrev} 
+                  className="p-2 rounded-full bg-violet-500/10 hover:bg-violet-500/20 transition-all duration-300"
+                >
+                  <ChevronLeft className="w-4 h-4 text-violet-400" />
+                </button>
+                <button 
+                  onClick={handleOjtNext} 
+                  className="p-2 rounded-full bg-violet-500/10 hover:bg-violet-500/20 transition-all duration-300"
+                >
+                  <ChevronRight className="w-4 h-4 text-violet-400" />
+                </button>
+              </div>
 
-      {/* My OJT Journey Section */}
-      <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-gray-800">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 text-red-500 font-bold tracking-widest text-xs uppercase">
-              <Rocket className="w-4 h-4" />
-              <span>MY OJT JOURNEY</span>
-            </div>
-            <Badge className="bg-yellow-500/20 text-yellow-400 border-yellow-500/30">
-              <Award className="w-3 h-3 mr-1" />
-              NCII CSS Certified
-            </Badge>
-          </div>
-          <button
-            onClick={() => setShowOjtJourney(!showOjtJourney)}
-            className="p-1.5 rounded-lg hover:bg-gray-800 transition-colors"
-          >
-            {showOjtJourney ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
-          </button>
-        </div>
-
-        {showOjtJourney && (
-          <div className="space-y-4">
-            <div className="flex justify-end items-center gap-2">
-              <button 
-                onClick={toggleOjtAutoPlay} 
-                className="p-2 rounded-full bg-gray-800/50 hover:bg-gray-800 transition-colors"
-                title={ojtIsAutoPlaying ? "Pause Auto-Slide" : "Play Auto-Slide"}
-              >
-                {ojtIsAutoPlaying ? <Pause className="w-3.5 h-3.5 text-gray-400" /> : <Play className="w-3.5 h-3.5 text-gray-400" />}
-              </button>
-              <button 
-                onClick={handleOjtPrev} 
-                className="p-2 rounded-full bg-red-500/10 hover:bg-red-500/20 transition-colors"
-              >
-                <ChevronLeft className="w-4 h-4 text-red-500" />
-              </button>
-              <button 
-                onClick={handleOjtNext} 
-                className="p-2 rounded-full bg-red-500/10 hover:bg-red-500/20 transition-colors"
-              >
-                <ChevronRight className="w-4 h-4 text-red-500" />
-              </button>
-            </div>
-
-            <div className="relative">
-              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 md:w-24 z-10 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
-              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 md:w-24 z-10 bg-gradient-to-l from-black via-black/80 to-transparent"></div>
-              
-              <div 
-                ref={ojtScrollRef} 
-                className="flex gap-5 overflow-x-auto scroll-smooth pb-4 hide-scrollbar" 
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-              >
-                {ojtTimeline.map((event, index) => (
-                  <div key={index} className="relative flex-shrink-0 w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] group">
-                    <div className={`relative h-full bg-gray-900/80 backdrop-blur-sm rounded-xl border overflow-hidden hover:shadow-xl transition-all duration-300 ${
-                      event.title.includes("PASSED") 
-                        ? 'border-yellow-500/40 hover:border-yellow-500/60' 
-                        : 'border-gray-800 hover:border-red-500/40'
-                    }`}>
-                      <div className={`px-4 py-2 border-b ${
+              <div className="relative">
+                <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 md:w-24 z-10 bg-gradient-to-r from-violet-950 via-violet-950/80 to-transparent"></div>
+                <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 md:w-24 z-10 bg-gradient-to-l from-violet-950 via-violet-950/80 to-transparent"></div>
+                
+                <div 
+                  ref={ojtScrollRef} 
+                  className="flex gap-5 overflow-x-auto scroll-smooth pb-4 hide-scrollbar" 
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                  {ojtTimeline.map((event, index) => (
+                    <div key={index} className="relative flex-shrink-0 w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] group">
+                      <div className={`relative h-full bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-xl rounded-xl border overflow-hidden hover:shadow-2xl transition-all duration-300 ${
                         event.title.includes("PASSED") 
-                          ? 'bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border-yellow-500/20' 
-                          : 'bg-red-500/5 border-gray-800'
+                          ? 'border-amber-500/40 hover:border-amber-500/60' 
+                          : 'border-violet-500/20 hover:border-violet-400/40'
                       }`}>
-                        <div className="flex items-center justify-between">
-                          <span className={`text-xs font-bold ${
-                            event.title.includes("PASSED") ? 'text-yellow-500' : 'text-red-500'
+                        <div className={`px-4 py-2 border-b ${
+                          event.title.includes("PASSED") 
+                            ? 'bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-amber-500/20' 
+                            : 'bg-violet-500/10 border-violet-500/20'
+                        }`}>
+                          <div className="flex items-center justify-between">
+                            <span className={`text-xs font-bold ${
+                              event.title.includes("PASSED") ? 'text-amber-400' : 'text-violet-400'
+                            }`}>
+                              {event.date}
+                            </span>
+                            <span className="text-lg">{event.icon}</span>
+                          </div>
+                        </div>
+                        <div className="p-4">
+                          <h3 className={`font-headline font-bold text-sm md:text-base mb-2 line-clamp-2 ${
+                            event.title.includes("PASSED") ? 'text-amber-400' : 'text-white'
                           }`}>
-                            {event.date}
-                          </span>
-                          <span className="text-lg">{event.icon}</span>
+                            {event.title}
+                          </h3>
+                          <p className="text-gray-400 text-xs md:text-sm leading-relaxed line-clamp-3">
+                            {event.description}
+                          </p>
+                        </div>
+                        <div className="px-4 pb-3">
+                          <Badge variant="secondary" className="text-[9px] bg-violet-500/20 text-violet-300/70 border-violet-500/30">
+                            {event.category}
+                          </Badge>
                         </div>
                       </div>
-                      <div className="p-4">
-                        <h3 className={`font-headline font-bold text-sm md:text-base mb-2 line-clamp-2 ${
-                          event.title.includes("PASSED") ? 'text-yellow-500' : 'text-white'
-                        }`}>
-                          {event.title}
-                        </h3>
-                        <p className="text-gray-400 text-xs md:text-sm leading-relaxed line-clamp-3">
-                          {event.description}
-                        </p>
-                      </div>
-                      <div className="px-4 pb-3">
-                        <Badge variant="secondary" className="text-[9px] bg-gray-800/50 text-gray-500">
-                          {event.category}
-                        </Badge>
-                      </div>
                     </div>
-                  </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-center gap-2 mt-4">
+                {Array.from({ length: Math.ceil(ojtTimeline.length / ojtVisibleCards) }).map((_, i) => (
+                  <button 
+                    key={i} 
+                    onClick={() => { 
+                      setOjtIsAutoPlaying(false); 
+                      setOjtCurrentIndex(i * ojtVisibleCards); 
+                      setTimeout(() => setOjtIsAutoPlaying(true), 5000); 
+                    }}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      Math.floor(ojtCurrentIndex / ojtVisibleCards) === i 
+                        ? 'w-6 bg-gradient-to-r from-violet-500 to-purple-500' 
+                        : 'w-1.5 bg-violet-500/30 hover:bg-violet-500/50'
+                    }`} 
+                  />
                 ))}
               </div>
             </div>
-
-            <div className="flex justify-center gap-2 mt-4">
-              {Array.from({ length: Math.ceil(ojtTimeline.length / ojtVisibleCards) }).map((_, i) => (
-                <button 
-                  key={i} 
-                  onClick={() => { 
-                    setOjtIsAutoPlaying(false); 
-                    setOjtCurrentIndex(i * ojtVisibleCards); 
-                    setTimeout(() => setOjtIsAutoPlaying(true), 5000); 
-                  }}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    Math.floor(ojtCurrentIndex / ojtVisibleCards) === i 
-                      ? 'w-6 bg-red-500' 
-                      : 'w-1.5 bg-red-500/30 hover:bg-red-500/50'
-                  }`} 
-                />
-              ))}
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       <style jsx>{`
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }
-        @keyframes slide-in {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+        @keyframes pulseSlow {
+          0%, 100% { opacity: 0.1; transform: scale(1); }
+          50% { opacity: 0.15; transform: scale(1.1); }
         }
-        @keyframes slide-in-top {
+        @keyframes pulseSlower {
+          0%, 100% { opacity: 0.08; transform: scale(1); }
+          50% { opacity: 0.12; transform: scale(1.15); }
+        }
+        @keyframes fade-in {
           from { opacity: 0; transform: translateY(-10px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        .animate-in { animation: slide-in 0.3s ease-out; }
-        .slide-in-from-top-2 { animation: slide-in-top 0.3s ease-out; }
-        @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
+        .animate-pulse-slow {
+          animation: pulseSlow 4s ease-in-out infinite;
         }
-        .animate-fade-in { animation: fade-in 0.2s ease-out; }
-        @keyframes slide-up {
-          from { transform: translateY(100%); }
-          to { transform: translateY(0); }
+        .animate-pulse-slower {
+          animation: pulseSlower 6s ease-in-out infinite;
         }
-        .animate-slide-up { animation: slide-up 0.3s ease-out; }
-        @media (min-width: 640px) {
-          .animate-slide-up { animation: none; }
+        .animate-fade-in {
+          animation: fade-in 0.3s ease-out;
         }
       `}</style>
     </div>
