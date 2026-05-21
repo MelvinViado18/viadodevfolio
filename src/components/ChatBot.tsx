@@ -18,7 +18,7 @@ interface Message {
   };
 }
 
-// Project details with images and descriptions
+// Import all data from other files
 const projectDetails = {
   "SyncSnap": {
     name: "SyncSnap",
@@ -61,80 +61,292 @@ const projectDetails = {
       "Team collaboration tools"
     ]
   },
-  "Base Platform & FurFund": {
-    name: "Base Platform & FurFund",
-    description: "A development and learning phase focused on exploring the Base blockchain platform, setting up Vercel environment, and building the initial prototype of FurFund.",
-    image: "/FurFand/Screenshot (149).png",
-    techStack: ["Next.js", "Base Blockchain", "Vercel"],
+  "Sibol": {
+    name: "Sibol",
+    description: "Sibol connects buyers directly to farmer cooperatives with transparent pricing, secure escrow payments, and pooled buying for smarter agricultural trade.",
+    image: "/Sibol/sibol1.webp",
+    techStack: ["Next.js", "Vercel", "Base Blockchain"],
     features: [
-      "Blockchain platform exploration",
-      "Vercel deployment setup",
-      "FurFund prototype development",
-      "Future blockchain integration ready"
+      "Direct buyer-farmer connection",
+      "Transparent pricing system",
+      "Secure escrow payments",
+      "Pooled buying for agricultural trade",
+      "Community development focus"
     ]
   },
-  "2026 Chevrolet Silverado 1500 vs. 2026 Toyota Tundra": {
-    name: "2026 Chevrolet Silverado 1500 vs. 2026 Toyota Tundra",
-    description: "A UI/UX design task focused on creating a structured and visually appealing comparison page for the 2026 Chevrolet Silverado 1500 and 2026 Toyota Tundra.",
-    image: "/Car/Screenshot (434).png",
-    techStack: ["UI/UX Design", "Figma"],
+  "The 2026 Ford Bronco": {
+    name: "The 2026 Ford Bronco In Danville, Kentucky",
+    description: "A UI/UX design task focused on creating a structured and visually appealing vehicle information page for the 2026 Ford Bronco in Danville, Kentucky.",
+    image: "/Bronco/Bronco1.webp",
+    techStack: ["UI/UX Design", "HTML", "CSS"],
     features: [
-      "Side-by-side vehicle comparison",
-      "Specifications and pricing tables",
-      "Responsive design",
-      "Modern automotive-style UI"
+      "Vehicle specification tables",
+      "Design and performance highlights",
+      "Responsive layout",
+      "Trim level comparisons",
+      "Pricing information"
+    ]
+  },
+  "Mercedes-Benz Vans Custom Upfits": {
+    name: "Mercedes-Benz Vans Custom Upfits in Caldwell, New Jersey",
+    description: "A UI/UX design task focused on creating a structured and visually appealing page for Mercedes-Benz Vans Custom Upfits, showcasing modular van conversion options and commercial upfit solutions.",
+    image: "/Mercedez/Mercedez1.webp",
+    techStack: ["UI/UX Design", "HTML", "CSS"],
+    features: [
+      "Cargo management systems",
+      "Interior shelving and storage",
+      "Electrical and lighting upgrades",
+      "HVAC solutions",
+      "Commercial configuration options"
     ]
   }
 };
 
-// Helper to check if user is asking about a specific project
+// Knowledge base from all files
+const knowledgeBase = {
+  name: "John Melvin G. Viado",
+  education: "BSIT Student at Universidad De Dagupan",
+  location: "Malabago, Mangaldan, Pangasinan",
+  contact: {
+    email: "viadojohnmelvin18@gmail.com",
+    phone: "(+63) 950-193-25-37",
+    location: "Malabago, Mangaldan, Pangasinan"
+  },
+  skills: [
+    "HTML5", "CSS3", "Java", "JavaScript", "PHP", 
+    "React Native", "Laravel", "Next.js", "MySQL", 
+    "MariaDB", "MongoDB", "PostgreSQL", "Figma", "Canva"
+  ],
+  certifications: [
+    "NCII CSS Certified (Passed May 6, 2026)"
+  ],
+  experience: {
+    ojt: "OJT at MakerSpace Innohub (February - May 2026)",
+    role: "Full-stack Developer Trainee",
+    responsibilities: [
+      "Full-stack web application development",
+      "AI integration using Gemini API",
+      "Database design and management",
+      "Real-time feature implementation",
+      "UI/UX design and responsive development",
+      "Git version control and team collaboration"
+    ]
+  },
+  ojtJourney: {
+    duration: "February 4 - May 21, 2026",
+    totalWeeks: 14,
+    keyMilestones: [
+      "Week 1: SUI blockchain learning",
+      "Week 2: Node.js & first page creation",
+      "Week 3: SyncSnap project planning",
+      "Week 4-7: SyncSnap development (database, auth, gamification, AI reports)",
+      "Week 8-14: FlowState development (real-time features, shift scheduling, exports)",
+      "Week 10-12: TESDA NCII CSS Training & Certification"
+    ]
+  },
+  interests: "Web development, AI integration, mobile apps, UI/UX design, blockchain technology",
+  company: {
+    name: "MakerSpace Innohub",
+    location: "001 Zinnia St., Nilombot, Mapandan, Pangasinan",
+    website: "https://www.makerspace.ph",
+    description: "Building the Future of Digital Business with AI & Expert Marketing. We combine Custom Software Development, SEO Authority, and Business Automation to turn your vision into a market leader."
+  },
+  resume: {
+    available: true,
+    format: "PDF"
+  },
+  projectsCompleted: Object.keys(projectDetails).length
+};
+
+// Helper functions remain the same
 const getProjectFromQuery = (message: string): string | null => {
   const lowerMessage = message.toLowerCase().trim();
-  
   const projectNames = Object.keys(projectDetails);
   
   for (const project of projectNames) {
     const lowerProject = project.toLowerCase();
-    
-    if (lowerMessage === lowerProject || 
-        lowerMessage.includes(lowerProject) ||
-        lowerProject.includes(lowerMessage)) {
+    if (lowerMessage === lowerProject || lowerMessage.includes(lowerProject) || lowerProject.includes(lowerMessage)) {
       return project;
     }
-    
-    const variations = {
-      "syncsnap": "SyncSnap",
-      "sync snap": "SyncSnap",
-      "sync": "SyncSnap",
-      "flowstate": "FlowState",
-      "flow state": "FlowState",
-      "flow": "FlowState",
-      "axiom": "Axiom Scrumban",
-      "axiom scrumban": "Axiom Scrumban",
-      "scrumban": "Axiom Scrumban",
-      "furfund": "Base Platform & FurFund",
-      "fur fund": "Base Platform & FurFund",
-      "base platform": "Base Platform & FurFund",
-      "chevrolet": "2026 Chevrolet Silverado 1500 vs. 2026 Toyota Tundra",
-      "silverado": "2026 Chevrolet Silverado 1500 vs. 2026 Toyota Tundra",
-      "tundra": "2026 Chevrolet Silverado 1500 vs. 2026 Toyota Tundra",
-      "car comparison": "2026 Chevrolet Silverado 1500 vs. 2026 Toyota Tundra",
-      "vehicle comparison": "2026 Chevrolet Silverado 1500 vs. 2026 Toyota Tundra"
-    };
-    
-    for (const [key, value] of Object.entries(variations)) {
-      if (lowerMessage.includes(key)) {
-        return value;
+    const projectWords = lowerProject.split(' ');
+    for (const word of projectWords) {
+      if (word.length > 3 && lowerMessage.includes(word)) {
+        return project;
       }
     }
   }
   
+  const variations: Record<string, string> = {
+    "syncsnap": "SyncSnap",
+    "sync snap": "SyncSnap",
+    "sync": "SyncSnap",
+    "flowstate": "FlowState",
+    "flow state": "FlowState",
+    "flow": "FlowState",
+    "axiom": "Axiom Scrumban",
+    "axiom scrumban": "Axiom Scrumban",
+    "scrumban": "Axiom Scrumban",
+    "sibol": "Sibol",
+    "bronco": "The 2026 Ford Bronco",
+    "ford bronco": "The 2026 Ford Bronco",
+    "mercedes": "Mercedes-Benz Vans Custom Upfits",
+    "mercedes benz": "Mercedes-Benz Vans Custom Upfits",
+    "upfits": "Mercedes-Benz Vans Custom Upfits"
+  };
+  
+  for (const [key, value] of Object.entries(variations)) {
+    if (lowerMessage.includes(key)) {
+      return value;
+    }
+  }
+  return null;
+};
+
+const getSkillsResponse = (message: string): string | null => {
+  const lowerMessage = message.toLowerCase();
+  if (lowerMessage.match(/skill|technologies|tech stack|what can you do|programming languages|tools|proficient in/i)) {
+    return ` ${knowledgeBase.name} is proficient in: ${knowledgeBase.skills.join(', ')}. He specializes in full-stack development using these technologies.`;
+  }
+  for (const skill of knowledgeBase.skills) {
+    if (lowerMessage.includes(skill.toLowerCase())) {
+      return ` Yes! ${knowledgeBase.name} is skilled in ${skill}. This is used in various projects including ${Object.keys(projectDetails).slice(0, 3).join(', ')}.`;
+    }
+  }
+  return null;
+};
+
+const getOJTResponse = (message: string): string | null => {
+  const lowerMessage = message.toLowerCase();
+  if (lowerMessage.match(/ojt|internship|training|maker space|makerspace|innohub|work experience/i)) {
+    return ` ${knowledgeBase.name} completed his OJT at ${knowledgeBase.experience.ojt} as a ${knowledgeBase.experience.role}. 
+    
+ Key Responsibilities:
+${knowledgeBase.experience.responsibilities.map(r => `• ${r}`).join('\n')}
+
+ Duration: ${knowledgeBase.ojtJourney.duration}
+ Key Milestones:
+${knowledgeBase.ojtJourney.keyMilestones.slice(0, 5).map(m => `• ${m}`).join('\n')}
+
+ Type "OJT Milestones" to see the complete journey!`;
+  }
+  if (lowerMessage.match(/milestone|ojt journey|weekly|week \d|development journey/i)) {
+    return ` Here's a quick overview of the ${knowledgeBase.ojtJourney.totalWeeks}-week OJT journey:
+
+${knowledgeBase.ojtJourney.keyMilestones.map((m, i) => `${i + 1}. ${m}`).join('\n')}
+
+ Want detailed weekly logs? Check the "Logs" page for complete weekly breakdowns!`;
+  }
+  return null;
+};
+
+const getCompanyResponse = (message: string): string | null => {
+  const lowerMessage = message.toLowerCase();
+  if (lowerMessage.match(/company|makerspace|maker space|innohub|where did you work|ojt company/i)) {
+    return ` ${knowledgeBase.company.name}
+ ${knowledgeBase.company.location}
+ ${knowledgeBase.company.website}
+
+ About:
+${knowledgeBase.company.description}
+
+ This is where ${knowledgeBase.name} completed his OJT training, working on projects like SyncSnap and FlowState.`;
+  }
+  return null;
+};
+
+const getCertificationResponse = (message: string): string | null => {
+  const lowerMessage = message.toLowerCase();
+  if (lowerMessage.match(/certification|ncii|certified|passed|exam|assessment|nc ii|css/i)) {
+    return ` ${knowledgeBase.certifications.join(', ')}  
+    
+This certification validates his proficiency in computer systems servicing, networking, and web development fundamentals.
+
+ Date Passed: May 6, 2026
+ Issuing Body: TESDA (Technical Education and Skills Development Authority)`;
+  }
+  return null;
+};
+
+const getContactResponse = (message: string): string | null => {
+  const lowerMessage = message.toLowerCase();
+  if (lowerMessage.match(/contact|email|phone|reach|connect|get in touch|how to contact/i)) {
+    return ` You can reach ${knowledgeBase.name} via:
+ Email: ${knowledgeBase.contact.email}
+ Phone: ${knowledgeBase.contact.phone}
+ Location: ${knowledgeBase.contact.location}
+
+ Feel free to reach out for collaborations, opportunities, or just to connect!`;
+  }
+  return null;
+};
+
+const getEducationResponse = (message: string): string | null => {
+  const lowerMessage = message.toLowerCase();
+  if (lowerMessage.match(/education|school|university|college|study|learn|academic/i)) {
+    return ` ${knowledgeBase.name} is currently pursuing ${knowledgeBase.education}. 
+
+ Focus Areas:
+• Full-stack web development
+• Database management
+• UI/UX design
+• Software engineering principles
+
+ He's dedicated to continuous learning and staying updated with the latest technologies.`;
+  }
+  return null;
+};
+
+const getInterestsResponse = (message: string): string | null => {
+  const lowerMessage = message.toLowerCase();
+  if (lowerMessage.match(/interest|passion|hobby|like|love|enjoy|motivated/i)) {
+    return ` ${knowledgeBase.name} is passionate about ${knowledgeBase.interests}. 
+
+ He loves solving complex problems and creating beautiful, functional applications that make a difference in people's lives.`;
+  }
+  return null;
+};
+
+const getResumeResponse = (message: string): string | null => {
+  const lowerMessage = message.toLowerCase();
+  if (lowerMessage.match(/resume|cv|curriculum vitae|application|job application/i)) {
+    return ` Yes, ${knowledgeBase.name} has a professional resume available!
+
+ Format: ${knowledgeBase.resume.format}
+ You can view the resume in the "Resume" section on the homepage or contact him directly for a copy.
+
+ The resume includes detailed information about:
+• Professional experience
+• Technical skills
+• Educational background
+• Certifications
+• Project portfolio`;
+  }
+  return null;
+};
+
+const getProjectsSummaryResponse = (message: string): string | null => {
+  const lowerMessage = message.toLowerCase();
+  if (lowerMessage.match(/list all projects|all projects|show projects|what projects|projects you have|list projects|available projects|project summary/i)) {
+    const projectList = Object.keys(projectDetails).map(name => `• ${name}`).join('\n');
+    return ` Here are all the projects ${knowledgeBase.name} has worked on:
+
+${projectList}
+
+ Total Projects: ${knowledgeBase.projectsCompleted}
+
+ Project Types:
+• Full-stack web applications (SyncSnap, FlowState)
+• UI/UX design projects (Ford Bronco, Mercedes-Benz)
+• Community development (Sibol)
+
+Type any project name (e.g., "SyncSnap") to see detailed information!`;
+  }
   return null;
 };
 
 // Welcome message
 const WELCOME_MESSAGE = {
-  text: "✨ **Hey there!** I'm DevBot, your AI assistant!\n\n💜 I can help you with:\n• 📁 **Projects** - Type project names like 'SyncSnap' or 'FlowState'\n• 📋 **List all projects** - See everything I've worked on\n• 🛠️ **Skills & Technologies** - Ask about my tech stack\n• 🎓 **Education & Certifications** - Learn about my background\n• 📞 **Contact Information** - How to reach me\n\nWhat would you like to know? 🚀",
+  text: "Hey there! I'm DevBot, your AI assistant!\n\n I can help you with:\n•  Projects - Type project names like 'SyncSnap' or 'FlowState'\n• List all projects - See everything I've worked on\n• Skills & Technologies - Ask about my tech stack\n• Education & Certifications - Learn about my background\n• Contact Information - How to reach me\n•  OJT Experience - Ask about my OJT journey\n•  Company Info - Learn about MakerSpace Innohub\n\nWhat would you like to know?",
   sender: 'bot' as const
 };
 
@@ -146,7 +358,7 @@ export default function ChatBot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "✨ Hello! I'm DevBot, your AI assistant! I can help answer questions about John Melvin's skills, experience, projects, and more. What would you like to know?",
+      text: "Hello! I'm DevBot, your AI assistant! I can help answer questions about John Melvin's skills, experience, projects, OJT journey, and more. What would you like to know?",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -157,21 +369,6 @@ export default function ChatBot() {
   const inputRef = useRef<HTMLInputElement>(null);
   const floatingMessageTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Knowledge base
-  const knowledgeBase = {
-    name: "John Melvin G. Viado",
-    education: "BSIT Student at Universidad De Dagupan",
-    skills: ["HTML5", "CSS3", "Java", "JavaScript", "PHP", "React Native", "Laravel", "MySQL", "MariaDB", "MongoDB", "PostgreSQL", "Figma", "Canva"],
-    projects: ["SyncSnap", "FlowState", "Sibol", "2026 Ford Bronco","Mercedes-Benz Vans Custom Upfits"],
-    ojt: "OJT at MakerSpace Innohub",
-    certification: "NCII CSS Certified (Passed May 6, 2026)",
-    experience: "Full-stack development, Real-time applications",
-    interests: "Web development, AI, mobile apps, UI/UX design",
-    contact: "Email: viadojohnmelvin18@gmail.com | Phone: (+63) 950-193-25-37",
-    location: "Malabago, Mangaldan, Pangasinan"
-  };
-
-  // Cycle floating message
   useEffect(() => {
     const cycleFloatingMessage = () => {
       if (!isOpen) {
@@ -184,9 +381,7 @@ export default function ChatBot() {
         }, 5000);
       }
     };
-    
     cycleFloatingMessage();
-    
     return () => {
       if (floatingMessageTimeoutRef.current) {
         clearTimeout(floatingMessageTimeoutRef.current);
@@ -194,7 +389,6 @@ export default function ChatBot() {
     };
   }, [isOpen]);
 
-  // Show welcome message when chat opens
   useEffect(() => {
     if (isOpen && !hasWelcomed && !isMinimized) {
       setHasWelcomed(true);
@@ -230,74 +424,61 @@ export default function ChatBot() {
       const project = projectDetails[projectName as keyof typeof projectDetails];
       if (project) {
         return {
-          text: `✨ Here's detailed information about **${project.name}**:`,
+          text: `Here's detailed information about ${project.name}:`,
           isProjectCard: true,
           projectData: project
         };
       }
     }
     
-    if (lowerMessage.match(/list all projects|all projects|show projects|what projects|projects you have|list projects|available projects/i)) {
-      const projectList = Object.keys(projectDetails).map(name => `• **${name}**`).join('\n');
-      return {
-        text: `✨ Here are all the projects I've worked on:\n\n${projectList}\n\nType the name of any project (e.g., "SyncSnap") to see detailed information!`,
-        isProjectCard: false
-      };
-    }
+    const projectsSummary = getProjectsSummaryResponse(userMessage);
+    if (projectsSummary) return { text: projectsSummary, isProjectCard: false };
+    
+    const skillsResponse = getSkillsResponse(userMessage);
+    if (skillsResponse) return { text: skillsResponse, isProjectCard: false };
+    
+    const ojtResponse = getOJTResponse(userMessage);
+    if (ojtResponse) return { text: ojtResponse, isProjectCard: false };
+    
+    const companyResponse = getCompanyResponse(userMessage);
+    if (companyResponse) return { text: companyResponse, isProjectCard: false };
+    
+    const certResponse = getCertificationResponse(userMessage);
+    if (certResponse) return { text: certResponse, isProjectCard: false };
+    
+    const contactResponse = getContactResponse(userMessage);
+    if (contactResponse) return { text: contactResponse, isProjectCard: false };
+    
+    const educationResponse = getEducationResponse(userMessage);
+    if (educationResponse) return { text: educationResponse, isProjectCard: false };
+    
+    const interestsResponse = getInterestsResponse(userMessage);
+    if (interestsResponse) return { text: interestsResponse, isProjectCard: false };
+    
+    const resumeResponse = getResumeResponse(userMessage);
+    if (resumeResponse) return { text: resumeResponse, isProjectCard: false };
     
     if (lowerMessage.match(/hello|hi|hey|greetings|sup|good morning|good afternoon|good evening/i)) {
-      return { text: "✨ Hello! I'm DevBot. How can I help you today? Feel free to ask about my skills, projects, experience, or anything else!", isProjectCard: false };
+      return { text: "Hello! I'm DevBot. How can I help you today? Feel free to ask about my skills, projects, OJT experience, certifications, or anything else!", isProjectCard: false };
     }
     
     if (lowerMessage.match(/your name|who are you|what's your name|introduce yourself/i)) {
-      return { text: `✨ I'm DevBot, your AI assistant! I'm here to help you learn more about ${knowledgeBase.name}. What would you like to know?`, isProjectCard: false };
+      return { text: `I'm DevBot, your AI assistant! I'm here to help you learn more about ${knowledgeBase.name}. What would you like to know?`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/about|bio|who is|tell me about|background/i)) {
-      return { text: `✨ ${knowledgeBase.name} is a ${knowledgeBase.education}. He's passionate about full-stack development and building innovative web applications. ${knowledgeBase.certification} and currently completed OJT at MakerSpace Innohub.`, isProjectCard: false };
-    }
-    
-    if (lowerMessage.match(/skill|technologies|tech stack|what can you do|programming languages|tools/i)) {
-      return { text: `✨ ${knowledgeBase.name} is proficient in: ${knowledgeBase.skills.join(', ')}. He specializes in full-stack development using these technologies.`, isProjectCard: false };
-    }
-    
-    if (lowerMessage.match(/ojt|internship|training|maker space|makerspace/i)) {
-      return { text: `✨ ${knowledgeBase.name} completed his OJT at ${knowledgeBase.ojt}. During this time, he worked on real-world projects including SyncSnap, FlowState, and contributed to various full-stack applications.`, isProjectCard: false };
-    }
-    
-    if (lowerMessage.match(/certification|ncii|certified|passed|exam|assessment/i)) {
-      return { text: `✨ ${knowledgeBase.certification} 🎉 This certification validates his proficiency in computer systems servicing and web development.`, isProjectCard: false };
-    }
-    
-    if (lowerMessage.match(/education|school|university|college|study|learn/i)) {
-      return { text: `✨ ${knowledgeBase.name} is currently pursuing ${knowledgeBase.education}. He's dedicated to continuous learning and staying updated with the latest technologies.`, isProjectCard: false };
-    }
-    
-    if (lowerMessage.match(/experience|work|job|career|professional/i)) {
-      return { text: `✨ ${knowledgeBase.name} has experience in ${knowledgeBase.experience}. His OJT at MakerSpace Innohub provided hands-on experience with real-world projects and team collaboration.`, isProjectCard: false };
-    }
-    
-    if (lowerMessage.match(/contact|email|phone|reach|connect|get in touch/i)) {
-      return { text: `✨ You can reach ${knowledgeBase.name} via:\n📧 ${knowledgeBase.contact.split('|')[0]}\n📞 ${knowledgeBase.contact.split('|')[1]}\n📍 ${knowledgeBase.location}`, isProjectCard: false };
-    }
-    
-    if (lowerMessage.match(/interest|passion|hobby|like|love|enjoy/i)) {
-      return { text: `✨ ${knowledgeBase.name} is passionate about ${knowledgeBase.interests}. He loves solving complex problems and creating beautiful, functional applications that make a difference.`, isProjectCard: false };
-    }
-    
-    if (lowerMessage.match(/location|address|where|from/i)) {
-      return { text: `✨ ${knowledgeBase.name} is based in ${knowledgeBase.location}. He's open to remote opportunities worldwide! 🌍`, isProjectCard: false };
+      return { text: `${knowledgeBase.name} is a ${knowledgeBase.education}. He's passionate about full-stack development and building innovative web applications. ${knowledgeBase.certifications[0]} and completed OJT at MakerSpace Innohub.`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/thank|thanks|appreciate|grateful/i)) {
-      return { text: "✨ You're very welcome! 😊 I'm glad I could help. Feel free to ask if you have any other questions about John Melvin's work or experience!", isProjectCard: false };
+      return { text: "You're very welcome!  I'm glad I could help. Feel free to ask if you have any other questions about John Melvin's work or experience!", isProjectCard: false };
     }
     
     if (lowerMessage.match(/bye|goodbye|see you|farewell|exit/i)) {
-      return { text: "✨ Thanks for chatting! 👋 Feel free to come back if you have more questions. Have a great day!", isProjectCard: false };
+      return { text: "Thanks for chatting!  Feel free to come back if you have more questions. Have a great day!", isProjectCard: false };
     }
     
-    return { text: "✨ That's a great question! 💭 I'm happy to help. You can ask me about John Melvin's skills, projects, education, OJT experience, certifications, or contact information.\n\n💡 **Try these commands:**\n• Type a project name like **SyncSnap** or **FlowState**\n• Type **List all projects** to see all projects\n• Ask about **skills**, **education**, or **contact**", isProjectCard: false };
+    return { text: "That's a great question!  I'm happy to help. You can ask me about:\n\n Projects - Type project names like SyncSnap, FlowState, or Sibol\n All projects - Type List all projects\n Skills - Ask about my tech stack\n OJT - Ask about my OJT experience\n Certifications - Ask about my NCII CSS\n Education - Ask about my background\n Contact - How to reach me\n\nWhat would you like to know?", isProjectCard: false };
   };
 
   const handleSendMessage = async () => {
@@ -339,14 +520,13 @@ export default function ChatBot() {
     setMessages([
       {
         id: Date.now().toString(),
-        text: "✨ Chat cleared! I'm DevBot, ready to help you again. What would you like to know?\n\n💡 **Try these:**\n• Type **SyncSnap** to see project details\n• Type **List all projects** to see all projects\n• Type **Skills** to see my tech stack",
+        text: " Chat cleared! I'm DevBot, ready to help you again. What would you like to know?\n\n Try these:\n• Type SyncSnap to see project details\n• Type List all projects to see all projects\n• Type Skills to see my tech stack\n• Type OJT to learn about my experience",
         sender: 'bot',
         timestamp: new Date()
       }
     ]);
   };
 
-  // Project Card Component - Redesigned
   const ProjectCard = ({ project }: { project: { name: string; description: string; image: string; techStack: string[]; features?: string[] } }) => {
     const [imgError, setImgError] = useState(false);
     
@@ -413,7 +593,7 @@ export default function ChatBot() {
           <div className="bg-gradient-to-r from-violet-600/95 to-purple-600/95 backdrop-blur-sm rounded-xl px-4 py-2.5 border border-violet-400/30 shadow-xl max-w-[220px]">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-              <span className="text-xs text-white font-semibold">✨ DevBot</span>
+              <span className="text-xs text-white font-semibold"> DevBot</span>
             </div>
             <p className="text-[11px] text-white/90 mt-1.5 leading-relaxed">
               Need help? Ask me about projects, skills & more!
@@ -442,7 +622,7 @@ export default function ChatBot() {
             <div className="w-1 h-1 rounded-full bg-white animate-blink delay-150"></div>
           </div>
           <span className="hidden lg:block absolute right-full mr-3 px-3 py-1.5 text-xs bg-violet-900 text-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
-            Chat with DevBot ✨
+            Chat with DevBot 
           </span>
           <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse border-2 border-white"></span>
         </button>
@@ -462,7 +642,7 @@ export default function ChatBot() {
       <div className={`fixed z-50 transition-all duration-300 ${
         isMinimized 
           ? 'bottom-4 right-4 w-[calc(100vw-2rem)] sm:w-[380px] h-14' 
-          : 'bottom-0 sm:bottom-6 right-0 sm:right-6 w-full sm:w-[420px] h-[100dvh] sm:h-[650px]'
+          : 'bottom-0 sm:bottom-6 right-0 sm:right-6 w-full sm:w-[450px] h-[100dvh] sm:h-[700px]'
       }`}>
         <div className={`bg-gradient-to-br from-violet-900/95 to-purple-900/95 backdrop-blur-xl shadow-2xl border border-violet-500/20 overflow-hidden flex flex-col ${
           isMinimized ? 'rounded-2xl' : 'rounded-t-2xl sm:rounded-2xl'
@@ -509,22 +689,22 @@ export default function ChatBot() {
               </div>
             </div>
             
-            {/* Status bar */}
+            {/* Quick suggestions bar */}
             <div className="px-3 sm:px-4 pb-2 sm:pb-2.5 pt-0">
-              <div className="flex items-center gap-2 text-[10px] sm:text-xs text-violet-300/60 bg-violet-500/10 rounded-lg px-2.5 py-1.5 sm:py-2">
+              <div className="flex items-center gap-2 text-[10px] sm:text-xs text-violet-300/60 bg-violet-500/10 rounded-lg px-2.5 py-1.5 sm:py-2 flex-wrap">
                 <div className="flex gap-0.5">
                   <span className="w-0.5 h-0.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
                   <span className="w-0.5 h-0.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
                   <span className="w-0.5 h-0.5 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
                 </div>
-                <span className="truncate">✨ Try: "SyncSnap", "FlowState", or "List all projects"</span>
+                <span className="truncate"> Try: "SyncSnap", "FlowState", "Skills", "OJT", or "List all projects"</span>
               </div>
             </div>
           </div>
           
           {!isMinimized && (
             <>
-              {/* Messages Container */}
+              {/* Messages Container - Icons Removed */}
               <div className="flex-1 overflow-y-auto px-3 sm:px-4 py-2 sm:py-3 space-y-2 sm:space-y-3 min-h-0 custom-scrollbar">
                 {messages.map((message) => (
                   <div
@@ -538,17 +718,13 @@ export default function ChatBot() {
                           : 'bg-violet-500/10 backdrop-blur-sm border border-violet-500/20'
                       }`}
                     >
-                      {/* Message header */}
+                      {/* Message header - Icons removed, only sender name and timestamp */}
                       <div className="flex items-center gap-1.5 mb-1">
-                        {message.sender === 'bot' ? (
-                          <div className="w-3 h-3 rounded-full bg-violet-500/20 flex items-center justify-center flex-shrink-0">
-                            <Bot className="w-1.5 h-1.5 text-violet-400" />
-                          </div>
-                        ) : (
-                          <User className="w-2.5 h-2.5 text-white/70 flex-shrink-0" />
-                        )}
-                        <span className="text-[10px] sm:text-xs opacity-70">
-                          {message.sender === 'bot' ? 'DevBot' : 'You'} • {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        <span className="text-[10px] sm:text-xs opacity-70 font-medium">
+                          {message.sender === 'bot' ? 'DevBot' : 'You'}
+                        </span>
+                        <span className="text-[10px] sm:text-xs opacity-50">
+                          {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </span>
                       </div>
                       {/* Message content */}
@@ -565,19 +741,17 @@ export default function ChatBot() {
                   </div>
                 ))}
                 
-                {/* Typing indicator */}
+                {/* Typing indicator - Icons removed */}
                 {isTyping && (
                   <div className="flex justify-start w-full animate-fade-in">
                     <div className="bg-violet-500/10 backdrop-blur-sm border border-violet-500/20 rounded-2xl px-3 py-2 sm:px-4 sm:py-2.5">
                       <div className="flex items-center gap-1.5">
-                        <div className="w-3 h-3 rounded-full bg-violet-500/20 flex items-center justify-center animate-pulse">
-                          <Bot className="w-1.5 h-1.5 text-violet-400" />
-                        </div>
                         <div className="flex gap-0.5">
                           <span className="w-1 h-1 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                           <span className="w-1 h-1 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                           <span className="w-1 h-1 bg-violet-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                         </div>
+                        <span className="text-[10px] text-violet-300/60">DevBot is typing...</span>
                       </div>
                     </div>
                   </div>
@@ -595,7 +769,7 @@ export default function ChatBot() {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder="Ask me anything... ✨"
+                    placeholder="Ask me anything... "
                     className="flex-1 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl border border-violet-500/30 bg-violet-500/10 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-violet-500/50 text-sm text-white placeholder:text-violet-300/40 transition-all duration-300"
                   />
                   <button
@@ -609,9 +783,9 @@ export default function ChatBot() {
                 </div>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-0 mt-2">
                   <p className="text-[10px] sm:text-xs text-violet-300/60 flex items-center gap-1">
-                    <span className="animate-wave">✨</span>
+                    <span className="animate-wave"></span>
                     <span className="hidden sm:inline">Try: </span>
-                    "SyncSnap", "FlowState", "Projects"
+                    "Skills", "Projects", "OJT"
                   </p>
                   <button
                     onClick={clearChat}
