@@ -324,12 +324,6 @@ const JourneyMap = () => {
             A weekly breakdown of my OJT adventure at{' '}
             <span className="font-semibold text-violet-400">MakerSpace Innohub</span>
           </p>
-          
-          <div className="inline-flex items-center gap-3 mt-2 p-3 bg-gradient-to-r from-amber-500/20 to-violet-500/20 backdrop-blur-md rounded-full border border-amber-500/30">
-            <Award className="w-4 h-4 text-amber-400" />
-            <span className="text-xs md:text-sm font-medium text-amber-300">NCII CSS Certified ✅</span>
-            <span className="text-xs text-violet-300/60">| Conquered: <span className="font-bold text-amber-400">May 6, 2026</span></span>
-          </div>
         </div>
 
         {/* Stats Dashboard */}
@@ -635,11 +629,6 @@ const JourneyMap = () => {
             </div>
           )}
         </div>
-
-        {/* Footer Note */}
-        <p className="text-center text-xs text-gray-500 mt-12 flex items-center justify-center gap-2">
-          <Compass className="w-3 h-3" /> Click on any card to explore weekly details | 15 weeks of continuous growth
-        </p>
       </div>
 
       <style jsx>{`

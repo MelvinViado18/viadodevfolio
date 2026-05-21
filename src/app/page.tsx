@@ -10,7 +10,7 @@ import ChatBot from '@/components/ChatBot';
 import ResumeSection from '@/components/ResumeSection';
 import { useEffect, useState } from 'react';
 
-// Hardcoded featured projects
+// Hardcoded projects
 const featuredProjects = [
   {
     id: "1",
@@ -23,8 +23,7 @@ const featuredProjects = [
     fullDetails: "",
     projectLink: "",
     githubLink: "",
-    featured: true,
-    completionDate: "2024"
+    completionDate: "March 2026"
   },
   {
     id: "2",
@@ -37,36 +36,46 @@ const featuredProjects = [
     fullDetails: "",
     projectLink: "",
     githubLink: "",
-    featured: true,
-    completionDate: "2024"
+    completionDate: "May 2026"
   },
   {
     id: "3",
-    title: "Base Platform & FurFund",
-    description: "A development and learning phase focused on exploring the Base blockchain platform, setting up Vercel environment, and building the initial prototype of FurFund.",
+    title: "Sibol",
+    description: "Sibol connects buyers directly to farmer cooperatives with transparent pricing, secure escrow payments, and pooled buying for smarter agricultural trade.",
     category: "Web Development",
-    techStack: ["Next.js"],
-    imageUrl: "/FurFand/Screenshot (149).png",
+    techStack: ["Next.js", "Vercel", "Base"],
+    imageUrl: "/Sibol/sibol1.webp",
     gallery: [],
     fullDetails: "",
     projectLink: "",
     githubLink: "",
-    featured: true,
-    completionDate: "2024"
+    completionDate: "2026"
   },
   {
     id: "4",
-    title: "2026 Chevrolet Silverado 1500 vs. Toyota Tundra",
-    description: "A UI/UX design task focused on creating a structured and visually appealing comparison page for the 2026 Chevrolet Silverado 1500 and 2026 Toyota Tundra.",
+    title: "The 2026 Ford Bronco In Danville, Kentucky",
+    description: "A UI/UX design task focused on creating a structured and visually appealing comparison page for the 2026 Ford Bronco In Danville, Kentucky.",
     category: "UI/UX Design",
-    techStack: ["UI/UX Design", "Figma"],
-    imageUrl: "/Car/Screenshot (434).png",
+    techStack: ["UI/UX Design", "HTML", "CSS"],
+    imageUrl: "/Bronco/Bronco1.webp",
     gallery: [],
     fullDetails: "",
     projectLink: "",
     githubLink: "",
-    featured: true,
-    completionDate: "2024"
+    completionDate: "February 2026"
+  },
+  {
+    id: "5",
+    title: "Mercedes-Benz Vans Custom Upfits in Caldwell, New Jersey",
+    description: "A UI/UX design task focused on creating a structured and visually appealing comparison page for the Mercedes-Benz Vans Custom Upfits in Caldwell, New Jersey.",
+    category: "UI/UX Design",
+    techStack: ["UI/UX Design", "HTML", "CSS"],
+    imageUrl: "/Mercedez/Mercedez1.webp",
+    gallery: [],
+    fullDetails: "",
+    projectLink: "",
+    githubLink: "",
+    completionDate: "February 2026"
   }
 ];
 
@@ -145,12 +154,6 @@ export default function Home() {
               
               {/* Left Column - Main Content */}
               <div className="space-y-8 animate-fade-in-up">
-                {/* Status Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 backdrop-blur-sm border border-violet-500/20 shadow-lg">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-violet-300 text-sm font-semibold tracking-wide">OPEN FOR OJT / INTERNSHIP</span>
-                </div>
-                
                 {/* Hero Title */}
                 <div className="space-y-3">
                   <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1]">
@@ -187,22 +190,6 @@ export default function Home() {
                     </Link>
                   </Button>
                 </div>
-                
-                {/* Stats */}
-                <div className="flex gap-8 pt-8">
-                  <div>
-                    <div className="text-3xl font-bold text-white">15+</div>
-                    <div className="text-sm text-gray-500">Projects Completed</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-white">2+</div>
-                    <div className="text-sm text-gray-500">Years Experience</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-white">100%</div>
-                    <div className="text-sm text-gray-500">Commitment</div>
-                  </div>
-                </div>
               </div>
               
               {/* Right Column - Modern Profile Card */}
@@ -215,7 +202,7 @@ export default function Home() {
                 <div className="relative bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm rounded-3xl p-6 border border-violet-500/20 shadow-2xl">
                   <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-violet-600/20 to-purple-600/20">
                     <img 
-                      src="/profile.jpg"
+                      src="/viadoprofile.jpg"
                       alt="John Melvin Viado"
                       className="w-full h-full object-cover object-center"
                     />
@@ -299,7 +286,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">Certification</h3>
-                      <p className="text-gray-400">NCII CSS Certified</p>
+                      <p className="text-gray-400">NCII CSS</p>
                       <p className="text-violet-300 text-sm mt-1">Passed: May 6, 2026</p>
                     </div>
                   </div>
@@ -322,13 +309,6 @@ export default function Home() {
                       I specialize in developing full-stack web applications using modern frameworks like Laravel and Next.js. I'm particularly interested in AI integration, real-time applications, and creating intuitive user experiences that solve real problems.
                     </p>
                   </div>
-                  
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-3">My Philosophy</h3>
-                    <p className="text-gray-400 italic leading-relaxed">
-                      "Building innovative solutions through code, one project at a time." I believe in continuous learning and leveraging technology to create meaningful impact.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
@@ -338,7 +318,7 @@ export default function Home() {
         {/* ================= TECH STACK SECTION ================= */}
         <TechStackSection />
 
-        {/* ================= FEATURED PROJECTS ================= */}
+        {/* ================= PROJECTS ================= */}
         <section 
           id="projects-section"
           data-scroll
@@ -356,7 +336,7 @@ export default function Home() {
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-                  Featured Projects
+                  Projects
                 </span>
               </h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
@@ -489,7 +469,7 @@ export default function Home() {
                   </h3>
                   <div className="rounded-xl overflow-hidden h-80 border border-violet-500/20">
                     <iframe 
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123760.73922608666!2d120.383812957762!3d16.040588730497147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339165b1d3e6ad5f%3A0xc668c1b5e9f76946!2sMapandan%2C%20Pangasinan!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph" 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61344.60985654221!2d120.35992381021698!3d16.063511743623444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339169ba84015665%3A0xb8448085826e2726!2sMangaldan%2C%20Pangasinan!5e0!3m2!1sen!2sph!4v1779384935314!5m2!1sen!2sph" 
                       width="100%" 
                       height="100%" 
                       style={{ border: 0 }} 
@@ -506,7 +486,7 @@ export default function Home() {
                       <Mail className="w-4 h-4" />
                       Send Email
                     </a>
-                    <a href="tel:+639664138823" className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 rounded-lg text-white text-sm font-medium hover:opacity-90 transition-all duration-300">
+                    <a href="tel:+639501932537" className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 rounded-lg text-white text-sm font-medium hover:opacity-90 transition-all duration-300">
                       <Phone className="w-4 h-4" />
                       Call Me
                     </a>

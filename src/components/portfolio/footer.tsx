@@ -25,34 +25,7 @@ export function Footer() {
       
       <div className="relative container mx-auto px-4 py-12 md:py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
-          {/* Brand Section */}
-          <div className="space-y-4 md:col-span-1">
-            <div className="flex items-center gap-2 group">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-violet-500 to-purple-500 blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
-                <div className="relative w-10 h-10 rounded-lg bg-gradient-to-br from-violet-600 to-purple-600 flex items-center justify-center shadow-lg">
-                  <Code2 className="w-5 h-5 text-white" />
-                </div>
-              </div>
-              <h3 className="font-headline font-bold text-2xl tracking-tight">
-                <span className="text-white">Dev</span>
-                <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-                  Vault
-                </span>
-              </h3>
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Built with Next.js and SOLID principles. A modular activity log documenting my technical journey and growth during the internship.
-            </p>
-            <div className="flex items-center gap-3 pt-2">
-              <div className="w-8 h-8 rounded-full bg-violet-500/10 flex items-center justify-center">
-                <Sparkles className="w-3.5 h-3.5 text-violet-400" />
-              </div>
-              <span className="text-xs text-violet-300/60">Always learning & building</span>
-            </div>
-          </div>
-          
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {/* Navigation Section */}
           <div className="space-y-4">
             <h4 className="font-semibold text-sm uppercase tracking-wider flex items-center gap-2">
@@ -150,38 +123,19 @@ export function Footer() {
             </h4>
             <div className="flex gap-3">
               <a 
-                href="#" 
+                href="https://github.com/MelvinViado18" 
                 className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center hover:bg-violet-500/20 transition-all duration-300 hover:scale-110 group"
                 aria-label="GitHub"
               >
                 <Github className="w-4 h-4 text-gray-400 group-hover:text-violet-300 transition-colors" />
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/john-melvin-viado-5b4a25393/" 
                 className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center hover:bg-violet-500/20 transition-all duration-300 hover:scale-110 group"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4 text-gray-400 group-hover:text-violet-300 transition-colors" />
               </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center hover:bg-violet-500/20 transition-all duration-300 hover:scale-110 group"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4 h-4 text-gray-400 group-hover:text-violet-300 transition-colors" />
-              </a>
-            </div>
-            
-            {/* Availability Badge */}
-            <div className="mt-4 p-3 rounded-xl bg-violet-500/5 border border-violet-500/20">
-              <div className="flex items-center gap-2">
-                <div className="relative">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-                  <div className="absolute inset-0 w-2 h-2 bg-emerald-500 rounded-full animate-ping" />
-                </div>
-                <span className="text-xs text-violet-300/70">Available for opportunities</span>
-              </div>
-              <p className="text-[10px] text-gray-500 mt-1.5">Open to OJT, Internship, and Entry-level positions</p>
             </div>
           </div>
         </div>
@@ -216,15 +170,6 @@ export function Footer() {
             <ArrowUp className="w-3 h-3 transition-transform group-hover:-translate-y-1" />
             Back to Top
           </button>
-        </div>
-        
-        {/* Made with love note */}
-        <div className="mt-6 text-center">
-          <p className="text-[10px] text-gray-600 flex items-center justify-center gap-1">
-            Built with 
-            <Heart className="w-2.5 h-2.5 text-violet-400 animate-pulse" /> 
-            using Next.js & Tailwind CSS
-          </p>
         </div>
       </div>
 

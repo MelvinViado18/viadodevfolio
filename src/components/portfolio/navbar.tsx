@@ -59,11 +59,11 @@ export function Navbar() {
                 </div>
               </div>
               
-              {/* Logo Text */}
+              {/* Logo Text with Custom Fonts */}
               <div className="hidden sm:block">
-                <span className="font-headline font-bold text-xl tracking-tight">
-                  <span className="text-white">Dev</span>
-                  <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent animate-gradient-x">
+                <span className="font-headline font-black text-xl tracking-tight">
+                  <span className="text-white font-['Poppins',sans-serif] tracking-wider">Dev</span>
+                  <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent animate-gradient-x font-['Inter',sans-serif] font-bold tracking-wide">
                     Portfolio
                   </span>
                 </span>
@@ -106,7 +106,7 @@ export function Navbar() {
                     isActive ? "text-violet-400" : "group-hover:text-violet-400 group-hover:scale-110"
                   )} />
                   
-                  <span className="hidden xs:inline relative z-10">{item.name}</span>
+                  <span className="hidden xs:inline relative z-10 font-['Inter',sans-serif]">{item.name}</span>
                   
                   {/* Active indicator - animated pill */}
                   {isActive && (
@@ -125,19 +125,6 @@ export function Navbar() {
                 </Link>
               );
             })}
-            
-            {/* Decorative divider */}
-            <div className="hidden sm:block w-px h-6 bg-gradient-to-b from-transparent via-violet-500/30 to-transparent mx-1" />
-            
-            {/* Status Indicator */}
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20">
-              <div className="relative">
-                <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-                <div className="absolute inset-0 w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping" />
-              </div>
-              <span className="text-xs text-violet-300/80 font-medium">Available for work</span>
-              <Sparkles className="w-3 h-3 text-violet-400" />
-            </div>
           </div>
         </div>
         
@@ -148,7 +135,9 @@ export function Navbar() {
       {/* Spacer to prevent content from going under fixed navbar */}
       <div className="h-16" />
       
-      <style jsx>{`
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+        
         @keyframes gradient-x {
           0%, 100% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }

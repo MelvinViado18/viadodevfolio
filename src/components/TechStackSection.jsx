@@ -11,9 +11,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
     color: "from-orange-500 to-orange-600",
     gradient: "via-orange-500 to-orange-600",
-    description: "Semantic markup for modern web applications",
-    proficiency: 95,
-    years: 3
+    description: "Semantic markup for modern web applications"
   },
   { 
     name: "CSS3", 
@@ -21,9 +19,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
     color: "from-blue-500 to-blue-600",
     gradient: "via-blue-500 to-blue-600",
-    description: "Responsive designs with Flexbox & Grid",
-    proficiency: 90,
-    years: 3
+    description: "Responsive designs with Flexbox & Grid"
   },
   { 
     name: "Java", 
@@ -31,9 +27,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
     color: "from-red-600 to-red-700",
     gradient: "via-red-600 to-red-700",
-    description: "Object-oriented programming & backend logic",
-    proficiency: 85,
-    years: 2
+    description: "Object-oriented programming & backend logic"
   },
   { 
     name: "JavaScript", 
@@ -41,9 +35,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
     color: "from-yellow-500 to-yellow-600",
     gradient: "via-yellow-500 to-yellow-600",
-    description: "Dynamic interactions & frontend logic",
-    proficiency: 92,
-    years: 3
+    description: "Dynamic interactions & frontend logic"
   },
   { 
     name: "PHP", 
@@ -51,9 +43,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
     color: "from-purple-600 to-purple-700",
     gradient: "via-purple-600 to-purple-700",
-    description: "Server-side scripting & backend development",
-    proficiency: 88,
-    years: 2
+    description: "Server-side scripting & backend development"
   },
   // Frameworks & Tools
   { 
@@ -62,9 +52,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     color: "from-cyan-500 to-cyan-600",
     gradient: "via-cyan-500 to-cyan-600",
-    description: "Cross-platform mobile app development",
-    proficiency: 85,
-    years: 1.5
+    description: "Cross-platform mobile app development"
   },
   { 
     name: "Laravel", 
@@ -72,9 +60,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
     color: "from-red-500 to-red-600",
     gradient: "via-red-500 to-red-600",
-    description: "Elegant PHP framework for web artisans",
-    proficiency: 90,
-    years: 2
+    description: "Elegant PHP framework for web artisans"
   },
   { 
     name: "Next.js", 
@@ -82,19 +68,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
     color: "from-gray-600 to-gray-700",
     gradient: "via-gray-600 to-gray-700",
-    description: "React framework for production",
-    proficiency: 88,
-    years: 1.5
-  },
-  { 
-    name: "Socket.io", 
-    category: "Framework",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg",
-    color: "from-gray-500 to-gray-600",
-    gradient: "via-gray-500 to-gray-600",
-    description: "Real-time, bidirectional event-based communication",
-    proficiency: 82,
-    years: 1
+    description: "React framework for production"
   },
   { 
     name: "GitHub", 
@@ -102,9 +76,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
     color: "from-gray-700 to-gray-800",
     gradient: "via-gray-700 to-gray-800",
-    description: "Version control & collaborative development",
-    proficiency: 92,
-    years: 3
+    description: "Version control & collaborative development"
   },
   { 
     name: "VS Code", 
@@ -112,9 +84,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
     color: "from-blue-500 to-blue-600",
     gradient: "via-blue-500 to-blue-600",
-    description: "Powerful code editor with extensions",
-    proficiency: 95,
-    years: 3
+    description: "Powerful code editor with extensions"
   },
   { 
     name: "XAMPP", 
@@ -122,9 +92,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xampp/xampp-original.svg",
     color: "from-orange-600 to-orange-700",
     gradient: "via-orange-600 to-orange-700",
-    description: "Local web server environment for testing",
-    proficiency: 90,
-    years: 2
+    description: "Local web server environment for testing"
   },
   // Databases
   { 
@@ -133,9 +101,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
     color: "from-blue-500 to-blue-600",
     gradient: "via-blue-500 to-blue-600",
-    description: "Relational database management system",
-    proficiency: 88,
-    years: 2
+    description: "Relational database management system"
   },
   { 
     name: "MariaDB", 
@@ -143,9 +109,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg",
     color: "from-amber-600 to-amber-700",
     gradient: "via-amber-600 to-amber-700",
-    description: "Open-source relational database",
-    proficiency: 85,
-    years: 1.5
+    description: "Open-source relational database"
   },
   { 
     name: "MongoDB", 
@@ -153,9 +117,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
     color: "from-green-600 to-green-700",
     gradient: "via-green-600 to-green-700",
-    description: "NoSQL document database for modern apps",
-    proficiency: 87,
-    years: 1.5
+    description: "NoSQL document database for modern apps"
   },
   { 
     name: "PostgreSQL", 
@@ -163,9 +125,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
     color: "from-sky-600 to-blue-700",
     gradient: "via-sky-600 to-blue-700",
-    description: "Advanced open-source relational database",
-    proficiency: 83,
-    years: 1
+    description: "Advanced open-source relational database"
   },
   // Design Tools
   { 
@@ -174,9 +134,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg",
     color: "from-indigo-500 to-indigo-600",
     gradient: "via-indigo-500 to-indigo-600",
-    description: "Graphic design & visual content creation",
-    proficiency: 92,
-    years: 3
+    description: "Graphic design & visual content creation"
   },
   { 
     name: "Figma", 
@@ -184,9 +142,7 @@ const techStackData = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
     color: "from-purple-500 to-purple-600",
     gradient: "via-purple-500 to-purple-600",
-    description: "UI/UX design & prototyping tool",
-    proficiency: 88,
-    years: 2
+    description: "UI/UX design & prototyping tool"
   }
 ];
 
@@ -234,13 +190,6 @@ export default function TechStackSection() {
   useEffect(() => {
     setCurrentPage(1);
   }, [activeCategory, searchTerm]);
-
-  const getProficiencyColor = (proficiency) => {
-    if (proficiency >= 90) return "from-emerald-500 to-green-500";
-    if (proficiency >= 80) return "from-blue-500 to-cyan-500";
-    if (proficiency >= 70) return "from-amber-500 to-yellow-500";
-    return "from-orange-500 to-red-500";
-  };
 
   return (
     <section ref={sectionRef} className="relative py-20 md:py-28 overflow-hidden">
@@ -381,27 +330,12 @@ export default function TechStackSection() {
                       {tech.description}
                     </p>
                     
-                    {/* Proficiency Bar */}
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-xs">
-                        <span className="text-gray-500">Proficiency</span>
-                        <span className="text-violet-400">{tech.proficiency}%</span>
-                      </div>
-                      <div className="w-full bg-gray-700/50 rounded-full h-1.5 overflow-hidden">
-                        <div 
-                          className={`h-full rounded-full bg-gradient-to-r ${getProficiencyColor(tech.proficiency)} transition-all duration-700`}
-                          style={{ width: hoveredCard === idx ? `${tech.proficiency}%` : "0%" }}
-                        />
-                      </div>
-                    </div>
-                    
-                    {/* Years of Experience */}
+                    {/* Status Badge */}
                     <div className="mt-3 flex items-center gap-2 text-xs">
-                      <span className="text-gray-500">📅 {tech.years}+ years</span>
-                      <div className="w-1 h-1 rounded-full bg-violet-500/30" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                       <span className="text-violet-400/70 flex items-center gap-1">
                         <Sparkles className="w-3 h-3" />
-                        Active
+                        Currently Learning
                       </span>
                     </div>
                   </div>
@@ -432,18 +366,10 @@ export default function TechStackSection() {
                     </div>
                     <p className="text-gray-400 text-sm">{tech.description}</p>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="text-right">
-                      <div className="text-sm font-semibold text-violet-400">{tech.proficiency}%</div>
-                      <div className="text-xs text-gray-500">{tech.years}+ yrs</div>
-                    </div>
-                    <div className="w-24">
-                      <div className="w-full bg-gray-700/50 rounded-full h-1.5">
-                        <div 
-                          className={`h-full rounded-full bg-gradient-to-r ${getProficiencyColor(tech.proficiency)}`}
-                          style={{ width: `${tech.proficiency}%` }}
-                        />
-                      </div>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1 text-xs text-emerald-400/70">
+                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span>Learning</span>
                     </div>
                   </div>
                 </div>
@@ -500,23 +426,6 @@ export default function TechStackSection() {
               </button>
             </div>
           )}
-        </div>
-
-        {/* Stats Footer */}
-        <div className="flex justify-center mt-12">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-violet-500/10 to-purple-500/10 backdrop-blur-md rounded-full border border-violet-500/20 shadow-lg">
-            <Brain className="w-4 h-4 text-violet-400" />
-            <span className="text-sm text-gray-300">
-              <span className="font-bold bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
-                {techStackData.length}
-              </span> Technologies & Tools
-            </span>
-            <div className="w-1 h-1 rounded-full bg-violet-500/30" />
-            <span className="text-xs text-violet-300/60 flex items-center gap-1">
-              <Sparkles className="w-3 h-3" />
-              Always learning
-            </span>
-          </div>
         </div>
       </div>
 

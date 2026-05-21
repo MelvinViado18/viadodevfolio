@@ -5,8 +5,8 @@ import { Eye, Download, FileText, Maximize2, Minimize2, X, Sparkles, Clock, Chec
 
 // Permanent resume data - replace with your actual resume
 const PERMANENT_RESUME = {
-  url: "/resume/Resume LORESCO RENZCELL RICK V. (1).pdf",
-  name: "Resume_Loresco_Renzcell_Rick_V.pdf",
+  url: "/resume/JMRealResume.pdf",
+  name: "John Melvin Viado Resume",
   date: "May 2026"
 };
 
