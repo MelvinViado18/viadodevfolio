@@ -442,7 +442,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h3 className="text-white font-semibold mb-1">Phone</h3>
-                      <a href="tel:+639664138823" className="text-gray-400 text-sm hover:text-violet-400 transition-colors">(+63) 966-413-8823</a>
+                      <a href="tel:+639501932537" className="text-gray-400 text-sm hover:text-violet-400 transition-colors">(+63) 950-193-2537</a>
                     </div>
                   </div>
                 </div>

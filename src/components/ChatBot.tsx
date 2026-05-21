@@ -162,12 +162,12 @@ export default function ChatBot() {
     name: "John Melvin G. Viado",
     education: "BSIT Student at Universidad De Dagupan",
     skills: ["HTML5", "CSS3", "Java", "JavaScript", "PHP", "React Native", "Laravel", "MySQL", "MariaDB", "MongoDB", "PostgreSQL", "Figma", "Canva"],
-    projects: ["Axiom Scrumban", "SyncSnap", "FlowState"],
+    projects: ["SyncSnap", "FlowState", "Sibol", "2026 Ford Bronco","Mercedes-Benz Vans Custom Upfits"],
     ojt: "OJT at MakerSpace Innohub",
     certification: "NCII CSS Certified (Passed May 6, 2026)",
-    experience: "Full-stack development, AI integration, real-time applications",
+    experience: "Full-stack development, Real-time applications",
     interests: "Web development, AI, mobile apps, UI/UX design",
-    contact: "Email: viadojohnmelvin18@gmail.com | Phone: (+63) 966-413-8823",
+    contact: "Email: viadojohnmelvin18@gmail.com | Phone: (+63) 950-193-25-37",
     location: "Malabago, Mangaldan, Pangasinan"
   };
 

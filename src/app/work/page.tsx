@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, Filter, LayoutGrid, X, ExternalLink, Github, Star, ChevronLeft, ChevronRight, Sparkles, Eye, Calendar, Code2, Zap, Brain, Layers } from 'lucide-react';
+import { Search, Filter, LayoutGrid, X, ExternalLink, Github, Star, ChevronLeft, ChevronRight, Sparkles, Eye, Calendar, Code2, Zap, Brain, Layers, GraduationCap } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 interface Project {
@@ -20,10 +20,11 @@ interface Project {
   featured: boolean;
   date: string;
   myTasks: string[];
+  type: 'ojt' | 'school'; // New field to distinguish project types
 }
 
-// Hardcoded projects (keeping your original data)
-const HARDCODED_PROJECTS: Project[] = [
+// OJT Projects (SyncSnap, FlowState, Sibol, Bronco, Mercedez)
+const OJT_PROJECTS: Project[] = [
   {
     id: 1,
     title: "SyncSnap",
@@ -70,6 +71,7 @@ SyncSnap also introduces productivity-focused features such as gamification thro
     githubLink: "",
     featured: true,
     date: "2026",
+    type: 'ojt',
     myTasks: [
       "System Planning & Requirements - Reviewed and analyzed the SyncSnap Product Requirements Document (PRD). Defined core system flow for workspace, standup submission, and dashboard structure. Planned multi-tenant architecture for separating teams and ensuring data isolation.",
       "Workspace & Invite System - Designed workspace creation flow for Team Leads/Admins. Implemented invite code-based joining system for team members. Ensured secure workspace-to-user association.",
@@ -136,6 +138,7 @@ Overall, FlowState aims to improve productivity, accountability, and collaborati
     githubLink: "",
     featured: true,
     date: "2026",
+    type: 'ojt',
     myTasks: [
       "UI/UX & Navigation Improvements - Improved collapsed sidebar interactions with workspace hover tooltips ('Switch Workspace', 'Select a team to continue'). Added navigation icon tooltips in collapsed mode without affecting layout or sidebar width. Fixed Create Team and Join Team modals to stay centered using portal rendering.",
       "Task & Priority System - Added 'View Priority Tasks' button in My Tasks tab to display REGULAR TASKS – BY PRIORITY table with filters (Today, This Week, This Month). Added 'Blocker Priority' button in Live Blockers tab with workstream and deadline filtering.",
@@ -145,94 +148,224 @@ Overall, FlowState aims to improve productivity, accountability, and collaborati
   },
   {
     id: 3,
-    title: "Base Platform & FurFund",
-    description: "A development and learning phase focused on exploring the Base blockchain platform and setting up the required development environment using Vercel, while also building the initial prototype of FurFund, a project designed to establish a foundation for future blockchain-based features and enhancements.",
-    category: "Web Development",
-    techStack: ["Next.js"],
-    image: "/FurFand/Screenshot (149).png",
+    title: "Sibol – Base Build Mapandan Project",
+    description: "A community-focused development initiative supporting local infrastructure and digital transformation in Mapandan, Pangasinan, emphasizing collaborative planning and basic construction work to serve residents.",
+    category: "Community Development",
+    techStack: ["Community Service", "Project Coordination"],
+    image: "/Sibol/sibol1.webp",
     gallery: [
-      "/FurFand/Screenshot (141).png",
-      "/FurFand/Screenshot (142).png",
-      "/FurFand/Screenshot (143).png",
-      "/FurFand/Screenshot (144).png",
-      "/FurFand/Screenshot (145).png",
-      "/FurFand/Screenshot (146).png",
-      "/FurFand/Screenshot (147).png",
-      "/FurFand/Screenshot (150).png",
-      "/FurFand/Screenshot (152).png",
-      "/FurFand/Screenshot (153).png",
-      "/FurFand/Screenshot (154).png",
-      "/FurFand/Screenshot (155).png",
-      "/FurFand/Screenshot (156).png",
-      "/FurFand/Screenshot (160).png",
-      "/FurFand/Screenshot (159).png",
-      "/FurFand/Screenshot (161).png",
-      "/FurFand/Screenshot (162).png",
-      "/FurFand/Screenshot (164).png",
-      "/FurFand/Screenshot (165).png",
-      "/FurFand/Screenshot (166).png",
-      "/FurFand/Screenshot (167).png",
-      "/FurFand/Screenshot (168).png",
-      "/FurFand/Screenshot (169).png",
-      "/FurFand/Screenshot (170).png",
-      "/FurFand/Screenshot (173).png"
+      "/Sibol/sibol1.webp",
+      "/Sibol/sibol2.webp",
+      "/Sibol/sibol3.webp",
+      "/Sibol/sibol4.webp",
     ],
-    fullDetails: `This focus area covers both learning and practical implementation, starting with understanding the Base platform ecosystem and preparing the necessary tools for development and deployment. The setup includes creating accounts and configuring environments on Base App and Vercel, ensuring readiness for future blockchain integration, smart contract development, and decentralized application deployment.
+    fullDetails: `The Sibol project is a community-driven initiative under the Base Build Mapandan Program, focused on providing essential infrastructure improvements and digital transformation support to underserved areas in Mapandan, Pangasinan. The project aims to empower local communities by combining basic construction work with digital literacy efforts, creating a more sustainable and connected environment for residents.
 
-Alongside the learning phase, the initial version of FurFund was developed as a prototype project. This step involved creating the first structure of the system, defining its base architecture, and establishing a starting point for future improvements. The prototype serves as a foundation for upcoming features, allowing the project to grow into a more complete and functional application over time.
+As a participant, I contributed to hands-on base build activities including site preparation, basic construction tasks, and coordination with local stakeholders. The experience provided valuable insight into community planning, resource management, and the importance of collaborative efforts in driving local development. Additionally, we explored ways to introduce digital tools that could support future phases of the project, such as basic record-keeping systems and communication platforms for local coordinators.
 
-Overall, this phase combines platform learning, environment setup, and early-stage project development, ensuring both technical readiness and a solid foundation for continued expansion of FurFund.`,
-    projectLink: "",
-    githubLink: "",
-    featured: true,
-    date: "2026",
-    myTasks: [
-      "Base Platform Learning & Setup - Learned the basics of the Base platform and its ecosystem for blockchain development. Successfully set up accounts on Base App and Vercel for deployment and development readiness. Prepared the initial development environment to support future blockchain-based features and integrations.",
-      "FurFund Prototype Development - Built the initial prototype of FurFund, establishing the first working structure of the project. Defined the foundational layout and system flow for future feature expansion. Set up the base architecture to support upcoming enhancements and development iterations."
-    ]
-  },
-  {
-    id: 4,
-    title: "2026 Chevrolet Silverado 1500 vs. 2026 Toyota Tundra – Comparison Page Design",
-    description: "A UI/UX design task focused on creating a structured and visually appealing comparison page for the 2026 Chevrolet Silverado 1500 and 2026 Toyota Tundra. The design was created to provide users with a clear side-by-side vehicle comparison experience.",
-    category: "UI/UX Design",
-    techStack: ["UI/UX Design"],
-    image: "/Car/Screenshot (434).png",
-    gallery: [
-      "/Car/Screenshot (435).png",
-      "/Car/Screenshot (436).png",
-      "/Car/Screenshot (437).png",
-      "/Car/Screenshot (438).png",
-      "/Car/Screenshot (439).png",
-      "/Car/Screenshot (440).png",
-      "/Car/Screenshot (441).png",
-      "/Car/Screenshot (442).png",
-      "/Car/Screenshot (443).png",
-      "/Car/Screenshot (444).png",
-      "/Car/Screenshot (445).png"
-    ],
-    fullDetails: `This task involved designing a comparison page template that presents vehicle information in an organized and visually balanced format. The layout was planned to improve readability and help users quickly compare important details between the two truck models without confusion or excessive scrolling.
-
-The design focused on maintaining a modern automotive-style interface with structured content sections for specifications, engine performance, towing capacity, interior features, technology, pricing, and overall vehicle highlights. Attention was also given to spacing, typography, visual hierarchy, and responsive layout behavior to ensure a smooth viewing experience across different screen sizes.
-
-The template was built to support scalability, allowing additional vehicle comparison pages to follow the same design structure in future implementations. Overall, the task emphasized clean presentation, user-friendly navigation, and efficient information comparison for automotive content.`,
+Overall, Sibol represents a meaningful intersection of community service and practical project execution, reinforcing the value of technology and teamwork in addressing real-world challenges at the grassroots level.`,
     projectLink: "",
     githubLink: "",
     featured: false,
     date: "2026",
+    type: 'ojt',
     myTasks: [
-      "UI/UX Design - Created the full comparison page layout for the 2026 Chevrolet Silverado 1500 vs. 2026 Toyota Tundra. Designed a clean side-by-side comparison structure for easier content readability. Organized sections for specifications, performance, pricing, and feature highlights.",
-      "Layout & User Experience - Improved visual hierarchy to help users quickly identify key differences between vehicles. Applied responsive design considerations for desktop and mobile viewing. Structured content spacing and alignment for better readability and navigation.",
-      "Design Planning - Built a reusable template structure for future vehicle comparison pages. Focused on modern automotive-style UI presentation and organized information flow. Ensured the design supports scalable content expansion and additional comparison categories."
+      "Participated in base build activities including site preparation and basic construction tasks.",
+      "Coordinated with local stakeholders to align project goals with community needs.",
+      "Assisted in resource management and logistical planning for build days.",
+      "Explored potential digital tools to support record-keeping and coordinator communication.",
+      "Documented project progress and contributed to post-build evaluation discussions."
+    ]
+  },
+  {
+    id: 4,
+    title: "2026 Ford Bronco – Page Creation",
+    description: "A design and content creation task focused on building a dedicated vehicle information page for the 2026 Ford Bronco in Danville, Kentucky, highlighting design, performance, and key specifications.",
+    category: "UI/UX Design",
+    techStack: ["HTML", "CSS", "UI/UX Design"],
+    image: "/Bronco/bronco1.webp",
+    gallery: [
+      "/Bronco/bronco1.webp",
+      "/Bronco/bronco2.webp",
+      "/Bronco/bronco3.webp",
+      "/Bronco/bronco4.webp",
+      "/Bronco/bronco5.webp",
+    ],
+    fullDetails: `This project involved creating a complete vehicle information page for the 2026 Ford Bronco, targeted at an audience in Danville, Kentucky. The page was designed to serve as a reference point for potential buyers and automotive enthusiasts, presenting key vehicle specifications, design highlights, performance metrics, and available trim levels in a visually structured format.
+
+The layout emphasized readability and visual engagement, using a clean HTML/CSS structure with responsive design principles. Sections included exterior and interior design highlights, engine and drivetrain options, off-road capabilities, technology features, safety systems, and pricing estimates. Care was taken to ensure consistent spacing, typography hierarchy, and a modern aesthetic aligned with automotive industry standards.
+
+Revisions were made based on feedback to improve content flow and visual balance. The final page template was built to be reusable for other vehicle models, supporting future scalability and content updates without requiring a full redesign.`,
+    projectLink: "",
+    githubLink: "",
+    featured: false,
+    date: "2026",
+    type: 'ojt',
+    myTasks: [
+      "Designed full vehicle information page layout for the 2026 Ford Bronco using HTML/CSS.",
+      "Organized content sections including specs, design highlights, performance, and pricing.",
+      "Applied responsive design principles to ensure consistent viewing across devices.",
+      "Iterated on design based on feedback to improve visual hierarchy and user experience.",
+      "Created a reusable template structure for future vehicle page additions."
+    ]
+  },
+  {
+    id: 5,
+    title: "Mercedes-Benz Vans Custom Upfits – Page Creation",
+    description: "A specialized page creation project for Mercedes-Benz Vans Custom Upfits in Caldwell, New Jersey, focusing on modular van conversion options and commercial upfit solutions.",
+    category: "UI/UX Design",
+    techStack: ["HTML", "CSS", "UI/UX Design"],
+    image: "/Mercedez/Mercedez1.webp",
+    gallery: [
+      "/Mercedez/Mercedez1.webp",
+      "/Mercedez/Mercedez2.webp",
+      "/Mercedez/Mercedez3.webp",
+      "/Mercedez/Mercedez4.webp",
+    ],
+    fullDetails: `This project focused on designing a dedicated information page for Mercedes-Benz Vans Custom Upfits, serving customers in Caldwell, New Jersey. The page was created to showcase modular van conversion options, commercial upfit solutions, and customization possibilities for both cargo and passenger vans, targeting small business owners, fleet managers, and adventure vehicle enthusiasts.
+
+The layout highlighted key upfit categories including cargo management systems, interior shelving and storage, electrical and lighting upgrades, HVAC solutions, and specialized commercial configurations. The design prioritized clear visual separation between upfit packages, with detailed descriptions and specification lists for each option. A responsive HTML/CSS structure was implemented to ensure accessibility across desktop and mobile devices.
+
+Special attention was given to presenting complex upfit information in an easy-to-navigate format, using iconography, color-coded sections, and call-to-action prompts for inquiry submission. The final page serves as both an informational resource and a lead generation tool for the Caldwell-based upfit center.`,
+    projectLink: "",
+    githubLink: "",
+    featured: false,
+    date: "2026",
+    type: 'ojt',
+    myTasks: [
+      "Created full vehicle upfit page layout for Mercedes-Benz Vans Custom Upfits using HTML/CSS.",
+      "Organized upfit categories including cargo systems, electrical upgrades, and commercial solutions.",
+      "Implemented responsive design to ensure cross-device compatibility.",
+      "Designed visual hierarchy using iconography and color-coded sections for better navigation.",
+      "Structured content to support both informational browsing and lead generation goals."
     ]
   }
 ];
 
+// School Projects (No images)
+const SCHOOL_PROJECTS: Project[] = [
+  {
+    id: 6,
+    title: "FURPET: Pet Services Finder System",
+    description: "A web platform for locating pet services with user authentication, listings, and database management. Built as a capstone project.",
+    category: "Capstone Project",
+    techStack: ["Laravel", "JavaScript", "Bootstrap", "MySQL"],
+    image: "/Furpet/furpet1.png",
+    gallery: [],
+    fullDetails: `FURPET is a comprehensive web platform designed to help pet owners easily find and connect with pet service providers in their area. The system allows users to search for various pet services including grooming, boarding, veterinary care, walking, and training facilities.
+
+Key features include user authentication with role-based access for pet owners and service providers, service listings with detailed information and ratings, advanced search and filtering capabilities, booking management system, review and rating functionality, and an admin dashboard for platform management.
+
+The platform was built using Laravel for robust backend functionality, MySQL for efficient database management, JavaScript for interactive frontend features, and Bootstrap for responsive design. This capstone project demonstrates full-stack development capabilities and attention to user experience in a specialized service marketplace context.`,
+    projectLink: "",
+    githubLink: "",
+    featured: false,
+    date: "2025",
+    type: 'school',
+    myTasks: [
+      "Designed and implemented the database schema for users, services, bookings, and reviews.",
+      "Developed user authentication and role-based access control system.",
+      "Built the service listing and search functionality with filters.",
+      "Created the booking management system for pet owners.",
+      "Implemented the admin dashboard for platform oversight.",
+      "Designed responsive UI using Bootstrap framework.",
+      "Integrated JavaScript for enhanced interactivity and user experience."
+    ]
+  },
+  {
+    id: 7,
+    title: "IRIS: Interactive Recruitment Information System",
+    description: "A recruitment system for managing job postings and applicants with full backend functionality. Project replica demonstrating backend expertise.",
+    category: "System Development",
+    techStack: ["Laravel", "MySQL"],
+    image: "/Iris/iris1.png",
+    gallery: [],
+    fullDetails: `IRIS (Interactive Recruitment Information System) is a comprehensive recruitment management platform designed to streamline the hiring process for companies. The system provides tools for HR personnel to post job openings, manage applications, track candidate progress, and communicate with applicants efficiently.
+
+Key features include job posting management with detailed descriptions and requirements, applicant tracking system with status updates (reviewed, interviewed, hired, rejected), resume and document management, interview scheduling, candidate communication portal, and reporting dashboard for recruitment metrics.
+
+This project replica focuses on demonstrating robust backend development skills using Laravel's MVC architecture and MySQL for data persistence. The system implements proper validation, relationship handling, and efficient query optimization to handle recruitment data at scale.`,
+    projectLink: "",
+    githubLink: "",
+    featured: false,
+    date: "2025",
+    type: 'school',
+    myTasks: [
+      "Designed and implemented recruitment database schema with job postings, applicants, and application tracking.",
+      "Built CRUD operations for job postings and applicant management.",
+      "Developed application status tracking system with workflow management.",
+      "Created candidate document upload and storage functionality.",
+      "Implemented search and filter for applicants by status and qualifications.",
+      "Built reporting system for recruitment metrics and analytics.",
+      "Ensured data validation and security throughout the application."
+    ]
+  },
+  {
+    id: 8,
+    title: "UNIHUB Mobile Merch App",
+    description: "A mobile e-commerce prototype designed for university merchandise sales, featuring wireframes, UI layouts, and interactive prototypes.",
+    category: "UI/UX Design",
+    techStack: ["Figma"],
+    image: "/Unihub/unihub1.png",
+    gallery: [],
+    fullDetails: `UNIHUB is a mobile e-commerce application concept designed specifically for university students to browse and purchase official school merchandise. The UX/UI case study involved comprehensive research, wireframing, prototyping, and user testing to create an intuitive and engaging shopping experience.
+
+The design process included user research with current university students to identify pain points in existing merchandise purchasing processes, creation of user personas and journey maps, development of low-fidelity wireframes for core user flows, high-fidelity UI design with university branding elements, and interactive prototypes demonstrating key functionality.
+
+Features designed include product browsing with category filters, product detail pages with size/color selection, shopping cart and checkout flow, user account management, order tracking, and promotional banners for sales and new arrivals. The Figma prototype demonstrates thoughtful interaction design and visual consistency.`,
+    projectLink: "",
+    githubLink: "",
+    featured: false,
+    date: "2025",
+    type: 'school',
+    myTasks: [
+      "Conducted user research and created user personas for the target audience.",
+      "Designed low-fidelity wireframes for core user flows and navigation.",
+      "Created high-fidelity UI layouts with consistent design system.",
+      "Developed interactive prototypes demonstrating key user journeys.",
+      "Designed product browsing and filtering interface.",
+      "Created shopping cart and checkout flow designs.",
+      "Implemented responsive design considerations for various mobile devices."
+    ]
+  },
+  {
+    id: 9,
+    title: "Tic-Tac-Toe Mobile Game",
+    description: "A mobile Tic-Tac-Toe game developed with React Native, featuring single-player and two-player modes with smooth gameplay.",
+    category: "Mobile Development",
+    techStack: ["React Native", "Expo Go"],
+    image: "/Tictactoe/tictactoe1.png",
+    gallery: [],
+    fullDetails: `Tic-Tac-Toe Mobile Game is a classic game implementation using React Native and Expo Go framework. The application provides an engaging user interface with smooth animations, game state management, and multiple gameplay options for users to enjoy.
+
+Key features include single-player mode against AI with difficulty levels, two-player mode for playing with friends, game state tracking with win/draw detection, move history and replay functionality, clean and modern UI design with responsive layouts, sound effects for moves and game completion, and persistent score tracking across sessions.
+
+The development focused on React Native component architecture, state management using React hooks, gesture handling for touch interactions, and optimization for both iOS and Android platforms. Expo Go was used for rapid development and testing across devices.`,
+    projectLink: "",
+    githubLink: "",
+    featured: false,
+    date: "2025",
+    type: 'school',
+    myTasks: [
+      "Developed the complete React Native application architecture.",
+      "Implemented game logic including win detection and draw conditions.",
+      "Created AI opponent with multiple difficulty levels.",
+      "Built two-player mode for local multiplayer gameplay.",
+      "Designed responsive UI with animations for game interactions.",
+      "Implemented score tracking and game history features.",
+      "Tested and optimized the application for both iOS and Android platforms."
+    ]
+  }
+];
+
+// Combine all projects
+const ALL_PROJECTS = [...OJT_PROJECTS, ...SCHOOL_PROJECTS];
+
 // Get unique categories
-const categories = ['All', ...new Set(HARDCODED_PROJECTS.map(p => p.category))];
+const categories = ['All', 'OJT Projects', 'School Projects', ...new Set(ALL_PROJECTS.map(p => p.category))];
 
 export default function WorkPage() {
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(HARDCODED_PROJECTS);
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>(ALL_PROJECTS);
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -243,9 +376,13 @@ export default function WorkPage() {
 
   // Filter projects based on category and search
   const updateFilters = (category: string, query: string) => {
-    let result = HARDCODED_PROJECTS;
+    let result = ALL_PROJECTS;
     
-    if (category !== 'All') {
+    if (category === 'OJT Projects') {
+      result = result.filter(p => p.type === 'ojt');
+    } else if (category === 'School Projects') {
+      result = result.filter(p => p.type === 'school');
+    } else if (category !== 'All') {
       result = result.filter(p => p.category === category);
     }
     
@@ -325,7 +462,11 @@ export default function WorkPage() {
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-violet-800/50 to-purple-800/50">
-              <Layers className="w-12 h-12 text-violet-400/50" />
+              {project.type === 'school' ? (
+                <GraduationCap className="w-12 h-12 text-violet-400/50" />
+              ) : (
+                <Layers className="w-12 h-12 text-violet-400/50" />
+              )}
             </div>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-violet-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -333,9 +474,9 @@ export default function WorkPage() {
         
         <div className="p-5">
           <div className="flex items-center justify-between mb-3">
-            <Badge className="bg-gradient-to-r from-violet-500/20 to-purple-500/20 text-violet-300 border-violet-500/30 px-3 py-1">
+            <Badge className={`${project.type === 'school' ? 'bg-gradient-to-r from-emerald-500/20 to-teal-500/20 text-emerald-300' : 'bg-gradient-to-r from-violet-500/20 to-purple-500/20 text-violet-300'} border-0 px-3 py-1`}>
               <Sparkles className="w-3 h-3 mr-1" />
-              {project.category}
+              {project.type === 'school' ? 'School Project' : project.category}
             </Badge>
             {project.date && (
               <span className="text-xs text-violet-300/50 flex items-center gap-1">
@@ -410,7 +551,7 @@ export default function WorkPage() {
           </h1>
           
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A modular collection of projects, audits, and technical solutions completed during my internship.
+            A collection of OJT projects and academic work showcasing my technical journey.
           </p>
         </div>
 
@@ -516,8 +657,8 @@ export default function WorkPage() {
                   </div>
                 )}
                 
-                {/* Gallery Section */}
-                {selectedProject.gallery.length > 0 && (
+                {/* Gallery Section - Only show for OJT projects with images */}
+                {selectedProject.type === 'ojt' && selectedProject.gallery.length > 0 && (
                   <div className="mb-6">
                     <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-violet-800/30 to-purple-800/30 border border-violet-500/20">
                       <img 
@@ -574,9 +715,9 @@ export default function WorkPage() {
                 )}
                 
                 <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <Badge className="bg-gradient-to-r from-violet-500/20 to-purple-500/20 text-violet-300 border-violet-500/30 px-3 py-1">
+                  <Badge className={`${selectedProject.type === 'school' ? 'bg-gradient-to-r from-emerald-500/20 to-teal-500/20 text-emerald-300' : 'bg-gradient-to-r from-violet-500/20 to-purple-500/20 text-violet-300'} border-0 px-3 py-1`}>
                     <Sparkles className="w-3 h-3 mr-1" />
-                    {selectedProject.category}
+                    {selectedProject.type === 'school' ? 'School Project' : selectedProject.category}
                   </Badge>
                   {selectedProject.date && (
                     <span className="text-sm text-violet-300/60 flex items-center gap-1">
