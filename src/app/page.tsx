@@ -315,9 +315,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ================= TECH STACK SECTION ================= */}
-        <TechStackSection />
-
         {/* ================= PROJECTS ================= */}
         <section 
           id="projects-section"
@@ -366,6 +363,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ================= TECH STACK SECTION ================= */}
+        <TechStackSection />
 
         {/* ================= OJT JOURNEY SECTION ================= */}
         <div

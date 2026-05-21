@@ -6,219 +6,157 @@ import { Rocket, Award, MapPin, Compass, Flag, Star, Shield, Brain, Code, Zap, P
 const ojtJourney = [
   {
     week: "Week 1",
-    date: "Feb 2026",
-    title: "Launch Point",
-    subtitle: "OJT Started + Learning Phase",
-    description: "Started online OJT at MakerSpace Innohub. Learned Laravel + Vue.js integration. Completed SUI Modules 1-5. Started Axiom Scrumban development.",
+    date: "Feb 4-6, 2026",
+    title: "The Ascent Begins",
+    subtitle: "Orientation & SUI Foundation",
+    description: "Started OJT at MakerSpace Innohub. Focused on reading and understanding the SUI Learning Materials to establish a foundational knowledge base for the projects ahead.",
     icon: "🚀",
     type: "start",
-    skills: ["Laravel", "Vue.js", "Scrumban"],
-    progress: 5,
-    achievements: ["Started OJT journey", "Completed 5 modules", "First project setup"]
+    skills: ["Documentation", "Learning Strategies"],
+    achievements: ["Successfully onboarded", "Completed SUI modules"]
   },
   {
-    week: "Week 2-3",
-    date: "Feb 15-20, 2026",
-    title: "Notification Peak",
-    subtitle: "Axiom Scrumban - Notification System",
-    description: "Built notification system with 3-day reminders, due today alerts, overdue alerts, and instant in-app notifications. Implemented project archive system.",
-    icon: "💻",
+    week: "Week 2",
+    date: "Feb 16-20, 2026",
+    title: "First Footprints",
+    subtitle: "Node.js & Page Creation",
+    description: "Dove into Node.js learning materials. Created the first page draft for 'The 2026 Ford Bronco in Danville, Kentucky', marking the start of active development.",
+    icon: "📄",
+    type: "technical",
+    skills: ["Node.js", "HTML/CSS", "Content Layout"],
+    achievements: ["First page template created", "Node.js fundamentals started"]
+  },
+  {
+    week: "Week 3",
+    date: "Feb 23-27, 2026",
+    title: "The SyncSnap Summit",
+    subtitle: "Project Planning & Hands-on Assist",
+    description: "Refined the Ford Bronco page and started a Mercedes-Benz page. Assisted with heat press transfer printing. Critically, began researching tools and defining the workflow for the SyncSnap project.",
+    icon: "🗺️",
     type: "milestone",
-    skills: ["Notifications", "Real-time", "Archiving"],
-    progress: 12,
-    achievements: ["Notification system complete", "Archive feature implemented"]
+    skills: ["Project Planning", "Research", "Adaptability"],
+    achievements: ["SyncSnap workflow defined", "Cross-functional support"]
   },
   {
-    week: "Week 3-4",
-    date: "Feb 23-25, 2026",
-    title: "Debugger's Pass",
-    subtitle: "Axiom Scrumban - Bug Fixes",
-    description: "Implemented permanent project deletion with confirmation. Configured Gmail SMTP for email notifications. Resolved 404 errors, PostgreSQL issues, route conflicts.",
-    icon: "⚙️",
-    type: "technical",
-    skills: ["Debugging", "SMTP", "PostgreSQL"],
-    progress: 18,
-    achievements: ["Fixed critical bugs", "Email system configured"]
-  },
-  {
-    week: "Week 4-5",
-    date: "March 1-5, 2026",
-    title: "Gamification Valley",
-    subtitle: "SyncSnap - Gamification",
-    description: "Implemented daily streaks, early bird bonuses (+10 points), milestone rewards, and leaderboard rankings.",
-    icon: "🎮",
+    week: "Week 4",
+    date: "March 2-6, 2026",
+    title: "SyncSnap: The Foundation",
+    subtitle: "Database & Core UI/UX",
+    description: "Kicked off SyncSnap development. Created database tables, overhauled landing/auth page UI, and improved sidebar styles. Implemented safe workspace deletion and enhanced security with stricter password requirements.",
+    icon: "🏗️",
     type: "feature",
-    skills: ["Gamification", "Leaderboards", "Rewards"],
-    progress: 25,
-    achievements: ["Gamification system live", "Leaderboard implemented"]
+    skills: ["Database Design", "UI/UX", "Laravel", "Security"],
+    achievements: ["Core database live", "Profile picture uploads", "Enhanced security"]
   },
   {
-    week: "Week 5-6",
-    date: "March 6-12, 2026",
-    title: "Blocker Fortress",
-    subtitle: "SyncSnap - Blocker Management",
-    description: "Implemented blocker status management (Pending/Processing/Resolved). Built email notification system for admin alerts.",
-    icon: "🔒",
+    week: "Week 5",
+    date: "March 9-13, 2026",
+    title: "SyncSnap: The Gates of Security",
+    subtitle: "Google Login & Email Verification",
+    description: "Integrated Google OAuth, making it work across dev/prod environments. Built a secure 6-digit code email verification system and added email re-verification for profile changes.",
+    icon: "🔐",
     type: "security",
-    skills: ["Status Management", "Email Alerts", "Admin Systems"],
-    progress: 32,
-    achievements: ["Blocker system complete", "Admin notifications ready"]
+    skills: ["OAuth", "Email Protocols", "Security", "API Integration"],
+    achievements: ["Google Login live", "6-digit verification system"]
   },
   {
-    week: "Week 6-7",
-    date: "March 13-19, 2026",
-    title: "AI Summit",
-    subtitle: "SyncSnap - AI Reports",
-    description: "Integrated Gemini API for AI report generation. Built deadline reminders with email notifications. Added date picker for custom ranges.",
-    icon: "🤖",
-    type: "advanced",
-    skills: ["AI Integration", "Gemini API", "Reports"],
-    progress: 40,
-    achievements: ["AI integration successful", "Smart reports working"]
-  },
-  {
-    week: "Week 7-8",
-    date: "March 20-25, 2026",
-    title: "Analytics Ridge",
-    subtitle: "SyncSnap - Reports & Permissions",
-    description: "Built MemberReport dashboard with team performance analytics. Implemented role-based access control and IDOR protection.",
-    icon: "📈",
-    type: "security",
-    skills: ["Analytics", "RBAC", "Security"],
-    progress: 48,
-    achievements: ["Analytics dashboard live", "Security enhanced"]
-  },
-  {
-    week: "Week 8-9",
-    date: "March 26-31, 2026",
-    title: "Optimization Point",
-    subtitle: "SyncSnap - Final Features",
-    description: "Added Reports Search, optimized Report Parsing, created vehicle comparison design template.",
-    icon: "🔧",
+    week: "Week 6",
+    date: "March 16-19, 2026",
+    title: "SyncSnap: Polishing & Pivoting",
+    subtitle: "Verification Timers & Base Build",
+    description: "Added a 1-minute expiration timer for verification codes. Created the SyncSnap Monthly Report presentation. Attended the Base Build Mapandan project kickoff for 'Sibol'.",
+    icon: "⏱️",
     type: "technical",
-    skills: ["Optimization", "Search", "Design"],
-    progress: 55,
-    achievements: ["Performance optimized", "Search feature added"]
+    skills: ["Testing", "Reporting", "Agile"],
+    achievements: ["Code expiration logic", "First major project report"]
+  },
+  {
+    week: "Week 7",
+    date: "March 23-27, 2026",
+    title: "Dual Development",
+    subtitle: "SyncSnap Responsiveness & Sibol UI",
+    description: "Enhanced UI/UX for SyncSnap, integrating avatars across all key pages and ensuring full responsiveness. Simultaneously, improved the Base Build 'Sibol' application's UI. Started a new design template for Ford.",
+    icon: "📱",
+    type: "design",
+    skills: ["Responsive Design", "Cross-Project Work", "UI/UX"],
+    achievements: ["SyncSnap fully responsive", "Avatars integrated everywhere"]
+  },
+  {
+    week: "Week 8",
+    date: "April 6-10, 2026",
+    title: "FlowState Initiated",
+    subtitle: "From Pitch to MongoDB",
+    description: "Created a one-page pitch for a new project: FlowState. Cloned the repo, set up the environment, and connected it to MongoDB Atlas. Built the initial layout with a sidebar, logout button, and team creation modal.",
+    icon: "🌊",
+    type: "setup",
+    skills: ["MongoDB", "Next.js", "Project Setup", "Pitching"],
+    achievements: ["New project: FlowState", "MongoDB Atlas connected"]
   },
   {
     week: "Week 9",
-    date: "April 1-2, 2026",
-    title: "Security Gateway",
-    subtitle: "FlowState - Account Management",
-    description: "Added Delete Account with confirmation modal, Change Password with password fields. Profile photos in assignee dropdown. Fixed API call for user deletion.",
-    icon: "🔐",
-    type: "security",
-    skills: ["Security", "Account Management", "API"],
-    progress: 62,
-    achievements: ["Account security enhanced", "User management improved"]
+    date: "April 13-17, 2026",
+    title: "FlowState: Core Mechanics",
+    subtitle: "Time Tracking & Team Structure",
+    description: "Refactored the folder structure. Implemented Time In/Out with an 8-hour cap, lunch break logic, and a TimeContext for state management. Built initial Reports and Team Feed pages, and resolved critical data leakage bugs.",
+    icon: "⏲️",
+    type: "feature",
+    skills: ["State Management", "Git Workflow", "Real-time Logic"],
+    achievements: ["Time tracking logic", "Team feed UI", "Data leakage fixed"]
   },
   {
-    week: "Week 9-10",
-    date: "April 3-6, 2026",
-    title: "Mountain Base",
-    subtitle: "FlowState - Project Setup",
-    description: "Created one-page pitch for digital solution. Cloned repository, installed dependencies, connected to MongoDB Atlas.",
-    icon: "🌊",
-    type: "setup",
-    skills: ["MongoDB", "Setup", "Infrastructure"],
-    progress: 68,
-    achievements: ["New project initialized", "Database connected"]
-  },
-  {
-    week: "Week 10-11",
-    date: "April 7-12, 2026",
-    title: "UI Canyon",
-    subtitle: "FlowState - UI Development",
-    description: "Set up My Tasks page UI, Layout UI/UX, Blockers UI design, Floating Action Button, AI Insight page with custom date ranges.",
-    icon: "🎨",
-    type: "design",
-    skills: ["UI/UX", "Design", "Frontend"],
-    progress: 74,
-    achievements: ["Beautiful UI implemented", "Responsive design complete"]
+    week: "Week 10",
+    date: "April 20-24, 2026",
+    title: "The Training Detour",
+    subtitle: "QA & NCII CSS Training",
+    description: "Fixed sync issues and bugs in FlowState. Then, shifted focus to begin the intensive week-long TESDA NCII CSS Training to prepare for the certification exam.",
+    icon: "📖",
+    type: "learning",
+    skills: ["QA Testing", "Hardware", "Networking"],
+    achievements: ["Critical bugs resolved", "NCII training commenced"]
   },
   {
     week: "Week 11",
-    date: "April 13-17, 2026",
-    title: "Team Summit",
-    subtitle: "FlowState - Settings & Team Features",
-    description: "Built Settings page with Profile/Security/Preferences tabs. Added team selection page, View AI Analytics button, switch teams from sidebar.",
-    icon: "⚙️",
-    type: "feature",
-    skills: ["Team Management", "Settings", "UI"],
-    progress: 79,
-    achievements: ["Team features complete", "Settings page done"]
-  },
-  {
-    week: "Week 11-12",
-    date: "April 14-18, 2026",
-    title: "Collaboration Peak",
-    subtitle: "FlowState - Team Feed Complete",
-    description: "Built Team Feed Tab System (Chat, Members, Activity, Settings). Members list with color-coded badges. Real-time messaging.",
-    icon: "👥",
-    type: "feature",
-    skills: ["Real-time Chat", "WebSockets", "Collaboration"],
-    progress: 83,
-    achievements: ["Real-time chat working", "Team collaboration live"]
+    date: "April 27 - May 2, 2026",
+    title: "Balancing Act",
+    subtitle: "NCII Training & FlowState QA",
+    description: "Continued NCII CSS Training while conducting thorough QA testing on FlowState. Added timestamp indicators, team/individual view toggles, and color-coded visual indicators for tasks and blockers.",
+    icon: "⚖️",
+    type: "technical",
+    skills: ["QA", "Time Management", "UI Enhancement"],
+    achievements: ["Comprehensive QA done", "Visual task indicators"]
   },
   {
     week: "Week 12",
-    date: "April 18-20, 2026",
-    title: "Settings Valley",
-    subtitle: "FlowState - Settings Functionality",
-    description: "Working name/email/password changes with verification. Delete account with confirmation modal.",
-    icon: "🔧",
-    type: "technical",
-    skills: ["Verification", "Security", "User Management"],
-    progress: 87,
-    achievements: ["User settings complete", "Security verified"]
+    date: "May 4-9, 2026",
+    title: "The Certification Peak",
+    subtitle: "Final Exam & Export Features",
+    description: "Completed the TESDA NCII CSS final examination. Returned to FlowState to implement CSV/PDF exports for reports, fix lunch break logic, and add team invite code display. Successfully merged all updates.",
+    icon: "🏅",
+    type: "achievement",
+    skills: ["Data Export", "API Optimization", "Git Merging"],
+    achievements: ["TESDA NCII CSS Completed", "CSV/PDF Export live"]
   },
   {
-    week: "Week 13-14",
-    date: "April 21 - May 5, 2026",
-    title: "Training Grounds",
-    subtitle: "NCII CSS Training",
-    description: "Started TESDA NCII CSS training. Focused on training modules and assessment preparation.",
-    icon: "📖",
-    type: "learning",
-    skills: ["CSS", "Hardware", "Networking"],
-    progress: 92,
-    achievements: ["Training completed", "Ready for assessment"]
+    week: "Week 13",
+    date: "May 11-14, 2026",
+    title: "FlowState: The Great Refinement",
+    subtitle: "Mobile Responsiveness & Shift Scheduling",
+    description: "Fixed performance re-renders and made the entire app mobile-responsive. Implemented a major feature: shift scheduling during signup, automatic dinner break pauses, and detailed attendance tracking with late/early metrics.",
+    icon: "📊",
+    type: "advanced",
+    skills: ["Responsive Design", "Algorithm Logic", "Shift Management"],
+    achievements: ["Full mobile support", "Shift scheduling & attendance"]
   },
   {
     week: "Week 14",
-    date: "May 6, 2026",
-    title: "Victory Peak",
-    subtitle: "NCII CSS Assessment - PASSED! 🎉",
-    description: "Successfully passed the NCII CSS competency assessment. Officially NCII Certified! ✅",
-    icon: "🏅",
-    type: "achievement",
-    skills: ["Certification", "Assessment", "Success"],
-    progress: 96,
-    achievements: ["NCII Certified!", "Professional milestone achieved"]
-  },
-  {
-    week: "Week 14-15",
-    date: "May 7-9, 2026",
-    title: "Real-time Ridge",
-    subtitle: "FlowState - Workstream Features",
-    description: "Added workstream rename with real-time database sync. Team rename with live updates. Real-time socket events. Custom FlowState logo.",
-    icon: "🔄",
+    date: "May 18-21, 2026",
+    title: "FlowState: Final Descent",
+    subtitle: "Unified Time Logic & Admin Tools",
+    description: "Enhanced CSV/PDF export functionality with Team View and My Logs for admins. Reconstructed Time In/Out into a unified process to properly handle Cross-Midnight and Graveyard shift users, ensuring accurate 8-hour cap detection.",
+    icon: "🔧",
     type: "advanced",
-    skills: ["Real-time Sync", "WebSockets", "Branding"],
-    progress: 98,
-    achievements: ["Real-time sync working", "Branding complete"]
-  },
-  {
-    week: "Week 15",
-    date: "May 10-12, 2026",
-    title: "Authentication Citadel",
-    subtitle: "FlowState - Authentication System",
-    description: "Built secure signup with real-time password meter (8 chars, uppercase, special). Login backend with bcrypt. Responsive design.",
-    icon: "🔑",
-    type: "security",
-    skills: ["Authentication", "bcrypt", "Security"],
-    progress: 100,
-    achievements: ["Complete auth system", "Project finished successfully!"]
+    skills: ["Advanced Logic", "Reporting", "Shift Algorithms"],
+    achievements: ["Unified time tracking", "Admin export tools", "Graveyard shift support"]
   }
 ];
 
@@ -275,17 +213,6 @@ const JourneyMap = () => {
     }
   };
 
-  const getProgressColor = (progress) => {
-    if (progress >= 90) return 'from-amber-500 to-orange-500';
-    if (progress >= 70) return 'from-emerald-500 to-green-500';
-    if (progress >= 50) return 'from-blue-500 to-cyan-500';
-    return 'from-violet-500 to-purple-500';
-  };
-
-  const completedWeeks = ojtJourney.filter(w => w.progress === 100).length;
-  const totalWeeks = ojtJourney.length;
-  const averageProgress = Math.round(ojtJourney.reduce((sum, w) => sum + w.progress, 0) / totalWeeks);
-
   return (
     <section className={`relative py-20 md:py-28 overflow-hidden ${isFullscreen ? 'fixed inset-0 z-50 overflow-auto' : ''}`}>
       {/* Glass Morphism Background */}
@@ -326,36 +253,6 @@ const JourneyMap = () => {
           </p>
         </div>
 
-        {/* Stats Dashboard */}
-        {showStats && (
-          <div className="max-w-6xl mx-auto mb-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            <div className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm rounded-xl p-3 text-center border border-violet-500/20 hover:border-violet-500/40 transition-all duration-300">
-              <div className="text-2xl font-bold text-violet-400">{totalWeeks}</div>
-              <div className="text-xs text-gray-400">Total Weeks</div>
-            </div>
-            <div className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm rounded-xl p-3 text-center border border-violet-500/20 hover:border-violet-500/40 transition-all duration-300">
-              <div className="text-2xl font-bold text-emerald-400">{completedWeeks}</div>
-              <div className="text-xs text-gray-400">Completed</div>
-            </div>
-            <div className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm rounded-xl p-3 text-center border border-violet-500/20 hover:border-violet-500/40 transition-all duration-300">
-              <div className="text-2xl font-bold text-amber-400">{averageProgress}%</div>
-              <div className="text-xs text-gray-400">Avg Progress</div>
-            </div>
-            <div className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm rounded-xl p-3 text-center border border-violet-500/20 hover:border-violet-500/40 transition-all duration-300">
-              <div className="text-2xl font-bold text-blue-400">18</div>
-              <div className="text-xs text-gray-400">Milestones</div>
-            </div>
-            <div className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm rounded-xl p-3 text-center border border-violet-500/20 hover:border-violet-500/40 transition-all duration-300">
-              <div className="text-2xl font-bold text-cyan-400">45+</div>
-              <div className="text-xs text-gray-400">Skills Gained</div>
-            </div>
-            <div className="bg-gradient-to-br from-violet-900/40 to-purple-900/40 backdrop-blur-sm rounded-xl p-3 text-center border border-violet-500/20 hover:border-violet-500/40 transition-all duration-300">
-              <div className="text-2xl font-bold text-pink-400">100%</div>
-              <div className="text-xs text-gray-400">Commitment</div>
-            </div>
-          </div>
-        )}
-
         {/* View Controls */}
         <div className="flex flex-wrap justify-between items-center gap-4 mb-8 max-w-7xl mx-auto">
           <div className="flex gap-2">
@@ -382,41 +279,6 @@ const JourneyMap = () => {
               Timeline
             </button>
           </div>
-          
-          <div className="flex gap-2">
-            <button
-              onClick={() => setShowStats(!showStats)}
-              className="p-2 rounded-lg bg-violet-500/10 border border-violet-500/20 text-gray-400 hover:bg-violet-500/20 transition-all duration-300"
-              title={showStats ? "Hide Stats" : "Show Stats"}
-            >
-              {showStats ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-            </button>
-            <button
-              onClick={() => setIsFullscreen(!isFullscreen)}
-              className="p-2 rounded-lg bg-violet-500/10 border border-violet-500/20 text-gray-400 hover:bg-violet-500/20 transition-all duration-300"
-            >
-              {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Legend */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8 max-w-7xl mx-auto">
-          {[
-            { type: 'start', label: 'Start', color: 'bg-emerald-500/20 text-emerald-400' },
-            { type: 'milestone', label: 'Milestone', color: 'bg-blue-500/20 text-blue-400' },
-            { type: 'achievement', label: 'Achievement', color: 'bg-amber-500/20 text-amber-400' },
-            { type: 'security', label: 'Security', color: 'bg-rose-500/20 text-rose-400' },
-            { type: 'advanced', label: 'Advanced', color: 'bg-indigo-500/20 text-indigo-400' },
-            { type: 'technical', label: 'Technical', color: 'bg-gray-500/20 text-gray-400' },
-            { type: 'design', label: 'Design', color: 'bg-pink-500/20 text-pink-400' },
-            { type: 'feature', label: 'Feature', color: 'bg-cyan-500/20 text-cyan-400' },
-          ].map((item) => (
-            <div key={item.type} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/5 backdrop-blur-sm border border-violet-500/20">
-              <div className={`w-2 h-2 rounded-full ${item.color.replace('text', 'bg')}`}></div>
-              <span className="text-xs text-gray-400">{item.label}</span>
-            </div>
-          ))}
         </div>
 
         {/* Main Content */}
@@ -472,19 +334,6 @@ const JourneyMap = () => {
                             {skill}
                           </span>
                         ))}
-                      </div>
-
-                      <div className="space-y-1">
-                        <div className="flex justify-between text-[10px] text-gray-500">
-                          <span>Journey Progress</span>
-                          <span className="text-violet-400">{item.progress}%</span>
-                        </div>
-                        <div className="w-full bg-gray-700/50 rounded-full h-2 overflow-hidden">
-                          <div 
-                            className={`h-full rounded-full bg-gradient-to-r ${getProgressColor(item.progress)} transition-all duration-700`}
-                            style={{ width: `${item.progress}%` }}
-                          />
-                        </div>
                       </div>
                     </div>
 
@@ -557,21 +406,35 @@ const JourneyMap = () => {
                       </div>
                       
                       <div className="flex items-center justify-between pt-3 border-t border-violet-500/20">
-                        <div className="flex items-center gap-2 text-xs">
-                          <Trophy className="w-3 h-3 text-amber-400" />
-                          <span className="text-gray-500">{item.achievements?.length} achievements</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs text-gray-500">Progress</span>
-                          <div className="w-24 bg-gray-700/50 rounded-full h-1.5">
-                            <div 
-                              className={`h-full rounded-full bg-gradient-to-r ${getProgressColor(item.progress)}`}
-                              style={{ width: `${item.progress}%` }}
-                            />
-                          </div>
-                          <span className="text-xs text-violet-400">{item.progress}%</span>
-                        </div>
+                        <button 
+                          onClick={() => setSelectedWeek(selectedWeek === idx ? null : idx)}
+                          className="flex items-center gap-2 text-xs hover:text-violet-400 transition-colors group"
+                        >
+                          <Trophy className="w-3 h-3 text-amber-400 group-hover:scale-110 transition-transform" />
+                          <span className="text-gray-500 group-hover:text-violet-400">
+                            {item.achievements?.length} achievement{item.achievements?.length !== 1 ? 's' : ''}
+                          </span>
+                          <ChevronRight className={`w-3 h-3 text-gray-500 transition-transform duration-300 ${selectedWeek === idx ? 'rotate-90' : ''}`} />
+                        </button>
                       </div>
+
+                      {/* Expandable achievements section */}
+                      {selectedWeek === idx && (
+                        <div className="mt-4 pt-3 border-t border-violet-500/20 animate-fade-in-up">
+                          <h4 className="text-xs font-semibold text-violet-300 mb-2 flex items-center gap-1">
+                            <CheckCircle className="w-3 h-3" />
+                            Key Achievements
+                          </h4>
+                          <ul className="text-xs text-gray-400 space-y-1.5">
+                            {item.achievements?.map((achievement, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <span className="text-violet-400">▹</span>
+                                <span>{achievement}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

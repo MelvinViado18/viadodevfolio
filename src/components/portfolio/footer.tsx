@@ -147,21 +147,7 @@ export function Footer() {
             <span className="hidden sm:inline">All rights reserved.</span>
             <span className="inline sm:hidden">All rights reserved.</span>
           </p>
-          
-          <div className="flex items-center gap-4 text-xs">
-            <a href="#" className="text-gray-500 hover:text-violet-400 transition-colors flex items-center gap-1">
-              Privacy Policy
-            </a>
-            <span className="w-1 h-1 rounded-full bg-violet-500/30" />
-            <a href="#" className="text-gray-500 hover:text-violet-400 transition-colors flex items-center gap-1">
-              Terms of Use
-            </a>
-            <span className="w-1 h-1 rounded-full bg-violet-500/30" />
-            <a href="#" className="text-gray-500 hover:text-violet-400 transition-colors flex items-center gap-1">
-              Sitemap
-            </a>
-          </div>
-          
+           
           {/* Scroll to Top Button */}
           <button
             onClick={scrollToTop}
