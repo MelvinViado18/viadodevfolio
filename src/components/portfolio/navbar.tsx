@@ -9,7 +9,6 @@ const NAV_ITEMS = [
   { name: 'Home', href: '/', icon: Home },
   { name: 'Work', href: '/work', icon: Briefcase },
   { name: 'Logs', href: '/logs', icon: BookOpen },
-  { name: 'AI Learning Path', href: '/ai-learning', icon: Sparkles },
 ];
 
 export function Navbar() {
@@ -20,11 +19,8 @@ export function Navbar() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-gradient-to-r from-red-600 to-red-500 rounded-lg flex items-center justify-center text-white font-headline font-bold text-lg shadow-lg shadow-red-500/25 group-hover:scale-105 transition-transform duration-300">
-            R
-          </div>
           <span className="font-headline font-bold text-xl tracking-tight hidden sm:inline-block text-white">
-            DevCore<span className="bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">Portfolio</span>
+            Dev<span className="bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">Portfolio</span>
           </span>
         </Link>
 

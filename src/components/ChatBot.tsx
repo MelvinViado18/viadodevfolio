@@ -134,7 +134,7 @@ const getProjectFromQuery = (message: string): string | null => {
 
 // Welcome message
 const WELCOME_MESSAGE = {
-  text: "🤖 **Hi there!** I'm Renzcell Bot, your AI assistant!\n\nI can help you with:\n• 📁 **Projects** - Type project names like 'SyncSnap' or 'FlowState'\n• 📋 **List all projects** - See everything I've worked on\n• 🛠️ **Skills & Technologies** - Ask about my tech stack\n• 🎓 **Education & Certifications** - Learn about my background\n• 📞 **Contact Information** - How to reach me\n\nWhat would you like to know about Renzcell? ✨",
+  text: "🤖 **Hi there!** I'm  DevBot, your AI assistant!\n\nI can help you with:\n• 📁 **Projects** - Type project names like 'SyncSnap' or 'FlowState'\n• 📋 **List all projects** - See everything I've worked on\n• 🛠️ **Skills & Technologies** - Ask about my tech stack\n• 🎓 **Education & Certifications** - Learn about my background\n• 📞 **Contact Information** - How to reach me\n\nWhat would you like to know about John Melvin? ✨",
   sender: 'bot' as const
 };
 
@@ -146,7 +146,7 @@ export default function ChatBot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "🤖 Hello! I'm Renzcell Bot, your AI assistant! I can help answer questions about Renzcell's skills, experience, projects, and more. What would you like to know?",
+      text: "🤖 Hello! I'm  DevBot, your AI assistant! I can help answer questions about John Melvin's skills, experience, projects, and more. What would you like to know?",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -159,7 +159,7 @@ export default function ChatBot() {
 
   // Knowledge base
   const knowledgeBase = {
-    name: "Renzcell Rick V. Loresco",
+    name: "John Melvin G. Viado",
     education: "BSIT Student at Universidad De Dagupan",
     skills: ["HTML5", "CSS3", "Java", "JavaScript", "PHP", "React Native", "Laravel", "MySQL", "MariaDB", "MongoDB", "PostgreSQL", "Figma", "Canva"],
     projects: ["Axiom Scrumban", "SyncSnap", "FlowState"],
@@ -167,8 +167,8 @@ export default function ChatBot() {
     certification: "NCII CSS Certified (Passed May 6, 2026)",
     experience: "Full-stack development, AI integration, real-time applications",
     interests: "Web development, AI, mobile apps, UI/UX design",
-    contact: "Email: renzcell.loresco.3@gmail.com | Phone: (+63) 966-413-8823",
-    location: "041-H Coral, Mapandan, Pangasinan"
+    contact: "Email: viadojohnmelvin18@gmail.com | Phone: (+63) 966-413-8823",
+    location: "Malabago, Mangaldan, Pangasinan"
   };
 
   // Cycle floating message
@@ -246,11 +246,11 @@ export default function ChatBot() {
     }
     
     if (lowerMessage.match(/hello|hi|hey|greetings|sup|good morning|good afternoon|good evening/i)) {
-      return { text: "🤖 Hello! I'm Renzcell Bot. How can I help you today? Feel free to ask about my skills, projects, experience, or anything else!", isProjectCard: false };
+      return { text: "🤖 Hello! I'm DevBot. How can I help you today? Feel free to ask about my skills, projects, experience, or anything else!", isProjectCard: false };
     }
     
     if (lowerMessage.match(/your name|who are you|what's your name|introduce yourself/i)) {
-      return { text: `🤖 I'm Renzcell Bot, your AI assistant! I'm here to help you learn more about ${knowledgeBase.name}. What would you like to know?`, isProjectCard: false };
+      return { text: `🤖 I'm DevBot, your AI assistant! I'm here to help you learn more about ${knowledgeBase.name}. What would you like to know?`, isProjectCard: false };
     }
     
     if (lowerMessage.match(/about|bio|who is|tell me about|background/i)) {
@@ -290,14 +290,14 @@ export default function ChatBot() {
     }
     
     if (lowerMessage.match(/thank|thanks|appreciate|grateful/i)) {
-      return { text: "🤖 You're very welcome! 😊 I'm glad I could help. Feel free to ask if you have any other questions about Renzcell's work or experience!", isProjectCard: false };
+      return { text: "🤖 You're very welcome! 😊 I'm glad I could help. Feel free to ask if you have any other questions about John Melvin's work or experience!", isProjectCard: false };
     }
     
     if (lowerMessage.match(/bye|goodbye|see you|farewell|exit/i)) {
       return { text: "🤖 Thanks for chatting! 👋 Feel free to come back if you have more questions. Have a great day!", isProjectCard: false };
     }
     
-    return { text: "🤖 That's a great question! 💭 I'm happy to help. You can ask me about Renzcell's skills, projects, education, OJT experience, certifications, or contact information.\n\n💡 **Try these commands:**\n• Type a project name like **SyncSnap** or **FlowState**\n• Type **List all projects** to see all projects\n• Ask about **skills**, **education**, or **contact**", isProjectCard: false };
+    return { text: "🤖 That's a great question! 💭 I'm happy to help. You can ask me about John Melvin's skills, projects, education, OJT experience, certifications, or contact information.\n\n💡 **Try these commands:**\n• Type a project name like **SyncSnap** or **FlowState**\n• Type **List all projects** to see all projects\n• Ask about **skills**, **education**, or **contact**", isProjectCard: false };
   };
 
   const handleSendMessage = async () => {
@@ -339,7 +339,7 @@ export default function ChatBot() {
     setMessages([
       {
         id: Date.now().toString(),
-        text: "🤖 Chat cleared! I'm Renzcell Bot, ready to help you again. What would you like to know?\n\n💡 **Try these:**\n• Type **SyncSnap** to see project details\n• Type **List all projects** to see all projects\n• Type **Skills** to see my tech stack",
+        text: "🤖 Chat cleared! I'm DevBot, ready to help you again. What would you like to know?\n\n💡 **Try these:**\n• Type **SyncSnap** to see project details\n• Type **List all projects** to see all projects\n• Type **Skills** to see my tech stack",
         sender: 'bot',
         timestamp: new Date()
       }
@@ -407,7 +407,7 @@ export default function ChatBot() {
           <div className="bg-gradient-to-r from-red-600/95 to-red-500/95 backdrop-blur-sm rounded-xl px-4 py-2.5 border border-red-400/30 shadow-xl max-w-[220px]">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-xs text-white font-semibold">🤖 Renzcell Bot</span>
+              <span className="text-xs text-white font-semibold">🤖 DevBot</span>
             </div>
             <p className="text-[11px] text-white/90 mt-1.5 leading-relaxed">
               Need help? Ask me about projects, skills & more!
@@ -436,7 +436,7 @@ export default function ChatBot() {
             <div className="w-1 h-1 rounded-full bg-white animate-blink delay-150"></div>
           </div>
           <span className="hidden lg:block absolute right-full mr-3 px-3 py-1.5 text-xs bg-gray-900 text-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
-            Chat with Renzcell Bot 🤖
+            Chat with DevBot 🤖
           </span>
           <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse border-2 border-white"></span>
         </button>
@@ -476,7 +476,7 @@ export default function ChatBot() {
                   </div>
                   <div>
                     <h3 className="font-bold text-xs sm:text-sm flex items-center gap-1 text-white">
-                      Renzcell Bot
+                      DevBot
                       <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-yellow-500" />
                     </h3>
                     <p className="text-[10px] sm:text-xs text-gray-400 flex items-center gap-1">
@@ -543,7 +543,7 @@ export default function ChatBot() {
                           <User className="w-2.5 h-2.5 text-white/70 flex-shrink-0" />
                         )}
                         <span className="text-[10px] sm:text-xs opacity-70">
-                          {message.sender === 'bot' ? 'Renzcell Bot' : 'You'} • {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          {message.sender === 'bot' ? 'DevBot' : 'You'} • {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </span>
                       </div>
                       {/* Message content */}

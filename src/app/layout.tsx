@@ -4,8 +4,8 @@ import { Navbar } from '@/components/portfolio/navbar';
 import { Footer } from '@/components/portfolio/footer';
 
 export const metadata: Metadata = {
-  title: 'DevVault Portfolio | Renzcell Rick V. Loresco',
-  description: 'A modular, AI-enhanced portfolio showcasing internship activities and technical proficiency.',
+  title: 'DevPortfolio | John Melvin G. Viado',
+  description: 'A portfolio showcasing internship activities and technical proficiency.',
 };
 
 export default function RootLayout({

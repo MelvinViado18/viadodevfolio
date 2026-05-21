@@ -134,9 +134,9 @@ export default function Home() {
                 
                 {/* Name with gradient animation - Red Theme */}
                 <h1 className="font-headline font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight mb-3 leading-[1.2] animate-slide-in-left">
-                  <span className="text-white">Renzcell Rick V.</span>{' '}
+                  <span className="text-white">John Melvin G.</span>{' '}
                   <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-600 bg-clip-text text-transparent animate-gradient-x">
-                    Loresco
+                    Viado
                   </span>
                 </h1>
                 
@@ -149,7 +149,7 @@ export default function Home() {
                 {/* Career Objective */}
                 <div className="relative max-w-2xl lg:max-w-full mx-auto lg:mx-0 mb-6 animate-fade-in-up animation-delay-400">
                   <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-                    To get an IT position where I can use my skills to contribute, learn, and grow while helping the organization succeed.
+                    Graduating Information Technology student with experience in developing web and mobile applications and a background in networking and system technologies. Seeking an entry-level opportunity to apply my skills, contribute to projects, and grow as an IT professional. 
                   </p>
                 </div>
                 
@@ -177,8 +177,8 @@ export default function Home() {
                   
                   <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-red-500/30 shadow-2xl bg-gradient-to-br from-red-500/20 to-red-600/20 group-hover:scale-105 transition-transform duration-500">
                     <img 
-                      src="/renzcell-profile.png"
-                      alt="Renzcell Rick V. Loresco"
+                      src=""
+                      alt="John Melvin Viado"
                       className="w-full h-full object-cover object-center"
                     />
                   </div>
@@ -352,7 +352,7 @@ export default function Home() {
                 <div className="space-y-6 animate-slide-in-left">
                   <div className="text-center lg:text-left">
                     <h3 className="text-white text-xl md:text-2xl lg:text-3xl font-bold mb-2 bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
-                      LORESCO RENZCELL RICK V.
+                      VIADO, JOHN MELVIN G.
                     </h3>
                     <div className="w-12 h-0.5 bg-gradient-to-r from-red-500 to-red-600 rounded-full mx-auto lg:mx-0"></div>
                   </div>
@@ -365,7 +365,7 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-gray-300 text-sm md:text-base">041-H Coral, Mapandan, Pangasinan</p>
+                      <p className="text-gray-300 text-sm md:text-base">Malabago, Mangaldan, Pangasinan</p>
                       <a href="https://maps.google.com/?q=Mapandan+Pangasinan+Philippines" target="_blank" rel="noopener noreferrer" className="text-red-400/70 text-xs hover:text-red-400 transition-colors inline-flex items-center gap-1 mt-1">
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -390,7 +390,7 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <a href="mailto:renzcell.loresco.3@gmail.com" className="text-gray-300 text-sm md:text-base hover:text-red-400 transition-colors break-all">renzcell.loresco.3@gmail.com</a>
+                    <a href="mailto:viadojohnmelvin18@gmail.com" className="text-gray-300 text-sm md:text-base hover:text-red-400 transition-colors break-all">viadojohnmelvin18@gmail.com</a>
                   </div>
                   
                   <div className="flex items-start gap-3 justify-center lg:justify-start pt-2 group">
@@ -428,7 +428,7 @@ export default function Home() {
                   </div>
                   
                   <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                    <a href="mailto:renzcell.loresco.3@gmail.com" className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 hover:bg-red-500/20 rounded-lg text-red-400 text-sm transition-all duration-300 hover:scale-105 border border-red-500/20">
+                    <a href="mailto:viadojohnmelvin18@gmail.com" className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 hover:bg-red-500/20 rounded-lg text-red-400 text-sm transition-all duration-300 hover:scale-105 border border-red-500/20">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>

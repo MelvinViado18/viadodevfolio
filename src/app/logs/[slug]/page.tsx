@@ -641,7 +641,7 @@ export default function LogDetailPage({ params }: { params: Promise<{ slug: stri
                   </div>
                   <div className="flex items-center gap-2">
                     <User className="w-4 h-4 text-red-400" />
-                    <span>Renzcell Rick Loresco</span>
+                    <span>John Melvin Viado</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-red-400" />
