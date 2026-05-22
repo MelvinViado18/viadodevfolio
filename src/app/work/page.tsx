@@ -539,11 +539,6 @@ export default function WorkPage() {
       <div className="relative container mx-auto px-4 py-12 min-h-screen">
         {/* Header Section */}
         <div className="max-w-4xl mx-auto mb-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 backdrop-blur-sm border border-violet-500/20 mx-auto mb-4">
-            <LayoutGrid className="w-4 h-4 text-violet-400" />
-            <span className="text-violet-300 text-sm font-semibold">PORTFOLIO</span>
-          </div>
-          
           <h1 className="font-headline font-black text-5xl md:text-6xl tracking-tight mb-4">
             <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
               Work Gallery
