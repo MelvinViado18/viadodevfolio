@@ -271,9 +271,9 @@ const getContactResponse = (message: string): string | null => {
   const lowerMessage = message.toLowerCase();
   if (lowerMessage.match(/contact|email|phone|reach|connect|get in touch|how to contact/i)) {
     return `You can reach ${knowledgeBase.name} via:
-📧 Email: ${knowledgeBase.contact.email}
-📞 Phone: ${knowledgeBase.contact.phone}
-📍 Location: ${knowledgeBase.contact.location}
+Email: ${knowledgeBase.contact.email}
+Phone: ${knowledgeBase.contact.phone}
+Location: ${knowledgeBase.contact.location}
 
 Feel free to reach out for collaborations, opportunities, or just to connect!`;
   }
@@ -478,7 +478,7 @@ export default function ChatBot() {
       return { text: "Thanks for chatting! 👋 Feel free to come back if you have more questions. Have a great day!", isProjectCard: false };
     }
     
-    return { text: "That's a great question! 💭 I'm happy to help. You can ask me about:\n\n💡 Projects - Type project names like SyncSnap, FlowState, or Sibol\n💡 All projects - Type List all projects\n💡 Skills - Ask about my tech stack\n💡 OJT - Ask about my OJT experience\n💡 Certifications - Ask about my NCII CSS\n💡 Education - Ask about my background\n💡 Contact - How to reach me\n\nWhat would you like to know?", isProjectCard: false };
+    return { text: "That's a great question! 💭 I'm happy to help. You can ask me about:\n\n Projects - Type project names like SyncSnap, FlowState, or Sibol\n All projects - Type List all projects\n Skills - Ask about my tech stack\n OJT - Ask about my OJT experience\n Certifications - Ask about my NCII CSS\n Education - Ask about my background\n Contact - How to reach me\n\nWhat would you like to know?", isProjectCard: false };
   };
 
   const handleSendMessage = async () => {
